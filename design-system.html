@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>sa.design — Design System</title>
+  
+  <!-- Original Stylesheets and Fonts -->
+  <link rel="stylesheet" href="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/css/sa-design.shared.f2af7490e.css">
+  <script src="assets/overview/assets/use.typekit.net/ehd6nrm.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  
+  <style>
+    @font-face {
+      font-family: 'Aguila';
+      src: url('assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f46be79ccba85789852df65_Aguila-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --ds-bg: #0b0b0b;
+      --ds-surface: #141414;
+      --ds-border: rgba(255, 255, 255, 0.08);
+      --ds-border-light: rgba(255, 255, 255, 0.15);
+      --ds-text: #ffffff;
+      --ds-text-muted: #8e8e8e;
+      --ds-text-dim: #606060;
+      --ds-accent-red: #e90f15;
+      --ds-accent-blue: #0030a8;
+      --ds-font-display: 'Aguila', sans-serif;
+      --ds-font-body: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--ds-bg);
+      color: var(--ds-text);
+      font-family: var(--ds-font-body);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    /* Fixed Catalog Header */
+    .ds-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+      background: rgba(11, 11, 11, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--ds-border);
+      z-index: 9999;
+    }
+    .ds-header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ds-brand-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #ffffff;
+    }
+    .ds-logo-svg {
+      width: 32px;
+      height: 32px;
+      color: #ffffff;
+      fill: currentColor;
+    }
+    .ds-brand-name {
+      font-family: var(--ds-font-body);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      color: #ffffff;
+      margin-left: 10px;
+    }
+    .ds-nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .ds-tab {
+      font-family: var(--ds-font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ds-text-muted);
+      text-decoration: none;
+      padding: 8px 0;
+      position: relative;
+      transition: color 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+    }
+    .ds-tab:hover {
+      color: #ffffff;
+    }
+    .ds-tab.active {
+      color: #ffffff;
+    }
+    .ds-tab.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 2px;
+      background-color: var(--ds-accent-red);
+    }
+    .ds-nav-divider {
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 12px;
+      user-select: none;
+    }
+
+    /* Views Layout */
+    .ds-view {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+    .ds-view.active {
+      display: block;
+    }
+
+    /* Overview View */
+    #overview-view {
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+    }
+    #ds-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background-color: var(--ds-bg);
+    }
+
+    /* Components View */
+    #components-view {
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto;
+      background: radial-gradient(circle at 10% 20%, rgba(233, 15, 21, 0.04) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(0, 48, 168, 0.06) 0%, transparent 45%),
+                  #0b0b0b;
+    }
+    .ds-components-layout {
+      display: flex;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 40px 48px 120px;
+      gap: 64px;
+    }
+
+    /* Sticky Sidebar */
+    .ds-sidebar {
+      position: sticky;
+      top: 40px;
+      width: 240px;
+      flex-shrink: 0;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .ds-sidebar-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ds-sidebar-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ds-text-dim);
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--ds-border);
+    }
+    .ds-sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .ds-sidebar-link {
+      font-size: 14px;
+      color: var(--ds-text-muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      display: block;
+    }
+    .ds-sidebar-link:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .ds-sidebar-link.active {
+      color: #ffffff;
+      font-weight: 500;
+      background: rgba(233, 15, 21, 0.12);
+      border-left: 2px solid var(--ds-accent-red);
+    }
+
+    /* Main Stack */
+    .ds-content {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .ds-section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .ds-section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--ds-border);
+      padding-bottom: 14px;
+      margin-bottom: 8px;
+    }
+    .ds-section-title {
+      font-family: var(--ds-font-body);
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      color: #ffffff;
+      margin: 0;
+    }
+    .ds-section-badge {
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ds-text-dim);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--ds-border);
+    }
+
+    /* Typography Table (Three-part presentation) */
+    .ds-type-table {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border-top: 1px solid var(--ds-border);
+    }
+    .ds-type-row {
+      display: grid;
+      grid-template-columns: 240px 1fr 180px;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--ds-border);
+      gap: 32px;
+    }
+    .ds-type-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ds-type-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .ds-type-font {
+      font-size: 12px;
+      color: var(--ds-text-muted);
+      letter-spacing: 0.3px;
+    }
+    .ds-type-code {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--ds-text-dim);
+      margin-top: 4px;
+    }
+    .ds-type-sample {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .ds-type-size {
+      font-family: monospace;
+      font-size: 13px;
+      color: var(--ds-text-muted);
+      text-align: right;
+    }
+
+    /* Color Groups Grid */
+    .ds-color-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .ds-color-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ds-color-group-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--ds-text-muted);
+    }
+    .ds-color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .ds-color-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--ds-border);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .ds-color-swatch {
+      height: 90px;
+      width: 100%;
+      border-bottom: 1px solid var(--ds-border);
+      position: relative;
+    }
+    .ds-color-info {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ds-color-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+    .ds-color-value {
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--ds-text-muted);
+    }
+    .ds-color-token {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--ds-accent-red);
+    }
+    .ds-color-use {
+      font-size: 11px;
+      color: var(--ds-text-dim);
+      margin-top: 2px;
+    }
+
+    /* Backgrounds Group */
+    .ds-bg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .ds-bg-specimen {
+      border: 1px solid var(--ds-border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .ds-bg-preview {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ds-bg-info {
+      padding: 16px;
+      background: var(--ds-surface);
+      border-top: 1px solid var(--ds-border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* Icons Grid */
+    .ds-icons-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+    .ds-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--ds-border);
+      border-radius: 6px;
+      gap: 14px;
+      transition: border-color 0.2s ease;
+    }
+    .ds-icon-item:hover {
+      border-color: var(--ds-border-light);
+    }
+    .ds-icon-glyph {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+    }
+    .ds-icon-glyph img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+    .ds-icon-label {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--ds-text-dim);
+      text-align: center;
+      word-break: break-all;
+    }
+
+    /* Component Specimen Cards */
+    .ds-specimen-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .ds-specimen-item {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--ds-border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .ds-specimen-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid var(--ds-border);
+      font-size: 13px;
+    }
+    .ds-specimen-name {
+      font-weight: 500;
+      color: #ffffff;
+    }
+    .ds-specimen-selector {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--ds-accent-red);
+    }
+    .ds-specimen-stage {
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: #000000;
+      min-height: 140px;
+      overflow: hidden;
+    }
+    .ds-specimen-footer {
+      padding: 12px 20px;
+      background: rgba(0, 0, 0, 0.4);
+      border-top: 1px solid var(--ds-border);
+      font-size: 12px;
+      color: var(--ds-text-dim);
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .ds-components-layout {
+        flex-direction: column;
+        padding: 24px;
+        gap: 36px;
+      }
+      .ds-sidebar {
+        position: static;
+        width: 100%;
+        display: none;
+      }
+      .ds-type-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .ds-type-size {
+        text-align: left;
+      }
+      .ds-icons-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Catalog Header -->
+  <header class="ds-header">
+    <div class="ds-header-left">
+      <a href="#overview" class="ds-brand-logo">
+        <svg class="ds-logo-svg" viewBox="0 0 39.09 39.09" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path d="M10.87,20.72c-1.85,0-3.28-.4-4.31-1.21-1-.76-1.61-1.91-1.68-3.17h2.95c.13,.77,.47,1.33,1.01,1.68,.62,.37,1.33,.55,2.05,.52,.85,0,1.48-.17,1.88-.5,.39-.3,.61-.77,.6-1.27,.01-.28-.07-.56-.24-.78-.18-.22-.41-.39-.68-.51-.34-.15-.69-.26-1.05-.34-.41-.09-.87-.18-1.37-.28-.61-.11-1.2-.25-1.76-.41-.53-.15-1.04-.37-1.51-.67-.43-.28-.79-.66-1.05-1.11-.28-.54-.42-1.15-.4-1.76-.01-.57,.12-1.13,.37-1.63,.25-.48,.61-.9,1.04-1.22,.48-.35,1.03-.6,1.61-.75,.68-.17,1.38-.26,2.08-.25,1.72,0,3.03,.35,3.9,1.05,.86,.67,1.42,1.66,1.55,2.74h-2.92c-.23-1.15-1.08-1.72-2.56-1.72-.72,0-1.27,.15-1.63,.44-.35,.26-.55,.67-.54,1.11-.01,.26,.07,.51,.24,.71,.19,.2,.42,.35,.68,.45,.34,.13,.69,.24,1.05,.3l1.33,.27c.61,.11,1.21,.25,1.79,.4,.55,.14,1.08,.37,1.56,.68,.46,.3,.84,.7,1.1,1.18,.3,.59,.44,1.25,.41,1.91,.01,.63-.13,1.25-.42,1.8-.27,.52-.67,.96-1.15,1.29-.53,.37-1.12,.63-1.75,.78-.72,.18-1.46,.27-2.2,.26Z"/>
+            <path d="M26.88,20.31c-.13-.19-.23-.39-.28-.62-.09-.35-.14-.7-.16-1.05h-.05c-.43,.57-.96,1.05-1.57,1.41-.63,.38-1.46,.57-2.49,.57-.59,0-1.18-.08-1.75-.24-.51-.14-.98-.39-1.39-.72-.39-.33-.7-.74-.92-1.2-.24-.52-.35-1.09-.34-1.66-.02-.62,.11-1.24,.4-1.8,.26-.47,.64-.87,1.1-1.15,.52-.31,1.08-.53,1.67-.66,.7-.17,1.41-.29,2.13-.38,1.06-.13,1.86-.31,2.39-.54,.5-.19,.83-.68,.8-1.22,.02-.51-.19-1.01-.57-1.35-.38-.34-.96-.51-1.74-.51-.87,0-1.52,.18-1.94,.55-.44,.39-.69,.95-.69,1.53h-2.9c.02-.55,.15-1.09,.38-1.58,.24-.52,.6-.98,1.04-1.34,.51-.41,1.08-.73,1.7-.93,.77-.25,1.58-.37,2.39-.35,.66,0,1.32,.05,1.97,.17,.53,.09,1.03,.29,1.49,.57,1.22,.74,1.84,1.96,1.84,3.67v6.79c-.01,.41,.03,.83,.13,1.23,.05,.22,.17,.43,.35,.57v.22h-2.98Zm-3.65-1.79c.48,0,.96-.08,1.4-.25,.38-.15,.72-.37,1.01-.65,.54-.52,.84-1.24,.85-1.99v-1.91c-.35,.22-.74,.38-1.13,.5-.45,.14-.91,.25-1.38,.35-.76,.12-1.5,.35-2.2,.69-.51,.28-.77,.78-.77,1.48,0,.3,.05,.59,.18,.86,.11,.22,.28,.41,.48,.56,.22,.14,.46,.24,.71,.29,.28,.06,.56,.09,.84,.09h0Z"/>
+            <path d="M32.1,16.95h3.36v3.36h-3.36v-3.36Z"/>
+          </g>
+        </svg>
+        <span class="ds-brand-name">sa.design</span>
+      </a>
+    </div>
+    <nav class="ds-nav-tabs">
+      <a href="#overview" class="ds-tab" id="tab-overview">Overview</a>
+      <span class="ds-nav-divider">|</span>
+      <a href="#components" class="ds-tab" id="tab-components">Components</a>
+    </nav>
+  </header>
+
+  <!-- VIEW 1: Overview -->
+  <main class="ds-view" id="overview-view">
+    <iframe id="ds-frame" src="assets/overview/index.html" title="Overview"></iframe>
+  </main>
+
+  <!-- VIEW 2: Components -->
+  <div class="ds-view" id="components-view">
+    <div class="ds-components-layout">
+      
+      <!-- Sticky Sidebar -->
+      <aside class="ds-sidebar">
+        <div class="ds-sidebar-group">
+          <div class="ds-sidebar-title">Foundations</div>
+          <nav class="ds-sidebar-links">
+            <a href="#foundations-typography" class="ds-sidebar-link active">Typography</a>
+            <a href="#foundations-colors" class="ds-sidebar-link">Colors</a>
+            <a href="#foundations-backgrounds" class="ds-sidebar-link">Backgrounds</a>
+            <a href="#foundations-surfaces" class="ds-sidebar-link">Surfaces</a>
+            <a href="#foundations-icons" class="ds-sidebar-link">Icons</a>
+          </nav>
+        </div>
+        <div class="ds-sidebar-group">
+          <div class="ds-sidebar-title">Components</div>
+          <nav class="ds-sidebar-links">
+            <a href="#components-actions" class="ds-sidebar-link">Actions & Triggers</a>
+            <a href="#components-navigation" class="ds-sidebar-link">Navigation & Brand</a>
+            <a href="#components-kinetic" class="ds-sidebar-link">Kinetic & Display</a>
+            <a href="#components-media" class="ds-sidebar-link">Media & Cards</a>
+            <a href="#components-interactive" class="ds-sidebar-link">Interactive Controls</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main Specimen Stack -->
+      <main class="ds-content">
+
+        <!-- ============================================================== -->
+        <!-- FOUNDATIONS: Typography                                        -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="foundations-typography">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Typography</h2>
+            <span class="ds-section-badge">Foundations</span>
+          </div>
+
+          <div class="ds-type-table">
+
+            <!-- Heading 1 (Hero Title) -->
+            <div class="ds-type-row">
+              <div class="ds-type-meta">
+                <span class="ds-type-role">Heading 1</span>
+                <span class="ds-type-font">Aguila, Medium (500)</span>
+                <span class="ds-type-code">.heading.hero</span>
+              </div>
+              <div class="ds-type-sample">
+                <span style="font-family: 'Aguila', sans-serif; font-size: 56px; font-weight: 500; color: #ffffff; letter-spacing: -1px; line-height: 1;">Litecom</span>
+              </div>
+              <div class="ds-type-size">14vw | 10vw</div>
+            </div>
+
+            <!-- Kinetic Marquee Display -->
+            <div class="ds-type-row">
+              <div class="ds-type-meta">
+                <span class="ds-type-role">Display Kinetic</span>
+                <span class="ds-type-font">Aguila, Medium (500)</span>
+                <span class="ds-type-code">.sliding-text</span>
+              </div>
+              <div class="ds-type-sample">
+                <span style="font-family: 'Aguila', sans-serif; font-size: 48px; font-weight: 500; color: transparent; -webkit-text-stroke: 1px #ffffff; letter-spacing: 0.5px;">Lorem Ipsum — Lorem Ipsum</span>
+              </div>
+              <div class="ds-type-size">14vw | 18vw</div>
+            </div>
+
+            <!-- Heading 2 (Editorial Subhead) -->
+            <div class="ds-type-row">
+              <div class="ds-type-meta">
+                <span class="ds-type-role">Heading 2</span>
+                <span class="ds-type-font">Neue Haas Grotesk, Light (200)</span>
+                <span class="ds-type-code">.descroption-text</span>
+              </div>
+              <div class="ds-type-sample">
+                <span style="font-family: neue-haas-grotesk-display, sans-serif; font-size: 28px; font-weight: 200; color: #ffffff; line-height: 1.3; letter-spacing: 0.8px;">High-contrast editorial typography paired with vivid red accents</span>
+              </div>
+              <div class="ds-type-size">38px | 20px | 18px</div>
+            </div>
+
+            <!-- Heading 3 (Section Eyebrow) -->
+            <div class="ds-type-row">
+              <div class="ds-type-meta">
+                <span class="ds-type-role">Heading 3</span>
+                <span class="ds-type-font">Neue Haas Grotesk, Medium (500)</span>
+                <span class="ds-type-code">.heading-3</span>
+              </div>
+              <div class="ds-type-sample">
+                <span style="font-family: neue-haas-grotesk-display, sans-serif; font-size: 18px; font-weight: 500; color: #ffffff; letter-spacing: 0.8px;">Overview</span>
+              </div>
+              <div class="ds-type-size">18px | 14px</div>
+            </div>
+
+            <!-- Action / Button -->
+            <div class="ds-type-row">
+              <div class="ds-type-meta">
+                <span class="ds-type-role">Button / Action</span>
+                <span class="ds-type-font">Neue Haas Grotesk, Medium (500)</span>
+                <span class="ds-type-code">.link</span>
+              </div>
+              <div class="ds-type-sample">
+                <span style="font-family: neue-haas-grotesk-display, sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; letter-spacing: 0.6px; text-decoration: underline; text-underline-offset: 4px;">explore work</span>
+              </div>
+              <div class="ds-type-size">20px | 18px</div>
+            </div>
+
+            <!-- Meta / Breadcrumb -->
+            <div class="ds-type-row">
+              <div class="ds-type-meta">
+                <span class="ds-type-role">Meta</span>
+                <span class="ds-type-font">Neue Haas Grotesk, Regular (400)</span>
+                <span class="ds-type-code">.btnback</span>
+              </div>
+              <div class="ds-type-sample">
+                <span style="font-family: neue-haas-grotesk-display, sans-serif; font-size: 14px; font-weight: 400; color: #ffffff; letter-spacing: 0.8px;">back</span>
+              </div>
+              <div class="ds-type-size">14px</div>
+            </div>
+
+            <!-- Text / Secondary -->
+            <div class="ds-type-row">
+              <div class="ds-type-meta">
+                <span class="ds-type-role">Text 2</span>
+                <span class="ds-type-font">Neue Haas Grotesk, Medium (500)</span>
+                <span class="ds-type-code">.team-text2</span>
+              </div>
+              <div class="ds-type-sample">
+                <span style="font-family: neue-haas-grotesk-display, sans-serif; font-size: 14px; font-weight: 500; color: #ffffff; letter-spacing: 0.6px;">Team: Sebastián Águila</span>
+              </div>
+              <div class="ds-type-size">14px</div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================== -->
+        <!-- FOUNDATIONS: Colors                                            -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="foundations-colors">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Colors</h2>
+            <span class="ds-section-badge">Foundations</span>
+          </div>
+
+          <div class="ds-color-groups">
+            
+            <!-- Brand & Accent -->
+            <div class="ds-color-group">
+              <div class="ds-color-group-title">Brand and Accent</div>
+              <div class="ds-color-grid">
+                
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background-color: #e90f15;"></div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Primary Brand Red</span>
+                    <span class="ds-color-value">#e90f15</span>
+                    <span class="ds-color-token">--footer-color-var</span>
+                    <span class="ds-color-use">Landing hero background, active tab indicators</span>
+                  </div>
+                </div>
+
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background-color: #ff3644;"></div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Accent Tomato</span>
+                    <span class="ds-color-value">#ff3644</span>
+                    <span class="ds-color-token">--tomato</span>
+                    <span class="ds-color-use">Vibrant red accent, highlight borders</span>
+                  </div>
+                </div>
+
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background-color: #0030a8;"></div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Deep Transition Blue</span>
+                    <span class="ds-color-value">#0030a8</span>
+                    <span class="ds-color-token">--blue</span>
+                    <span class="ds-color-use">Next project container & screen transition backdrop</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Surfaces -->
+            <div class="ds-color-group">
+              <div class="ds-color-group-title">Surfaces</div>
+              <div class="ds-color-grid">
+                
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background-color: #0b0b0b;"></div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Deep Void Black</span>
+                    <span class="ds-color-value">#0b0b0b</span>
+                    <span class="ds-color-token">--black-2</span>
+                    <span class="ds-color-use">Main viewport canvas, body background</span>
+                  </div>
+                </div>
+
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background-color: #1c1c1c;"></div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Elevated Surface</span>
+                    <span class="ds-color-value">#1c1c1c</span>
+                    <span class="ds-color-token">--black</span>
+                    <span class="ds-color-use">Cards, menus and floating containers</span>
+                  </div>
+                </div>
+
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background-color: #ffffff;"></div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Paper White Surface</span>
+                    <span class="ds-color-value">#ffffff</span>
+                    <span class="ds-color-token">--white</span>
+                    <span class="ds-color-use">Footer section background and light inverted surface</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Text & Icons -->
+            <div class="ds-color-group">
+              <div class="ds-color-group-title">Text and Icons</div>
+              <div class="ds-color-grid">
+                
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background-color: #0b0b0b; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: #ffffff; font-weight: 600; font-size: 20px;">Aa</span>
+                  </div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Primary White Text</span>
+                    <span class="ds-color-value">#ffffff</span>
+                    <span class="ds-color-token">--white</span>
+                    <span class="ds-color-use">Headings, links and dark-mode copy</span>
+                  </div>
+                </div>
+
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: #1c1c1c; font-weight: 600; font-size: 20px;">Aa</span>
+                  </div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Primary Dark Text</span>
+                    <span class="ds-color-value">#1c1c1c</span>
+                    <span class="ds-color-token">--black-2</span>
+                    <span class="ds-color-use">Footer headings on paper white surface</span>
+                  </div>
+                </div>
+
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background-color: #0b0b0b; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: #cccbcb; font-weight: 600; font-size: 20px;">Aa</span>
+                  </div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Muted Secondary Grey</span>
+                    <span class="ds-color-value">#cccbcb</span>
+                    <span class="ds-color-token">--light-grey</span>
+                    <span class="ds-color-use">Metadata labels and auxiliary text</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Borders & Overlays -->
+            <div class="ds-color-group">
+              <div class="ds-color-group-title">Borders and Overlays</div>
+              <div class="ds-color-grid">
+                
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background: rgba(255, 255, 255, 0.08);"></div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Subtle Hairline Border</span>
+                    <span class="ds-color-value">rgba(255, 255, 255, 0.08)</span>
+                    <span class="ds-color-token">--white-line</span>
+                    <span class="ds-color-use">Catalog header border and horizontal dividers</span>
+                  </div>
+                </div>
+
+                <div class="ds-color-card">
+                  <div class="ds-color-swatch" style="background: rgba(28, 28, 28, 0.2);"></div>
+                  <div class="ds-color-info">
+                    <span class="ds-color-label">Dark Surface Divider</span>
+                    <span class="ds-color-value">rgba(28, 28, 28, 0.2)</span>
+                    <span class="ds-color-token">.black-line</span>
+                    <span class="ds-color-use">Footer section horizontal divider</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================== -->
+        <!-- FOUNDATIONS: Backgrounds                                       -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="foundations-backgrounds">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Backgrounds</h2>
+            <span class="ds-section-badge">Foundations</span>
+          </div>
+
+          <div class="ds-bg-grid">
+
+            <!-- Background 1: Hero Landing Red -->
+            <div class="ds-bg-specimen">
+              <div class="ds-bg-preview" style="background-color: #e90f15;">
+                <span style="font-family: 'Aguila', sans-serif; font-size: 32px; color: #ffffff; letter-spacing: 1px;">Landing Hero Canvas</span>
+              </div>
+              <div class="ds-bg-info">
+                <span class="ds-color-label">Hero Landing Red</span>
+                <span class="ds-color-value">background-color: #e90f15</span>
+                <span class="ds-color-use">Observed on: .landing-wrapper-2</span>
+              </div>
+            </div>
+
+            <!-- Background 2: Main Dark Void -->
+            <div class="ds-bg-specimen">
+              <div class="ds-bg-preview" style="background-color: #0b0b0b;">
+                <span style="font-family: 'Aguila', sans-serif; font-size: 28px; color: #ffffff; -webkit-text-stroke: 1px #fff;">Editorial Dark Void</span>
+              </div>
+              <div class="ds-bg-info">
+                <span class="ds-color-label">Main Editorial Canvas</span>
+                <span class="ds-color-value">background-color: #0b0b0b</span>
+                <span class="ds-color-use">Observed on: .main-wrapper, .main-content</span>
+              </div>
+            </div>
+
+            <!-- Background 3: Next Project Deep Blue -->
+            <div class="ds-bg-specimen">
+              <div class="ds-bg-preview" style="background-color: #0030a8;">
+                <span style="font-family: 'Aguila', sans-serif; font-size: 28px; color: #ffffff;">Barba Transition Blue</span>
+              </div>
+              <div class="ds-bg-info">
+                <span class="ds-color-label">Barba Transition Canvas</span>
+                <span class="ds-color-value">background-color: #0030a8</span>
+                <span class="ds-color-use">Observed on: #barba-wrapper, .back-color.c1</span>
+              </div>
+            </div>
+
+            <!-- Background 4: Footer Paper White -->
+            <div class="ds-bg-specimen">
+              <div class="ds-bg-preview" style="background-color: #ffffff;">
+                <span style="font-family: 'Aguila', sans-serif; font-size: 28px; color: #1c1c1c;">Footer Inverted Surface</span>
+              </div>
+              <div class="ds-bg-info">
+                <span class="ds-color-label">Light Inverted Section</span>
+                <span class="ds-color-value">background-color: #ffffff</span>
+                <span class="ds-color-use">Observed on: .footer</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================== -->
+        <!-- FOUNDATIONS: Surfaces                                          -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="foundations-surfaces">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Surfaces</h2>
+            <span class="ds-section-badge">Foundations</span>
+          </div>
+
+          <div class="ds-specimen-stack">
+
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Menu Modal Translucent Backdrop</span>
+                <span class="ds-specimen-selector">.menu-options-wrapper</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: rgba(14, 14, 14, 0.95); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px dashed rgba(255, 255, 255, 0.2);">
+                <div style="text-align: center; color: #ffffff;">
+                  <h4 style="font-family: 'Aguila', sans-serif; font-size: 36px; margin: 0;">1. Featured</h4>
+                  <p style="font-size: 14px; color: var(--ds-text-muted); margin-top: 8px;">Translucent navigation overlay</p>
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Role: Fullscreen overlay</span>
+                <span>Context: Navigation trigger</span>
+              </div>
+            </div>
+
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Media Container Card</span>
+                <span class="ds-specimen-selector">.image-container</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #0b0b0b;">
+                <div style="width: 100%; max-width: 520px; aspect-ratio: 16/9; background: #1c1c1c; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative;">
+                  <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8cb9e06a963a954a184d5_landscape%201%20copy.avif" alt="Specimen" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Role: Media framing surface</span>
+                <span>Observed on: .image-container, .image-cover</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================== -->
+        <!-- FOUNDATIONS: Icons                                             -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="foundations-icons">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Icons</h2>
+            <span class="ds-section-badge">Foundations (5 per row)</span>
+          </div>
+
+          <div class="ds-icons-grid">
+
+            <div class="ds-icon-item">
+              <div class="ds-icon-glyph">
+                <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f563fd9e36f1bd27b2703d7_arrow.svg" alt="Arrow">
+              </div>
+              <span class="ds-icon-label">.back-arrow</span>
+            </div>
+
+            <div class="ds-icon-item">
+              <div class="ds-icon-glyph">
+                <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f46be79ccba850f6a52df67_Menu_icon.svg" alt="Menu White">
+              </div>
+              <span class="ds-icon-label">.menu-white</span>
+            </div>
+
+            <div class="ds-icon-item">
+              <div class="ds-icon-glyph" style="background: #ffffff; padding: 6px; border-radius: 4px;">
+                <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f58d3de1da0e410ff33345c_Menu_black.svg" alt="Menu Black">
+              </div>
+              <span class="ds-icon-label">.menu-black</span>
+            </div>
+
+            <div class="ds-icon-item">
+              <div class="ds-icon-glyph">
+                <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f7611f72d0f2c930062303f_Email_icon.svg" alt="Email">
+              </div>
+              <span class="ds-icon-label">Email Icon</span>
+            </div>
+
+            <div class="ds-icon-item">
+              <div class="ds-icon-glyph">
+                <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/63f95862291455cb67a63735_webflow.svg" alt="Webflow">
+              </div>
+              <span class="ds-icon-label">Webflow Icon</span>
+            </div>
+
+            <div class="ds-icon-item">
+              <div class="ds-icon-glyph">
+                <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f7611f7124a778b3e3b384c_Awwwards_icon.svg" alt="Awwwards">
+              </div>
+              <span class="ds-icon-label">Awwwards Icon</span>
+            </div>
+
+            <div class="ds-icon-item">
+              <div class="ds-icon-glyph">
+                <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f7f4405a05b038f5a80e311_Linkedin.svg" alt="LinkedIn">
+              </div>
+              <span class="ds-icon-label">LinkedIn Icon</span>
+            </div>
+
+            <div class="ds-icon-item">
+              <div class="ds-icon-glyph">
+                <svg style="width: 28px; height: 28px; fill: #ffffff;" viewBox="0 0 39.09 39.09">
+                  <path d="M10.87,20.72c-1.85,0-3.28-.4-4.31-1.21-1-.76-1.61-1.91-1.68-3.17h2.95c.13,.77,.47,1.33,1.01,1.68,.62,.37,1.33,.55,2.05,.52,.85,0,1.48-.17,1.88-.5,.39-.3,.61-.77,.6-1.27,.01-.28-.07-.56-.24-.78-.18-.22-.41-.39-.68-.51-.34-.15-.69-.26-1.05-.34-.41-.09-.87-.18-1.37-.28-.61-.11-1.2-.25-1.76-.41-.53-.15-1.04-.37-1.51-.67-.43-.28-.79-.66-1.05-1.11-.28-.54-.42-1.15-.4-1.76-.01-.57,.12-1.13,.37-1.63,.25-.48,.61-.9,1.04-1.22,.48-.35,1.03-.6,1.61-.75,.68-.17,1.38-.26,2.08-.25,1.72,0,3.03,.35,3.9,1.05,.86,.67,1.42,1.66,1.55,2.74h-2.92c-.23-1.15-1.08-1.72-2.56-1.72-.72,0-1.27,.15-1.63,.44-.35,.26-.55,.67-.54,1.11-.01,.26,.07,.51,.24,.71,.19,.2,.42,.35,.68,.45,.34,.13,.69,.24,1.05,.3l1.33,.27c.61,.11,1.21,.25,1.79,.4,.55,.14,1.08,.37,1.56,.68,.46,.3,.84,.7,1.1,1.18,.3,.59,.44,1.25,.41,1.91,.01,.63-.13,1.25-.42,1.8-.27,.52-.67,.96-1.15,1.29-.53,.37-1.12,.63-1.75,.78-.72,.18-1.46,.27-2.2,.26Z"/>
+                  <path d="M26.88,20.31c-.13-.19-.23-.39-.28-.62-.09-.35-.14-.7-.16-1.05h-.05c-.43,.57-.96,1.05-1.57,1.41-.63,.38-1.46,.57-2.49,.57-.59,0-1.18-.08-1.75-.24-.51-.14-.98-.39-1.39-.72-.39-.33-.7-.74-.92-1.2-.24-.52-.35-1.09-.34-1.66-.02-.62,.11-1.24,.4-1.8,.26-.47,.64-.87,1.1-1.15,.52-.31,1.08-.53,1.67-.66,.7-.17,1.41-.29,2.13-.38,1.06-.13,1.86-.31,2.39-.54,.5-.19,.83-.68,.8-1.22,.02-.51-.19-1.01-.57-1.35-.38-.34-.96-.51-1.74-.51-.87,0-1.52,.18-1.94,.55-.44,.39-.69,.95-.69,1.53h-2.9c.02-.55,.15-1.09,.38-1.58,.24-.52,.6-.98,1.04-1.34,.51-.41,1.08-.73,1.7-.93,.77-.25,1.58-.37,2.39-.35,.66,0,1.32,.05,1.97,.17,.53,.09,1.03,.29,1.49,.57,1.22,.74,1.84,1.96,1.84,3.67v6.79c-.01,.41,.03,.83,.13,1.23,.05,.22,.17,.43,.35,.57v.22h-2.98Zm-3.65-1.79c.48,0,.96-.08,1.4-.25,.38-.15,.72-.37,1.01-.65,.54-.52,.84-1.24,.85-1.99v-1.91c-.35,.22-.74,.38-1.13,.5-.45,.14-.91,.25-1.38,.35-.76,.12-1.5,.35-2.2,.69-.51,.28-.77,.78-.77,1.48,0,.3,.05,.59,.18,.86,.11,.22,.28,.41,.48,.56,.22,.14,.46,.24,.71,.29,.28,.06,.56,.09,.84,.09h0Z"/>
+                  <path d="M32.1,16.95h3.36v3.36h-3.36v-3.36Z"/>
+                </svg>
+              </div>
+              <span class="ds-icon-label">#logo_nav (sa.)</span>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================== -->
+        <!-- COMPONENTS: Actions & Triggers                                 -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="components-actions">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Actions & Triggers</h2>
+            <span class="ds-section-badge">Components</span>
+          </div>
+
+          <div class="ds-specimen-stack">
+
+            <!-- Back Action Trigger -->
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Back Action Trigger</span>
+                <span class="ds-specimen-selector">.back-btn, .btnback</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #0b0b0b;">
+                <div style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                  <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f563fd9e36f1bd27b2703d7_arrow.svg" alt="" style="width: 14px; height: 14px;">
+                  <span class="btnback" style="margin: 0; display: inline-block;">back</span>
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .back-btn &gt; .btnback</span>
+                <span>States: Default | Hover (opacity: 0.7)</span>
+              </div>
+            </div>
+
+            <!-- Editorial CTA Link -->
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Editorial Action Link</span>
+                <span class="ds-specimen-selector">.link</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #0b0b0b;">
+                <a href="#components" class="link" style="text-decoration: underline; text-underline-offset: 4px;">explore work</a>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .link</span>
+                <span>States: Default | Hover (custom cursor activation)</span>
+              </div>
+            </div>
+
+            <!-- Hamburger Button -->
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Hamburger Menu Trigger</span>
+                <span class="ds-specimen-selector">.hamburger</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #0b0b0b;">
+                <div style="display: flex; gap: 40px; align-items: center;">
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                    <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f46be79ccba850f6a52df67_Menu_icon.svg" alt="" style="width: 24px; height: 24px;">
+                    <span style="font-size: 11px; color: var(--ds-text-dim);">Dark State</span>
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #ffffff; padding: 12px; border-radius: 4px;">
+                    <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f58d3de1da0e410ff33345c_Menu_black.svg" alt="" style="width: 24px; height: 24px;">
+                    <span style="font-size: 11px; color: #1c1c1c;">Light State</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .hamburger</span>
+                <span>Context: Floating top right trigger (fixed: 24px)</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================== -->
+        <!-- COMPONENTS: Navigation & Brand                                 -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="components-navigation">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Navigation & Brand</h2>
+            <span class="ds-section-badge">Components</span>
+          </div>
+
+          <div class="ds-specimen-stack">
+
+            <!-- Brand Monogram & Wordmark -->
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Brand Monogram & Wordmark</span>
+                <span class="ds-specimen-selector">.logo-container, #logo_nav, .logo</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #0b0b0b;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <svg style="width: 38px; height: 38px; fill: #ffffff;" viewBox="0 0 39.09 39.09">
+                    <path d="M10.87,20.72c-1.85,0-3.28-.4-4.31-1.21-1-.76-1.61-1.91-1.68-3.17h2.95c.13,.77,.47,1.33,1.01,1.68,.62,.37,1.33,.55,2.05,.52,.85,0,1.48-.17,1.88-.5,.39-.3,.61-.77,.6-1.27,.01-.28-.07-.56-.24-.78-.18-.22-.41-.39-.68-.51-.34-.15-.69-.26-1.05-.34-.41-.09-.87-.18-1.37-.28-.61-.11-1.2-.25-1.76-.41-.53-.15-1.04-.37-1.51-.67-.43-.28-.79-.66-1.05-1.11-.28-.54-.42-1.15-.4-1.76-.01-.57,.12-1.13,.37-1.63,.25-.48,.61-.9,1.04-1.22,.48-.35,1.03-.6,1.61-.75,.68-.17,1.38-.26,2.08-.25,1.72,0,3.03,.35,3.9,1.05,.86,.67,1.42,1.66,1.55,2.74h-2.92c-.23-1.15-1.08-1.72-2.56-1.72-.72,0-1.27,.15-1.63,.44-.35,.26-.55,.67-.54,1.11-.01,.26,.07,.51,.24,.71,.19,.2,.42,.35,.68,.45,.34,.13,.69,.24,1.05,.3l1.33,.27c.61,.11,1.21,.25,1.79,.4,.55,.14,1.08,.37,1.56,.68,.46,.3,.84,.7,1.1,1.18,.3,.59,.44,1.25,.41,1.91,.01,.63-.13,1.25-.42,1.8-.27,.52-.67,.96-1.15,1.29-.53,.37-1.12,.63-1.75,.78-.72,.18-1.46,.27-2.2,.26Z"/>
+                    <path d="M26.88,20.31c-.13-.19-.23-.39-.28-.62-.09-.35-.14-.7-.16-1.05h-.05c-.43,.57-.96,1.05-1.57,1.41-.63,.38-1.46,.57-2.49,.57-.59,0-1.18-.08-1.75-.24-.51-.14-.98-.39-1.39-.72-.39-.33-.7-.74-.92-1.2-.24-.52-.35-1.09-.34-1.66-.02-.62,.11-1.24,.4-1.8,.26-.47,.64-.87,1.1-1.15,.52-.31,1.08-.53,1.67-.66,.7-.17,1.41-.29,2.13-.38,1.06-.13,1.86-.31,2.39-.54,.5-.19,.83-.68,.8-1.22,.02-.51-.19-1.01-.57-1.35-.38-.34-.96-.51-1.74-.51-.87,0-1.52,.18-1.94,.55-.44,.39-.69,.95-.69,1.53h-2.9c.02-.55,.15-1.09,.38-1.58,.24-.52,.6-.98,1.04-1.34,.51-.41,1.08-.73,1.7-.93,.77-.25,1.58-.37,2.39-.35,.66,0,1.32,.05,1.97,.17,.53,.09,1.03,.29,1.49,.57,1.22,.74,1.84,1.96,1.84,3.67v6.79c-.01,.41,.03,.83,.13,1.23,.05,.22,.17,.43,.35,.57v.22h-2.98Zm-3.65-1.79c.48,0,.96-.08,1.4-.25,.38-.15,.72-.37,1.01-.65,.54-.52,.84-1.24,.85-1.99v-1.91c-.35,.22-.74,.38-1.13,.5-.45,.14-.91,.25-1.38,.35-.76,.12-1.5,.35-2.2,.69-.51,.28-.77,.78-.77,1.48,0,.3,.05,.59,.18,.86,.11,.22,.28,.41,.48,.56,.22,.14,.46,.24,.71,.29,.28,.06,.56,.09,.84,.09h0Z"/>
+                    <path d="M32.1,16.95h3.36v3.36h-3.36v-3.36Z"/>
+                  </svg>
+                  <span style="font-family: neue-haas-grotesk-display, sans-serif; font-size: 20px; font-weight: 500; color: #ffffff;">sa.design</span>
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .logo-container</span>
+                <span>Context: Fixed top-left origin navigation</span>
+              </div>
+            </div>
+
+            <!-- Language Switcher -->
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Language Selector</span>
+                <span class="ds-specimen-selector">.lang-selector, .language-selector</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #0b0b0b;">
+                <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500;">
+                  <span style="color: #ffffff; cursor: pointer;">Eng</span>
+                  <span style="color: rgba(255, 255, 255, 0.3);">/</span>
+                  <span style="color: rgba(255, 255, 255, 0.4); cursor: pointer;">Esp</span>
+                  <span style="color: rgba(255, 255, 255, 0.3);">/</span>
+                  <span style="color: rgba(255, 255, 255, 0.4); cursor: pointer;">Por</span>
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .lang-selector</span>
+                <span>States: Active (white) | Inactive (muted)</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================== -->
+        <!-- COMPONENTS: Kinetic & Display                                  -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="components-kinetic">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Kinetic & Display</h2>
+            <span class="ds-section-badge">Components</span>
+          </div>
+
+          <div class="ds-specimen-stack">
+
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Kinetic Stroke Marquee</span>
+                <span class="ds-specimen-selector">.sliding-text</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #000000; overflow: hidden; padding: 48px 20px;">
+                <div style="font-family: 'Aguila', sans-serif; font-size: 64px; font-weight: 500; color: transparent; -webkit-text-stroke: 1.5px #ffffff; white-space: nowrap;">
+                  Dolor Sit Amet — Consectetur
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .sliding-text</span>
+                <span>Effect: Horizontal translation tied to smooth scroll</span>
+              </div>
+            </div>
+
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Dual-layer Footer Marquee</span>
+                <span class="ds-specimen-selector">.slider-text-footer, .slider-text-footer-white</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #ffffff; padding: 48px 20px;">
+                <div style="font-family: 'Aguila', sans-serif; font-size: 54px; font-weight: 500; color: transparent; -webkit-text-stroke: 1.5px #1c1c1c; white-space: nowrap;">
+                  Lorem Ipsum — Lorem Ipsum
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .slider-text-footer</span>
+                <span>Effect: Overlayed contrast text reveal on hover</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================== -->
+        <!-- COMPONENTS: Media & Cards                                      -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="components-media">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Media & Cards</h2>
+            <span class="ds-section-badge">Components</span>
+          </div>
+
+          <div class="ds-specimen-stack">
+
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Asymmetric Vertical Showcase</span>
+                <span class="ds-specimen-selector">.vertical-pics, .image-container-left, .image-container-right</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #0b0b0b; padding: 40px 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 600px; width: 100%;">
+                  <div style="border-radius: 4px; overflow: hidden; transform: skewY(1deg);">
+                    <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c57e67e0fab6b6eaf846_tablet%201%20copy.avif" alt="" style="width: 100%; display: block;">
+                  </div>
+                  <div style="border-radius: 4px; overflow: hidden; transform: skewY(-1deg); margin-top: 24px;">
+                    <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5846b582551e0194fc0_tablet2%20copy.avif" alt="" style="width: 100%; display: block;">
+                  </div>
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .vertical-pics</span>
+                <span>Effect: Parallax skew translate on scroll</span>
+              </div>
+            </div>
+
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Triple Mobile Layout</span>
+                <span class="ds-specimen-selector">.mobile-images, .mobile-image-container</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #0b0b0b; padding: 40px 20px;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 600px; width: 100%;">
+                  <div style="border-radius: 4px; overflow: hidden;">
+                    <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5a6461ae47c37c832bc_Phone%201%20copy.avif" alt="" style="width: 100%; display: block;">
+                  </div>
+                  <div style="border-radius: 4px; overflow: hidden; margin-top: 16px;">
+                    <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5aa477652e91d427369_Phone%203%20copy.avif" alt="" style="width: 100%; display: block;">
+                  </div>
+                  <div style="border-radius: 4px; overflow: hidden; margin-top: 32px;">
+                    <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5afed1e64f013969183_Phone%204%20copy.avif" alt="" style="width: 100%; display: block;">
+                  </div>
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .mobile-images</span>
+                <span>Context: Responsive device mockups</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================== -->
+        <!-- COMPONENTS: Interactive Controls                               -->
+        <!-- ============================================================== -->
+        <section class="ds-section" id="components-interactive">
+          <div class="ds-section-header">
+            <h2 class="ds-section-title">Interactive Controls</h2>
+            <span class="ds-section-badge">Components</span>
+          </div>
+
+          <div class="ds-specimen-stack">
+
+            <div class="ds-specimen-item">
+              <div class="ds-specimen-meta-bar">
+                <span class="ds-specimen-name">Dynamic Contextual Cursor</span>
+                <span class="ds-specimen-selector">.cursor-wrapper, .cursor-circle</span>
+              </div>
+              <div class="ds-specimen-stage" style="background: #0b0b0b;">
+                <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap; justify-content: center;">
+                  
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <div style="width: 68px; height: 68px; border-radius: 50%; background: #ffffff; color: #1c1c1c; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; text-transform: uppercase;">
+                      Launch
+                    </div>
+                    <span style="font-size: 11px; color: var(--ds-text-dim);">.cursor-launch</span>
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <div style="width: 68px; height: 68px; border-radius: 50%; background: #ffffff; color: #1c1c1c; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; text-transform: uppercase;">
+                      Contact
+                    </div>
+                    <span style="font-size: 11px; color: var(--ds-text-dim);">.cursor-contact</span>
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <div style="width: 68px; height: 68px; border-radius: 50%; background: #ffffff; color: #1c1c1c; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; text-transform: uppercase;">
+                      View More
+                    </div>
+                    <span style="font-size: 11px; color: var(--ds-text-dim);">.cursor-text</span>
+                  </div>
+
+                </div>
+              </div>
+              <div class="ds-specimen-footer">
+                <span>Selector: .cursor-wrapper</span>
+                <span>Context: Mouse-tracking kinetics across active links</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Routing and Sidebar Active State Script -->
+  <script>
+    (function() {
+      var tabOverview = document.getElementById('tab-overview');
+      var tabComponents = document.getElementById('tab-components');
+      var viewOverview = document.getElementById('overview-view');
+      var viewComponents = document.getElementById('components-view');
+      var sidebarLinks = document.querySelectorAll('.ds-sidebar-link');
+
+      function syncHash() {
+        var hash = window.location.hash || '#overview';
+        if (hash.indexOf('#foundations-') === 0 || hash.indexOf('#components-') === 0 || hash === '#components') {
+          // Show Components View
+          tabOverview.classList.remove('active');
+          tabComponents.classList.add('active');
+          viewOverview.classList.remove('active');
+          viewComponents.classList.add('active');
+
+          if (hash.indexOf('#foundations-') === 0 || hash.indexOf('#components-') === 0) {
+            var targetEl = document.querySelector(hash);
+            if (targetEl) {
+              targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        } else {
+          // Show Overview View
+          tabOverview.classList.add('active');
+          tabComponents.classList.remove('active');
+          viewOverview.classList.add('active');
+          viewComponents.classList.remove('active');
+        }
+      }
+
+      window.addEventListener('hashchange', syncHash);
+      syncHash();
+
+      // Sidebar scroll spy
+      var sections = document.querySelectorAll('.ds-section');
+      viewComponents.addEventListener('scroll', function() {
+        var scrollPos = viewComponents.scrollTop + 140;
+        sections.forEach(function(sec) {
+          var top = sec.offsetTop;
+          var height = sec.offsetHeight;
+          var id = sec.getAttribute('id');
+          if (scrollPos >= top && scrollPos < top + height) {
+            sidebarLinks.forEach(function(link) {
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

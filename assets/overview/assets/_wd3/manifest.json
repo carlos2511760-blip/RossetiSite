@@ -1,0 +1,572 @@
+{
+ "entryUrl": "https://www.sa-design.co/projects/litecom",
+ "capturedAt": "2026-10-21T21:16:24+00:00",
+ "indexHtml": {
+  "kind": "arquivo",
+  "description": "site vivo aberto com duplo clique (file://): um runtime faz o papel do Service Worker; imagens e vídeos que a página só exibe são lidos de assets/, o resto (CSS, JS, fontes, dados, imagens de WebGL) vai embutido no index.html"
+ },
+ "files": [
+  {
+   "url": "https://www.sa-design.co/haqt6iy0yx2eNWY0NmJlNzljY2JhODU2ZDFhNTJkZjVh/kWONTfJreNcEkr_r4ze0kuStiXc",
+   "file": "assets/www.sa-design.co/haqt6iy0yx2eNWY0NmJlNzljY2JhODU2ZDFhNTJkZjVh/kWONTfJreNcEkr_r4ze0kuStiXc.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 530628,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.sa-design.co/projects/litecom",
+   "file": "assets/www.sa-design.co/projects/litecom.html",
+   "type": "text/html",
+   "resourceType": "document",
+   "size": 29294,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5b367b755b093e453cec2141/5dd1db1f1e22cbce54af3a88_hover-effect.umd.txt",
+   "file": "assets/cdn.prod.website-files.com/5b367b755b093e453cec2141/5dd1db1f1e22cbce54af3a88_hover-effect.umd.txt",
+   "type": "text/plain",
+   "resourceType": "script",
+   "size": 4600,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f3ed6327fb82e6222eaa69c/5f3ed632ecbce80cdb517062_heightMap.png",
+   "file": "assets/cdn.prod.website-files.com/5f3ed6327fb82e6222eaa69c/5f3ed632ecbce80cdb517062_heightMap.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 26269,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f46be79ccba850f6a52df67_Menu_icon.svg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f46be79ccba850f6a52df67_Menu_icon.svg",
+   "type": "image/svg+xml",
+   "resourceType": "image",
+   "size": 587,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f46be79ccba85789852df65_Aguila-Medium.otf",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f46be79ccba85789852df65_Aguila-Medium.otf",
+   "type": "application/x-font-otf",
+   "resourceType": "font",
+   "size": 64184,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f563fd9e36f1bd27b2703d7_arrow.svg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f563fd9e36f1bd27b2703d7_arrow.svg",
+   "type": "image/svg+xml",
+   "resourceType": "image",
+   "size": 300,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f58d3de1da0e410ff33345c_Menu_black.svg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f58d3de1da0e410ff33345c_Menu_black.svg",
+   "type": "image/svg+xml",
+   "resourceType": "image",
+   "size": 590,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f58dfdc6ca842524177bb94_menu.jpg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f58dfdc6ca842524177bb94_menu.jpg",
+   "type": "image/jpeg",
+   "resourceType": "image",
+   "size": 55888,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f7611f7124a778b3e3b384c_Awwwards_icon.svg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f7611f7124a778b3e3b384c_Awwwards_icon.svg",
+   "type": "image/svg+xml",
+   "resourceType": "image",
+   "size": 940,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f7611f72d0f2c930062303f_Email_icon.svg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f7611f72d0f2c930062303f_Email_icon.svg",
+   "type": "image/svg+xml",
+   "resourceType": "image",
+   "size": 583,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f7f4405a05b038f5a80e311_Linkedin.svg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f7f4405a05b038f5a80e311_Linkedin.svg",
+   "type": "image/svg+xml",
+   "resourceType": "image",
+   "size": 396,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f99841fb5f63966d08876f8_Favico_32x32.jpg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f99841fb5f63966d08876f8_Favico_32x32.jpg",
+   "type": "image/jpeg",
+   "resourceType": "other",
+   "size": 604,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f99842b8fe24d0ca5f6e0ba_Favico.jpg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f99842b8fe24d0ca5f6e0ba_Favico.jpg",
+   "type": "image/jpeg",
+   "resourceType": "other",
+   "size": 5658,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/63f95862291455cb67a63735_webflow.svg",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/63f95862291455cb67a63735_webflow.svg",
+   "type": "image/svg+xml",
+   "resourceType": "image",
+   "size": 1199,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/css/sa-design.shared.f2af7490e.css",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/css/sa-design.shared.f2af7490e.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 126779,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/js/sa-design.cc72c606.70e9ba566aaccc06.js",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/js/sa-design.cc72c606.70e9ba566aaccc06.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 1845,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/js/sa-design.schunk.06ff3c3c7a04b066.js",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/js/sa-design.schunk.06ff3c3c7a04b066.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 645267,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/js/sa-design.schunk.36b8fb49256177c8.js",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/js/sa-design.schunk.36b8fb49256177c8.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 41429,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c57e67e0fab6b6eaf846_tablet%201%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c57e67e0fab6b6eaf846_tablet 1 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 135006,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5846b582551e0194fc0_tablet2%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5846b582551e0194fc0_tablet2 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 71336,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c587eb50c03063e12951_landscape%202%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c587eb50c03063e12951_landscape 2 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 128110,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c58e37d89c2ce611b7f3_collage%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c58e37d89c2ce611b7f3_collage copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 317565,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c596e868bedcbcd35b8f_land%203%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c596e868bedcbcd35b8f_land 3 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 432093,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c59ed3714b344fd2f42a_land%204%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c59ed3714b344fd2f42a_land 4 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 144495,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5a6461ae47c37c832bc_Phone%201%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5a6461ae47c37c832bc_Phone 1 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 74027,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5aa477652e91d427369_Phone%203%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5aa477652e91d427369_Phone 3 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 37622,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5afed1e64f013969183_Phone%204%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5afed1e64f013969183_Phone 4 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 66293,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5b776b8096ac09c7ac7_tablet%203%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5b776b8096ac09c7ac7_tablet 3 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 60446,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5bc25a448ab4e4c6839_tablet%204%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5bc25a448ab4e4c6839_tablet 4 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 85124,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5bf7f83a82de576c1e2_land%205%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5bf7f83a82de576c1e2_land 5 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 106302,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5c7ef46aab9bf89328d_land%206%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5c7ef46aab9bf89328d_land 6 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 91738,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8cb9e06a963a954a184d5_landscape%201%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8cb9e06a963a954a184d5_landscape 1 copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 87820,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8d0cb7f1a84a6094b5ad2_Sigmatioc-hero%20copy.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8d0cb7f1a84a6094b5ad2_Sigmatioc-hero copy.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 96440,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68be22e95854339f2e9049fa_Litecom-Project-cover-v2.avif",
+   "file": "assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68be22e95854339f2e9049fa_Litecom-Project-cover-v2.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 502282,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js",
+   "file": "assets/cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 116228,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "library": {
+    "name": "gsap",
+    "version": "2.1.3"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://cdnjs.cloudflare.com/ajax/libs/three.js/109/three.min.js",
+   "file": "assets/cdnjs.cloudflare.com/ajax/libs/three.js/109/three.min.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 592594,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "library": {
+    "name": "three",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f46be79ccba856d1a52df5a",
+   "file": "assets/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8__q7f415f00.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 89476,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "library": {
+    "name": "jquery",
+    "version": "3.5.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://min30327.github.io/luxy.js/dist/js/luxy.js",
+   "file": "assets/min30327.github.io/luxy.js/dist/js/luxy.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 6087,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://p.typekit.net/p.gif?s=1&k=ehd6nrm&ht=tk&h=www.sa-design.co&f=39490.39494.39496.39498&a=1608317&js=1.21.0&app=typekit&e=js&_=1792617385528",
+   "file": "assets/p.typekit.net/p__qf383b0d2.gif",
+   "type": "image/gif",
+   "resourceType": "image",
+   "size": 35,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/af/153042/00000000000000007735bb62/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3",
+   "file": "assets/use.typekit.net/af/153042/00000000000000007735bb62/30/l__qe2fb72d2.woff2",
+   "type": "application/font-woff2",
+   "resourceType": "font",
+   "size": 24420,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/af/1ba16c/00000000000000007735bb5a/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3",
+   "file": "assets/use.typekit.net/af/1ba16c/00000000000000007735bb5a/30/l__q013ed835.woff2",
+   "type": "application/font-woff2",
+   "resourceType": "font",
+   "size": 23224,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/af/2807c7/00000000000000007735bb48/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3",
+   "file": "assets/use.typekit.net/af/2807c7/00000000000000007735bb48/30/l__qe35c7ac2.woff2",
+   "type": "application/font-woff2",
+   "resourceType": "font",
+   "size": 24788,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/af/99b799/00000000000000007735bb38/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3",
+   "file": "assets/use.typekit.net/af/99b799/00000000000000007735bb38/30/l__qee049e49.woff2",
+   "type": "application/font-woff2",
+   "resourceType": "font",
+   "size": 23924,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/ehd6nrm.js",
+   "file": "assets/use.typekit.net/ehd6nrm.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 17697,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "role": "third-party"
+  }
+ ]
+}

@@ -6,37 +6,52 @@
   <meta name="description" content="Pulso SP reúne shows, exposições, festivais e eventos culturais gratuitos ou acessíveis em São Paulo.">
   <meta name="theme-color" content="#ef3b23">
   <title>Pulso SP — A cidade acontece</title>
-  <link rel="icon" href="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f99841fb5f63966d08876f8_Favico_32x32.jpg">
+  <link rel="icon" href="assets/pulso/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
 <body>
+  <div class="page-transition" aria-hidden="true"><span>PULSO</span><strong id="preloader-count">0</strong><div></div></div>
+  <div class="custom-cursor" aria-hidden="true"><span>VER</span></div>
   <a class="skip-link" href="#eventos">Pular para os eventos</a>
   <header class="site-header" id="site-header">
-    <a class="brand" href="#inicio" aria-label="Pulso SP — início"><span class="brand-mark"></span><span>PULSO SP</span></a>
-    <nav class="desktop-nav" id="main-nav" aria-label="Navegação principal">
-      <a href="#eventos">Eventos</a><a href="#categorias">Categorias</a><a href="#regioes">Perto de você</a><a class="header-action" href="#enviar">Envie um evento</a>
-    </nav>
-    <button class="menu-button" type="button" aria-controls="main-nav" aria-expanded="false">Menu</button>
+    <a class="brand" href="#inicio" aria-label="Voltar ao início"><span aria-hidden="true">←</span><span>PULSO SP</span></a>
+    <button class="menu-button" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span><em>Menu</em></button>
   </header>
+  <nav class="desktop-nav" id="main-nav" aria-label="Navegação principal" aria-hidden="true" inert>
+      <div class="menu-links">
+        <a href="#eventos"><small>01</small><span><b>Eventos</b><b aria-hidden="true">Eventos</b></span></a>
+        <a href="#categorias"><small>02</small><span><b>Categorias</b><b aria-hidden="true">Categorias</b></span></a>
+        <a href="#regioes"><small>03</small><span><b>Perto de você</b><b aria-hidden="true">Perto de você</b></span></a>
+        <a href="#enviar"><small>04</small><span><b>Envie um evento</b><b aria-hidden="true">Envie um evento</b></span></a>
+      </div>
+      <div class="menu-footer"><div><a href="#eventos">Agenda</a><a href="#enviar">Contato</a></div><p><strong>PT</strong> / EN / ES</p></div>
+  </nav>
 
   <main>
     <section class="hero" id="inicio">
-      <img class="hero-media" src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68be22e95854339f2e9049fa_Litecom-Project-cover-v2.avif" alt="Palco de festival iluminado em vermelho diante de uma multidão">
       <div class="hero-content">
-        <p class="eyebrow">Cultura acessível em São Paulo</p>
-        <h1>Pulso SP</h1>
-        <div class="hero-bottom"><p>Música, arte e cultura acontecendo perto de você.</p><a class="round-link" href="#eventos">Explorar<br>eventos ↓</a></div>
+        <p class="eyebrow">Cultura acessível / São Paulo</p>
+        <h1 aria-label="Pulso SP"><span class="title-mask"><i>Pulso</i></span><span class="title-mask title-indent"><i>SP</i></span></h1>
+        <div class="hero-bottom"><p>Música, arte e cultura<br>acontecendo perto de você.</p><a class="round-link" href="#eventos" data-cursor="LAUNCH">Explorar<br>eventos ↗</a></div>
       </div>
+      <a class="scroll-cue" href="#capa"><span>Scroll</span><b>↓</b></a>
     </section>
 
-    <div class="ticker" aria-hidden="true"><div class="ticker-track">
-      <span>A cidade acontece</span><span>Você só precisa encontrá-la</span><span>Shows</span><span>Exposições</span><span>Cinema</span><span>Cultura urbana</span>
-      <span>A cidade acontece</span><span>Você só precisa encontrá-la</span><span>Shows</span><span>Exposições</span><span>Cinema</span><span>Cultura urbana</span>
+    <div class="ticker velocity-marquee" aria-hidden="true"><div class="ticker-track">
+      <span>Curadoria cultural</span><span>São Paulo</span><span>Eventos acessíveis</span><span>Curadoria cultural</span><span>São Paulo</span><span>Eventos acessíveis</span>
+      <span>Curadoria cultural</span><span>São Paulo</span><span>Eventos acessíveis</span><span>Curadoria cultural</span><span>São Paulo</span><span>Eventos acessíveis</span>
     </div></div>
 
-    <section class="manifesto section-light"><p class="section-kicker">Manifesto / 001</p><p class="reveal">São Paulo não para. A gente reúne o que vale viver — <em>gratuito, acessível e espalhado pela cidade.</em></p></section>
+    <section class="cover-frame" id="capa" data-cursor="VIEW"><div><img class="hero-media" data-parallax="0.08" src="assets/pulso/festival-sp.webp" width="1672" height="941" alt="Festival ao ar livre com o horizonte de São Paulo ao fundo"></div></section>
 
+    <section class="overview section-light" id="manifesto">
+      <div class="overview-intro"><p class="section-kicker">Overview / 001</p><p class="reveal line-reveal">São Paulo não para. O Pulso reúne o que vale viver — cultura gratuita, acessível e espalhada pela cidade.</p></div>
+      <div class="overview-rule"></div>
+      <div class="overview-meta"><div><small>Curadoria</small><p>Pulso SP<br>Agenda independente</p></div><div><small>Experiência</small><p>Descoberta<br>Filtros inteligentes<br>Agenda colaborativa</p></div><div><small>Alcance</small><p>Centro + todas<br>as zonas de SP</p></div><a class="visit-link" href="#eventos" data-cursor="LAUNCH">Explorar agenda <span>↗</span></a></div>
+    </section>
+
+    <div class="events-zone">
     <div class="filter-wrap" aria-label="Filtros de eventos">
       <div class="filters" role="group" aria-label="Filtrar por categoria ou preço">
         <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">Todos</button>
@@ -52,43 +67,71 @@
       <div class="section-head"><p class="section-kicker">Agenda / Outubro — Novembro</p><h2 class="section-title reveal">Próximos<br>eventos</h2></div>
       <div class="events-grid" id="events-grid">
         <article class="event-card reveal" data-category="musica" data-price="free" data-region="oeste">
-          <div class="event-image-wrap"><img class="event-image" src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8cb9e06a963a954a184d5_landscape%201%20copy.avif" alt="Show com luzes coloridas no palco" loading="lazy"><time class="event-date" datetime="2026-10-26"><strong>26</strong><small>OUT</small></time><span class="event-badge">Grátis</span></div>
+          <div class="event-image-wrap"><img class="event-image" src="assets/pulso/festival-sp.webp" width="1672" height="941" alt="Festival de música ao ar livre em São Paulo" loading="lazy"><time class="event-date" datetime="2026-10-26"><strong>26</strong><small>OUT</small></time><span class="event-badge">Grátis</span></div>
           <div class="event-info"><div class="event-meta"><span>Música / Festival</span><span>Livre</span></div><h3 class="event-title">Festival Cidade Viva</h3><div class="event-details"><span>Parque Villa-Lobos</span><span>Zona Oeste</span><span>16h — 22h</span></div></div>
         </article>
         <article class="event-card reveal" data-category="cinema" data-price="free" data-region="centro">
-          <div class="event-image-wrap"><img class="event-image" src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c58e37d89c2ce611b7f3_collage%20copy.avif" alt="Painel visual com produções culturais" loading="lazy"><time class="event-date" datetime="2026-10-28"><strong>28</strong><small>OUT</small></time><span class="event-badge">Grátis</span></div>
+          <div class="event-image-wrap"><img class="event-image" src="assets/pulso/cinema-performance.webp" width="1672" height="941" alt="Cinema e performance ao ar livre no centro de São Paulo" loading="lazy"><time class="event-date" datetime="2026-10-28"><strong>28</strong><small>OUT</small></time><span class="event-badge">Grátis</span></div>
           <div class="event-info"><div class="event-meta"><span>Cinema / Ao ar livre</span><span>12 anos</span></div><h3 class="event-title">Tela no Minhocão</h3><div class="event-details"><span>Elevado Pres. João Goulart</span><span>Centro</span><span>19h30</span></div></div>
         </article>
         <article class="event-card reveal" data-category="teatro" data-price="paid" data-region="centro">
-          <div class="event-image-wrap"><img class="event-image" src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c596e868bedcbcd35b8f_land%203%20copy.avif" alt="Artista em apresentação sobre um palco" loading="lazy"><time class="event-date" datetime="2026-10-30"><strong>30</strong><small>OUT</small></time><span class="event-badge">R$ 20</span></div>
+          <div class="event-image-wrap"><img class="event-image" src="assets/pulso/cinema-performance.webp" width="1672" height="941" alt="Dançarinos se apresentam diante do público" loading="lazy"><time class="event-date" datetime="2026-10-30"><strong>30</strong><small>OUT</small></time><span class="event-badge">R$ 20</span></div>
           <div class="event-info"><div class="event-meta"><span>Teatro / Performance</span><span>14 anos</span></div><h3 class="event-title">Corpos em Trânsito</h3><div class="event-details"><span>Centro Cultural São Paulo</span><span>Centro</span><span>20h</span></div></div>
         </article>
         <article class="event-card reveal" data-category="tecnologia" data-price="paid" data-region="sul">
-          <div class="event-image-wrap"><img class="event-image" src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5846b582551e0194fc0_tablet2%20copy.avif" alt="Instalação digital de estética futurista" loading="lazy"><time class="event-date" datetime="2026-11-01"><strong>01</strong><small>NOV</small></time><span class="event-badge">R$ 15</span></div>
+          <div class="event-image-wrap"><img class="event-image" src="assets/pulso/tecnologia-games.webp" width="1672" height="941" alt="Jovens interagem com uma instalação digital" loading="lazy"><time class="event-date" datetime="2026-11-01"><strong>01</strong><small>NOV</small></time><span class="event-badge">R$ 15</span></div>
           <div class="event-info"><div class="event-meta"><span>Tecnologia / Imersivo</span><span>Livre</span></div><h3 class="event-title">Pixel SP</h3><div class="event-details"><span>Pavilhão da Bienal</span><span>Zona Sul</span><span>10h — 20h</span></div></div>
         </article>
         <article class="event-card reveal" data-category="cultura" data-price="free" data-region="leste">
-          <div class="event-image-wrap"><img class="event-image" src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c587eb50c03063e12951_landscape%202%20copy.avif" alt="Experiência visual urbana em grande formato" loading="lazy"><time class="event-date" datetime="2026-11-02"><strong>02</strong><small>NOV</small></time><span class="event-badge">Grátis</span></div>
+          <div class="event-image-wrap"><img class="event-image" src="assets/pulso/arte-imersiva.webp" width="1672" height="941" alt="Visitantes em uma mostra de arte urbana imersiva" loading="lazy"><time class="event-date" datetime="2026-11-02"><strong>02</strong><small>NOV</small></time><span class="event-badge">Grátis</span></div>
           <div class="event-info"><div class="event-meta"><span>Cultura urbana / Arte</span><span>Livre</span></div><h3 class="event-title">Virada do Graffiti</h3><div class="event-details"><span>Praça Brasil, Itaquera</span><span>Zona Leste</span><span>11h — 19h</span></div></div>
         </article>
         <article class="event-card reveal" data-category="exposicoes" data-price="free" data-region="sul">
-          <div class="event-image-wrap"><img class="event-image" src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c5bf7f83a82de576c1e2_land%205%20copy.avif" alt="Obra audiovisual projetada em ambiente escuro" loading="lazy"><time class="event-date" datetime="2026-11-05"><strong>05</strong><small>NOV</small></time><span class="event-badge">Grátis</span></div>
+          <div class="event-image-wrap"><img class="event-image" src="assets/pulso/arte-imersiva.webp" width="1672" height="941" alt="Instalação audiovisual em uma galeria industrial" loading="lazy"><time class="event-date" datetime="2026-11-05"><strong>05</strong><small>NOV</small></time><span class="event-badge">Grátis</span></div>
           <div class="event-info"><div class="event-meta"><span>Exposição / Audiovisual</span><span>Livre</span></div><h3 class="event-title">Mundos Possíveis</h3><div class="event-details"><span>IMS Paulista</span><span>Zona Sul</span><span>10h — 20h</span></div></div>
         </article>
         <article class="event-card reveal" data-category="games" data-price="free" data-region="norte">
-          <div class="event-image-wrap"><img class="event-image" src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c57e67e0fab6b6eaf846_tablet%201%20copy.avif" alt="Conteúdo digital em uma tela vertical" loading="lazy"><time class="event-date" datetime="2026-11-08"><strong>08</strong><small>NOV</small></time><span class="event-badge">Grátis</span></div>
+          <div class="event-image-wrap"><img class="event-image" src="assets/pulso/tecnologia-games.webp" width="1672" height="941" alt="Festival de jogos e experiências digitais" loading="lazy"><time class="event-date" datetime="2026-11-08"><strong>08</strong><small>NOV</small></time><span class="event-badge">Grátis</span></div>
           <div class="event-info"><div class="event-meta"><span>Games / Campeonato</span><span>10 anos</span></div><h3 class="event-title">Game Lab Arena</h3><div class="event-details"><span>Centro Cultural da Juventude</span><span>Zona Norte</span><span>13h — 20h</span></div></div>
         </article>
         <article class="event-card reveal" data-category="musica" data-price="free" data-region="centro">
-          <div class="event-image-wrap"><img class="event-image" src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c59ed3714b344fd2f42a_land%204%20copy.avif" alt="Dois músicos cantando juntos em um palco" loading="lazy"><time class="event-date" datetime="2026-11-09"><strong>09</strong><small>NOV</small></time><span class="event-badge">Grátis</span></div>
+          <div class="event-image-wrap"><img class="event-image" src="assets/pulso/festival-sp.webp" width="1672" height="941" alt="Público acompanha uma apresentação musical" loading="lazy"><time class="event-date" datetime="2026-11-09"><strong>09</strong><small>NOV</small></time><span class="event-badge">Grátis</span></div>
           <div class="event-info"><div class="event-meta"><span>Música / Samba</span><span>Livre</span></div><h3 class="event-title">Samba no Largo</h3><div class="event-details"><span>Largo do Arouche</span><span>Centro</span><span>15h</span></div></div>
         </article>
         <p class="empty-state" id="empty-state">Nenhum evento encontrado neste pulso. Tente outro filtro.</p>
       </div>
     </section>
+    </div>
+
+    <section class="motion-story" aria-labelledby="motion-title">
+      <div class="story-intro section">
+        <p class="section-kicker">A cidade como palco / 002</p>
+        <h2 class="section-title reveal" id="motion-title">Um pulso.<br>Mil cenas.</h2>
+      </div>
+      <div class="story-wide image-reveal" data-cursor="DESCOBRIR"><img data-parallax="0.12" src="assets/pulso/festival-sp.webp" width="1672" height="941" alt="Grande festival cultural ao ar livre" loading="lazy"></div>
+      <div class="story-copy section">
+        <p class="section-kicker">Visão geral</p>
+        <p class="reveal">Da pista ao museu, da rua ao palco. O Pulso aproxima você das experiências que movimentam São Paulo.</p>
+        <a class="text-link" href="#categorias">Explorar por categoria</a>
+      </div>
+      <div class="staggered-gallery section">
+        <figure class="image-reveal stagger-left" data-cursor="MÚSICA"><img data-parallax="0.09" src="assets/pulso/festival-sp.webp" width="1672" height="941" alt="Palco e multidão em um festival paulistano" loading="lazy"><figcaption>Palcos que fazem a cidade vibrar</figcaption></figure>
+        <figure class="image-reveal stagger-right" data-cursor="CIDADE"><img data-parallax="-0.07" src="assets/pulso/cinema-performance.webp" width="1672" height="941" alt="Encontro cultural noturno no centro da cidade" loading="lazy"><figcaption>Encontros para viver junto</figcaption></figure>
+      </div>
+      <div class="story-collage image-reveal" data-cursor="EXPLORAR"><img data-parallax="0.08" src="assets/pulso/arte-imersiva.webp" width="1672" height="941" alt="Exposição imersiva iluminada em azul e vermelho" loading="lazy"></div>
+      <div class="kinetic-band kinetic-band-alt" aria-hidden="true"><div><span>ARTE — MÚSICA — CINEMA — RUA — </span><span>ARTE — MÚSICA — CINEMA — RUA — </span></div></div>
+      <div class="mobile-showcase section">
+        <div class="mobile-copy"><p class="section-kicker">No seu ritmo</p><h3 class="reveal">A agenda da cidade na palma da mão.</h3></div>
+        <div class="mobile-stack">
+          <figure class="image-reveal mobile-one phone-card"><img data-parallax="0.08" src="assets/pulso/festival-sp.webp" width="1672" height="941" alt="Festival Cidade Viva" loading="lazy"><figcaption><small>26 OUT · GRÁTIS</small><strong>Festival<br>Cidade Viva</strong><span>Zona Oeste ↗</span></figcaption></figure>
+          <figure class="image-reveal mobile-two phone-card"><img data-parallax="-0.06" src="assets/pulso/arte-imersiva.webp" width="1672" height="941" alt="Exposição Mundos Possíveis" loading="lazy"><figcaption><small>05 NOV · GRÁTIS</small><strong>Mundos<br>Possíveis</strong><span>Av. Paulista ↗</span></figcaption></figure>
+          <figure class="image-reveal mobile-three phone-card"><img data-parallax="0.1" src="assets/pulso/tecnologia-games.webp" width="1672" height="941" alt="Evento Game Lab Arena" loading="lazy"><figcaption><small>08 NOV · GRÁTIS</small><strong>Game Lab<br>Arena</strong><span>Zona Norte ↗</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
 
     <section class="featured" aria-labelledby="featured-title">
-      <img src="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba858e2c52df60/68b8c596e868bedcbcd35b8f_land%203%20copy.avif" alt="Grande apresentação musical com luzes roxas" loading="lazy">
+      <img src="assets/pulso/cinema-performance.webp" width="1672" height="941" alt="Festival de artes ocupa uma praça de São Paulo" loading="lazy">
       <div class="featured-copy"><span class="featured-label">Evento da semana</span><h2 id="featured-title" class="reveal">Cidade em<br>chamas</h2><div class="featured-bottom"><p>Festival de música, gastronomia e arte urbana com entrada gratuita. Um sábado inteiro ocupando o centro de São Paulo.</p><a class="text-link" href="#eventos">Ver na agenda</a></div></div>
     </section>
 
@@ -140,7 +183,8 @@
     </section>
   </main>
 
-  <footer class="footer"><p class="footer-brand">Pulso SP</p><div class="footer-row"><span>A cidade acontece. Você só precisa encontrá-la.</span><a href="#inicio">Voltar ao topo ↑</a><span>São Paulo — 2026</span></div></footer>
+  <a class="next-pulse" href="#eventos" data-cursor="NEXT"><p class="section-kicker">Próximo pulso</p><div><span>VIVA A CIDADE — VIVA A CIDADE — </span><span>VIVA A CIDADE — VIVA A CIDADE — </span></div></a>
+  <footer class="footer" id="contato"><p class="section-kicker">Reach out / Fale com a gente</p><a class="footer-brand" href="mailto:contato@pulsosp.com.br" data-cursor="CONTACT">contato@<br>pulsosp.com.br</a><div class="footer-social"><a href="#eventos">Agenda ↗</a><a href="#categorias">Categorias ↗</a><a href="#enviar">Enviar evento ↗</a></div><div class="footer-row"><span>© 2026 Pulso SP</span><a href="#inicio">Voltar ao topo ↑</a><span>São Paulo — Brasil</span></div></footer>
   <div class="toast" id="toast" role="status" aria-live="polite">Evento adicionado à agenda.</div>
 </body>
 </html>

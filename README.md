@@ -11,7 +11,8 @@ O Pulso SP é uma plataforma visual para descobrir shows, exposições, festivai
 - Navegação pelas regiões Centro, Norte, Sul, Leste e Oeste.
 - Categorias de música, cinema, teatro, exposições, cultura urbana, tecnologia e games.
 - Formulário de envio que salva novos eventos no `localStorage` do navegador.
-- Interface responsiva e acessível, com suporte a movimento reduzido.
+- Narrativa visual com abertura, tipografia cinética, parallax, revelação de imagens, cursor contextual e galeria assimétrica.
+- Interface responsiva e acessível, com menu mobile e suporte a movimento reduzido.
 
 Os eventos incluídos na página são dados de demonstração do protótipo.
 
@@ -32,7 +33,7 @@ Abra [http://localhost:8080](http://localhost:8080). Não há dependências ou e
 ├── design-system.html  # Conteúdo e estrutura do Pulso SP
 ├── styles.css          # Identidade visual e responsividade
 ├── app.js              # Filtros, menu e armazenamento local
-└── assets/             # Fontes, imagens e recursos visuais locais
+└── assets/             # Fontes e imagens otimizadas, incluindo a coleção Pulso SP
 ```
 
 O deploy para GitHub Pages é executado automaticamente pelo workflow em `.github/workflows/deploy.yml` após alterações na branch `main`.

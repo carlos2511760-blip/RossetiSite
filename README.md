@@ -1,121 +1,75 @@
-# RossetiSite — Design System Catalog
+# PULSO SP — Guia Cultural Aberto de São Paulo
 
-Design System extraído e estruturado a partir do site **sa.design** (showcase do projeto *Litecom*), preservando rigorosamente a identidade visual, cinemática de animações, tipografia original e tokens de design.
+> **"A cidade acontece. Você só precisa encontrá-la."**
+
+O **Pulso SP** é uma plataforma digital criada para reunir e divulgar eventos culturais gratuitos ou acessíveis na cidade de São Paulo. O projeto busca democratizar e facilitar o acesso dos jovens à cultura, centralizando informações que normalmente ficam espalhadas em diferentes redes sociais, sites de instituições e páginas institucionais.
+
+O usuário pode explorar eventos por categoria, preço (com filtro dedicado para eventos **100% gratuitos**) e por região da cidade (Centro, Zona Norte, Zona Sul, Zona Leste e Zona Oeste), encontrando opções de lazer e cultura de maneira ágil, moderna e visualmente impactante.
 
 ---
 
-## 📌 Visão Geral do Catálogo
+## 🎯 Problema & Propósito
+- **O Problema:** São Paulo transborda cultura diariamente, mas os eventos independentes, gratuitos e acessíveis sofrem com a dispersão de dados e falta de um canal unificado e jovem.
+- **A Solução:** Um feed visual, dinâmico e colaborativo que agrupa shows, peças teatrais, mostras de cinema, batalhas de rima, exposições e encontros de tecnologia e games com curadoria regionalizada.
 
-O catálogo é uma aplicação de navegação dividida em duas visões principais:
+---
 
-1. **Overview (`#overview`):**
-   - Adaptação funcional da página copiada com os textos editoriais originais substituídos por cópias de amostra (mantendo hierarquia, tags e extensões).
-   - Navbar interna duplicada suprimida para integração fluida.
-   - Preservação integral das animações em WebGL/Three.js, rolagem suave (*Luxy.js*), efeitos de perspectiva (*hover-effect*), transições de cor e cinemática de tipografia vazada.
+## ✨ Funcionalidades Principais
 
-2. **Components (`#components`):**
-   - Catálogo vivo e estruturado com barra lateral fixa (*sticky*) e *scroll spy*.
-   - Fundações de design (*Typography*, *Colors*, *Backgrounds*, *Surfaces*, *Icons*).
-   - Componentes completos com metadados de código, seletores CSS reais, classes e estados ativos.
+1. **Capa & Tipografia Cinética:**
+   - Fotografia impactante de festival/show ao vivo.
+   - Tipografia display marcante (*Aguila* e *Neue Haas Grotesk*), paleta de alto contraste (*Void Black* e *Pulse Red*).
+   - Letreiro dinâmico de manifesto cultural.
+
+2. **Filtro Funcional em Tempo Real (Sem Recarregar a Página):**
+   - **Por Categoria:** `[Todos]` • `[🔥 Entrada Gratuita]` • `[Música]` • `[Exposições]` • `[Teatro]` • `[Cinema]` • `[Cultura Urbana]` • `[Tecnologia & Games]`.
+   - **Por Região:** `[Todas as Regiões]` • `[Centro]` • `[Zona Oeste]` • `[Zona Sul]` • `[Zona Leste]` • `[Zona Norte]`.
+   - **Busca Textual Instantânea:** Busca rápida por nome do artista, evento ou local.
+
+3. **Evento da Semana em Destaque:**
+   - Seção ampla ocupando a tela com informações completas do destaque da curadoria (Ex: *Festival Cidade Viva 2026* no Parque Villa-Lobos).
+
+4. **Seção "Perto de Você":**
+   - Atalhos visuais para as 5 regiões de São Paulo, permitindo ao usuário filtrar com um clique o que está acontecendo no seu entorno geográfico.
+
+5. **Envie um Evento (Colaborativo com `localStorage`):**
+   - Formulário completo para produtores e frequentadores cadastrarem novos eventos.
+   - Salva os dados no navegador e adiciona o novo evento imediatamente ao topo do feed com notificação visual (*Toast Alert*).
+
+6. **Catálogo de Design System Integrado:**
+   - Mantém o link direto para `design-system.html`, permitindo a desenvolvedores e designers inspecionar todas as fundações, tokens e componentes do projeto.
 
 ---
 
 ## 🚀 Como Executar Localmente
 
-Devido ao uso de módulos dinâmicos empacotados, buffers e carregamento de fontes personalizadas, a execução requer um servidor HTTP local:
-
-### Opção 1: Via Python (Recomendado)
-Execute no terminal na raiz do repositório:
+Abra o terminal na pasta do projeto e inicie um servidor local:
 
 ```powershell
 python -m http.server 8080
 ```
 
-Abra o navegador em:
-- **Catálogo Completo:** [http://localhost:8080/design-system.html](http://localhost:8080/design-system.html)
-- **Visualização Overview:** [http://localhost:8080/design-system.html#overview](http://localhost:8080/design-system.html#overview)
-- **Catálogo de Componentes:** [http://localhost:8080/design-system.html#components](http://localhost:8080/design-system.html#components)
+Acesse no navegador:
+- 🌐 **Plataforma Pulso SP:** [http://localhost:8080/](http://localhost:8080/)
+- 📐 **Design System:** [http://localhost:8080/design-system.html](http://localhost:8080/design-system.html)
 
 ---
 
-## 📁 Estrutura de Arquivos
+## 📁 Estrutura do Repositório
 
 ```text
 RossetiSite/
-├── design-system.html              # Catálogo principal (Navbar integrada, Overview & Components)
-├── index.html                      # Ponto de entrada padrão com redirecionamento automático
-├── README.md                       # Documentação do projeto e catálogo
-└── assets/
-    └── overview/
-        ├── index.html              # Projeto base Overview (com textos adaptados e navbar suprimida)
-        └── assets/                 # Mídias, fontes e estilos originais
-            ├── cdn.prod.website-files.com/
-            │   └── 5f46be79ccba856d1a52df5a/
-            │       ├── css/sa-design.shared.f2af7490e.css     # Estilização base do site
-            │       ├── 5f46be79ccba85789852df65_Aguila-Medium.otf # Fonte primária Display
-            │       └── ... (ícones SVG e avif)
-            ├── use.typekit.net/    # Scripts Typekit / Neue Haas Grotesk
-            └── cdnjs.cloudflare.com/ # Three.js, GSAP TweenMax, Luxy.js
+├── index.html                      # Aplicação web completa do Pulso SP
+├── design-system.html              # Catálogo do Design System
+├── README.md                       # Apresentação e documentação do projeto
+├── .nojekyll                       # Desativa processamento Jekyll no GitHub Pages
+└── assets/                         # Mídias, estilos, ícones e fontes originais
 ```
 
 ---
 
-## 🎨 Fundações de Design Extraídas
-
-### 1. Tipografia
-| Papel | Família & Peso | Seletor CSS | Tamanho Declarado |
-| :--- | :--- | :--- | :--- |
-| **Heading 1 (Hero)** | `Aguila`, Medium (500) | `.heading.hero` | `14vw \| 10vw` |
-| **Display Kinetic** | `Aguila`, Medium (500) | `.sliding-text` | `14vw \| 18vw` |
-| **Heading 2 (Subhead)** | `Neue Haas Grotesk`, Light (200) | `.descroption-text` | `38px \| 20px \| 18px` |
-| **Heading 3 (Eyebrow)** | `Neue Haas Grotesk`, Medium (500) | `.heading-3` | `18px \| 14px` |
-| **Button / Action** | `Neue Haas Grotesk`, Medium (500) | `.link` | `20px \| 18px` |
-| **Meta / Breadcrumb** | `Neue Haas Grotesk`, Regular (400) | `.btnback` | `14px` |
-| **Text 2 (Metadata)** | `Neue Haas Grotesk`, Medium (500) | `.team-text2` | `14px` |
-
-### 2. Paleta de Cores & Tokens Funcionais
-- **Brand & Accent:**
-  - `Primary Brand Red`: `#e90f15` (Token: `--footer-color-var`) — Fundo do hero e indicador de abas ativas.
-  - `Accent Tomato`: `#ff3644` (Token: `--tomato`) — Destaques e contrastes.
-  - `Transition Blue`: `#0030a8` (Token: `--blue`) — Cor base de transições e overlays.
-- **Surfaces:**
-  - `Deep Void Black`: `#0b0b0b` / `#1c1c1c` (Tokens: `--black-2`, `--black`) — Fundo principal do viewport escuro.
-  - `Paper White`: `#ffffff` (Token: `--white`) — Fundo do rodapé e áreas com inversão de contraste.
-- **Text & Icons:**
-  - `Primary White`: `#ffffff` — Textos e ícones sobre fundo escuro.
-  - `Primary Dark`: `#1c1c1c` — Títulos e rótulos sobre fundo claro.
-  - `Muted Grey`: `#cccbcb` (Token: `--light-grey`) — Metadados e textos secundários.
-
-### 3. Backgrounds do Projeto
-- **Landing Hero:** `#e90f15`
-- **Main Canvas:** `#0b0b0b`
-- **Transition Overlay:** `#0030a8`
-- **Footer Inverted Surface:** `#ffffff`
-
----
-
-## 🧩 Componentes Catalogados
-
-1. **Ações & Gatilhos (`Actions & Triggers`):**
-   - `.back-btn` / `.btnback`: Gatilho de retorno com ícone de seta.
-   - `.link`: Link de chamada editorial com ativação de cursor customizado.
-   - `.hamburger`: Botão de alternância com estados dinâmicos (claro/escuro).
-2. **Navegação & Marca (`Navigation & Brand`):**
-   - `.logo-container`: Monograma vetorial nativo `#logo_nav` acompanhado da marca textual `sa.design`.
-   - `.lang-selector`: Alternador de idiomas (`Eng / Esp / Por`).
-3. **Cinemática & Display (`Kinetic & Display`):**
-   - `.sliding-text`: Tipografia cinética contornada (*stroke text*) com deslocamento horizontal.
-   - `.slider-text-footer`: Letreiro com máscara em duas camadas.
-4. **Mídia & Cartões (`Media & Cards`):**
-   - `.vertical-pics`: Grade com paralaxe vertical e leve rotação (*skew*).
-   - `.mobile-images`: Vitrine de dispositivos em colunas móveis responsivas.
-5. **Controles Interativos (`Interactive Controls`):**
-   - `.cursor-wrapper`: Seguidor dinâmico de mouse com rótulos contextuais (`Launch`, `Contact`, `View More`).
-
----
-
-## 🛠️ Tecnologias Utilizadas
-- **HTML5 & CSS3 nativo** (com CSS Custom Properties e flexbox/grid)
-- **Aguila Font** (`.otf` nativo) & **Typekit Adobe Fonts** (*Neue Haas Grotesk Display*)
-- **Luxy.js** (Inertia smooth scrolling)
-- **Three.js** & **GSAP (TweenMax)** (Efeitos de distorção de imagem por mapa de deslocamento)
+## 🛠️ Tecnologias
+- **HTML5 & CSS3 nativo** (variáveis CSS, layouts Flexbox e Grid responsivo)
+- **JavaScript Moderno (ES6+)** para filtragem dinâmica, busca em tempo real e persistência com `localStorage`
+- **Fontes Display:** *Aguila Medium* e *Neue Haas Grotesk*
+- **Fotografia Cultural:** Curadoria de alta resolução temática de São Paulo

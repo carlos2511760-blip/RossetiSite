@@ -1,14 +1,1627 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url=design-system.html">
-  <title>Redirecting to Design System...</title>
-  <script>
-    window.location.href = "design-system.html";
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PULSO SP — A cidade acontece. Você só precisa encontrá-la.</title>
+  <meta name="description" content="Plataforma de eventos culturais gratuitos e acessíveis em São Paulo. Shows, exposições, teatro, cinema, arte urbana e tecnologia.">
+  
+  <!-- Fontes e Estilos Base -->
+  <link rel="stylesheet" href="assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/css/sa-design.shared.f2af7490e.css">
+  <script src="assets/overview/assets/use.typekit.net/ehd6nrm.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+
+  <style>
+    @font-face {
+      font-family: 'Aguila';
+      src: url('assets/overview/assets/cdn.prod.website-files.com/5f46be79ccba856d1a52df5a/5f46be79ccba85789852df65_Aguila-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    :root {
+      --bg: #090909;
+      --bg-card: #131313;
+      --bg-elevated: #1a1a1a;
+      --accent-red: #e90f15;
+      --accent-red-hover: #ff2b59;
+      --accent-blue: #0030a8;
+      --text: #ffffff;
+      --text-muted: #a3a3a3;
+      --text-dim: #666666;
+      --border: rgba(255, 255, 255, 0.1);
+      --border-focus: rgba(233, 15, 21, 0.6);
+      --font-display: 'Aguila', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Top Navigation */
+    .pulso-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(9, 9, 9, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+
+    .pulso-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .pulso-logo-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      box-shadow: 0 0 14px var(--accent-red);
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.6; }
+    }
+
+    .pulso-logo-text {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    .pulso-slogan-badge {
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      color: var(--text-dim);
+      border-left: 1px solid var(--border);
+      padding-left: 12px;
+      margin-left: 6px;
+      text-transform: uppercase;
+    }
+
+    .pulso-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .pulso-menu a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .pulso-menu a:hover {
+      color: #ffffff;
+    }
+
+    .pulso-btn-cadastrar {
+      background: var(--accent-red);
+      color: #ffffff !important;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      letter-spacing: 1px;
+      transition: transform 0.2s, background 0.2s !important;
+    }
+
+    .pulso-btn-cadastrar:hover {
+      background: var(--accent-red-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .pulso-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 120px 48px 64px;
+      background: linear-gradient(180deg, rgba(9,9,9,0.2) 0%, rgba(9,9,9,0.85) 75%, #090909 100%),
+                  url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;
+    }
+
+    .pulso-hero-content {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .pulso-hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(233, 15, 21, 0.15);
+      border: 1px solid var(--accent-red);
+      padding: 6px 14px;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .pulso-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 14vw, 170px);
+      line-height: 0.92;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-left: -4px;
+    }
+
+    .pulso-hero-sub {
+      font-size: clamp(20px, 2.5vw, 36px);
+      font-weight: 200;
+      color: #eaeaea;
+      max-width: 800px;
+      line-height: 1.25;
+      letter-spacing: 0.4px;
+    }
+
+    .pulso-hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pulso-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--accent-red);
+      color: #ffffff;
+      padding: 16px 36px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 24px rgba(233, 15, 21, 0.35);
+    }
+
+    .pulso-btn-primary:hover {
+      background: var(--accent-red-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(233, 15, 21, 0.5);
+    }
+
+    .pulso-btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: #ffffff;
+      padding: 16px 28px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pulso-btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Kinetic Marquee Strip */
+    .pulso-marquee-strip {
+      background: var(--accent-red);
+      padding: 16px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .pulso-marquee-track {
+      display: inline-block;
+      animation: marquee-anim 26s linear infinite;
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    @keyframes marquee-anim {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Container */
+    .pulso-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Section Headers */
+    .pulso-section {
+      padding: 96px 0;
+    }
+
+    .pulso-section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .pulso-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-red);
+    }
+
+    .pulso-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .pulso-section-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 650px;
+      font-weight: 300;
+    }
+
+    /* Filter Controls */
+    .pulso-filter-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .pulso-filter-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pulso-filter-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      min-width: 90px;
+    }
+
+    .pulso-filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pulso-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .pulso-pill:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .pulso-pill.active {
+      background: var(--accent-red);
+      border-color: var(--accent-red);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 2px 12px rgba(233, 15, 21, 0.35);
+    }
+
+    .pulso-search-box {
+      position: relative;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .pulso-search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 16px;
+      color: #ffffff;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .pulso-search-input:focus {
+      border-color: var(--accent-red);
+    }
+
+    .pulso-results-counter {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-left: auto;
+    }
+
+    /* Events Grid */
+    .pulso-events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 32px;
+    }
+
+    .pulso-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+
+    .pulso-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .pulso-card-media {
+      position: relative;
+      width: 100%;
+      height: 230px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .pulso-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .pulso-card:hover .pulso-card-img {
+      transform: scale(1.05);
+    }
+
+    .pulso-card-badges {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .pulso-badge-price {
+      background: var(--accent-red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .pulso-badge-price.paid {
+      background: #2a2a2a;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .pulso-badge-cat {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .pulso-badge-rating {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .pulso-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 12px;
+    }
+
+    .pulso-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--accent-red);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .pulso-card-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .pulso-card-venue {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .pulso-card-venue svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--text-dim);
+    }
+
+    .pulso-card-desc {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.45;
+      margin-top: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .pulso-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+    }
+
+    .pulso-card-region {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .pulso-card-btn {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .pulso-card-btn:hover {
+      color: var(--accent-red);
+      transform: translateX(3px);
+    }
+
+    /* Featured Event (Full-width impact section) */
+    .pulso-featured-section {
+      position: relative;
+      background: #000;
+      padding: 120px 0;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pulso-featured-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, rgba(9,9,9,0.96) 0%, rgba(9,9,9,0.7) 50%, rgba(9,9,9,0.85) 100%),
+                  url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;
+      z-index: 1;
+    }
+
+    .pulso-featured-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .pulso-featured-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-red);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .pulso-featured-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 100px);
+      line-height: 0.95;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .pulso-featured-sub {
+      font-size: clamp(20px, 2vw, 28px);
+      color: #ffffff;
+      font-weight: 300;
+      line-height: 1.35;
+    }
+
+    .pulso-featured-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+
+    .pulso-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .pulso-meta-kicker {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pulso-meta-val {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* Perto de Você (Regions Section) */
+    .pulso-regions-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .pulso-region-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pulso-region-card:hover, .pulso-region-card.active {
+      background: rgba(233, 15, 21, 0.1);
+      border-color: var(--accent-red);
+      transform: translateY(-4px);
+    }
+
+    .pulso-region-icon {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .pulso-region-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .pulso-region-count {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* Submit Event Section */
+    .pulso-form-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px;
+    }
+
+    .pulso-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .pulso-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pulso-form-group.full {
+      grid-column: span 2;
+    }
+
+    .pulso-form-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .pulso-form-input, .pulso-form-select, .pulso-form-textarea {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .pulso-form-input:focus, .pulso-form-select:focus, .pulso-form-textarea:focus {
+      border-color: var(--accent-red);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .pulso-form-select option {
+      background: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .pulso-form-btn {
+      grid-column: span 2;
+      background: var(--accent-red);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+
+    .pulso-form-btn:hover {
+      background: var(--accent-red-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Toast Notification */
+    .pulso-toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: #141414;
+      border: 1px solid var(--accent-red);
+      color: #ffffff;
+      padding: 16px 24px;
+      border-radius: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.8);
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .pulso-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    .pulso-footer {
+      background: #000000;
+      border-top: 1px solid var(--border);
+      padding: 80px 0 40px;
+    }
+
+    .pulso-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+
+    .pulso-footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pulso-footer-desc {
+      font-size: 15px;
+      color: var(--text-dim);
+      max-width: 440px;
+      line-height: 1.6;
+    }
+
+    .pulso-footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pulso-footer-col-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .pulso-footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pulso-footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .pulso-footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .pulso-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .pulso-regions-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .pulso-footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pulso-nav {
+        padding: 0 20px;
+      }
+      .pulso-menu {
+        display: none;
+      }
+      .pulso-hero {
+        padding: 100px 24px 48px;
+      }
+      .pulso-container {
+        padding: 0 24px;
+      }
+      .pulso-regions-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .pulso-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .pulso-form-group.full {
+        grid-column: span 1;
+      }
+      .pulso-form-btn {
+        grid-column: span 1;
+      }
+      .pulso-form-wrapper {
+        padding: 28px 20px;
+      }
+      .pulso-events-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body style="background:#0b0b0b;color:#fff;font-family:sans-serif;padding:40px;text-align:center;">
-  <p>Redirecionando para o <a href="design-system.html" style="color:#e90f15;">Design System</a>...</p>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="pulso-nav">
+    <a href="#" class="pulso-brand">
+      <div class="pulso-logo-icon"></div>
+      <span class="pulso-logo-text">PULSO SP</span>
+      <span class="pulso-slogan-badge">A cidade acontece</span>
+    </a>
+
+    <nav class="pulso-menu">
+      <a href="#eventos">Eventos</a>
+      <a href="#destaque">Destaque</a>
+      <a href="#perto-de-voce">Perto de Você</a>
+      <a href="design-system.html" title="Visualizar Design System Catalog">Design System</a>
+      <a href="#enviar" class="pulso-btn-cadastrar">+ Enviar Evento</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pulso-hero">
+    <div class="pulso-hero-content">
+      <div class="pulso-hero-tagline">
+        <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#e90f15;"></span>
+        Guia Cultural Independente • São Paulo
+      </div>
+
+      <h1 class="pulso-hero-title">PULSO SP</h1>
+
+      <p class="pulso-hero-sub">
+        Música, arte e cultura acontecendo perto de você. Eventos gratuitos ou acessíveis em toda a cidade.
+      </p>
+
+      <div class="pulso-hero-actions">
+        <a href="#eventos" class="pulso-btn-primary">
+          Explorar Eventos
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#destaque" class="pulso-btn-ghost">
+          Evento da Semana
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kinetic Marquee -->
+  <div class="pulso-marquee-strip">
+    <div class="pulso-marquee-track">
+      SHOWS AO VIVO &nbsp;•&nbsp; EXPOSIÇÕES &nbsp;•&nbsp; CINEMA DE GRAÇA &nbsp;•&nbsp; ARTE URBANA &nbsp;•&nbsp; TEATRO &nbsp;•&nbsp; FESTIVAIS &nbsp;•&nbsp; GAMES &amp; TECH &nbsp;•&nbsp; CENTRO, NORTE, SUL, LESTE, OESTE &nbsp;•&nbsp; A CIDADE ACONTECE &nbsp;•&nbsp;
+      SHOWS AO VIVO &nbsp;•&nbsp; EXPOSIÇÕES &nbsp;•&nbsp; CINEMA DE GRAÇA &nbsp;•&nbsp; ARTE URBANA &nbsp;•&nbsp; TEATRO &nbsp;•&nbsp; FESTIVAIS &nbsp;•&nbsp; GAMES &amp; TECH &nbsp;•&nbsp; CENTRO, NORTE, SUL, LESTE, OESTE &nbsp;•&nbsp; A CIDADE ACONTECE &nbsp;•&nbsp;
+    </div>
+  </div>
+
+  <!-- Main Events Section -->
+  <section class="pulso-section" id="eventos">
+    <div class="pulso-container">
+      
+      <div class="pulso-section-header">
+        <span class="pulso-eyebrow">Programação Ativa</span>
+        <h2 class="pulso-section-title">Próximos Eventos</h2>
+        <p class="pulso-section-desc">
+          Filtre por categoria, preço ou região. Informação direta para você não perder nada que está rolando na capital.
+        </p>
+      </div>
+
+      <!-- Interactive Filters -->
+      <div class="pulso-filter-wrapper">
+        
+        <!-- Categorias -->
+        <div class="pulso-filter-row">
+          <span class="pulso-filter-label">Categoria:</span>
+          <div class="pulso-filter-pills" id="category-pills">
+            <button class="pulso-pill active" data-cat="all">Todos</button>
+            <button class="pulso-pill" data-cat="gratis">🔥 Entrada Gratuita</button>
+            <button class="pulso-pill" data-cat="Musica">Música</button>
+            <button class="pulso-pill" data-cat="Exposicoes">Exposições</button>
+            <button class="pulso-pill" data-cat="Teatro">Teatro</button>
+            <button class="pulso-pill" data-cat="Cinema">Cinema</button>
+            <button class="pulso-pill" data-cat="Cultura Urbana">Cultura Urbana</button>
+            <button class="pulso-pill" data-cat="Tecnologia & Games">Tecnologia &amp; Games</button>
+          </div>
+        </div>
+
+        <!-- Regiões & Busca -->
+        <div class="pulso-filter-row">
+          <span class="pulso-filter-label">Região:</span>
+          <div class="pulso-filter-pills" id="region-pills">
+            <button class="pulso-pill active" data-region="all">Todas as Regiões</button>
+            <button class="pulso-pill" data-region="Centro">Centro</button>
+            <button class="pulso-pill" data-region="Zona Oeste">Zona Oeste</button>
+            <button class="pulso-pill" data-region="Zona Sul">Zona Sul</button>
+            <button class="pulso-pill" data-region="Zona Leste">Zona Leste</button>
+            <button class="pulso-pill" data-region="Zona Norte">Zona Norte</button>
+          </div>
+
+          <div class="pulso-search-box">
+            <input type="text" id="event-search" class="pulso-search-input" placeholder="Buscar por nome, local ou artista...">
+          </div>
+
+          <span class="pulso-results-counter" id="results-count">Exibindo 6 eventos</span>
+        </div>
+
+      </div>
+
+      <!-- Events Dynamic Grid -->
+      <div class="pulso-events-grid" id="events-grid">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Featured Event Section (Full-width impact) -->
+  <section class="pulso-featured-section" id="destaque">
+    <div class="pulso-featured-backdrop"></div>
+    <div class="pulso-container">
+      <div class="pulso-featured-content">
+        <span class="pulso-featured-badge">⭐ Evento da Semana</span>
+        
+        <h2 class="pulso-featured-title">Festival Cidade Viva 2026</h2>
+        
+        <p class="pulso-featured-sub">
+          Festival de música, gastronomia de rua e intervenções de arte urbana com entrada gratuita em um dos maiores parques de São Paulo.
+        </p>
+
+        <div class="pulso-featured-meta-grid">
+          <div class="pulso-meta-item">
+            <span class="pulso-meta-kicker">Data &amp; Horário</span>
+            <span class="pulso-meta-val">26 de Outubro • 14h às 22h</span>
+          </div>
+          <div class="pulso-meta-item">
+            <span class="pulso-meta-kicker">Localização</span>
+            <span class="pulso-meta-val">Parque Villa-Lobos (Zona Oeste)</span>
+          </div>
+          <div class="pulso-meta-item">
+            <span class="pulso-meta-kicker">Entrada</span>
+            <span class="pulso-meta-val" style="color:var(--accent-red);">Gratuita (Retire no local)</span>
+          </div>
+          <div class="pulso-meta-item">
+            <span class="pulso-meta-kicker">Classificação</span>
+            <span class="pulso-meta-val">Livre para todos os públicos</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="#eventos" class="pulso-btn-primary" onclick="filterByFeatured('Festival Cidade Viva')">
+            Ver Programação Completa
+          </a>
+          <a href="#perto-de-voce" class="pulso-btn-ghost">
+            Como Chegar (Metrô / Trem)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perto de Você (Regions Section) -->
+  <section class="pulso-section" id="perto-de-voce">
+    <div class="pulso-container">
+      
+      <div class="pulso-section-header">
+        <span class="pulso-eyebrow">Explore por Bairro</span>
+        <h2 class="pulso-section-title">Perto de Você</h2>
+        <p class="pulso-section-desc">
+          Selecione a sua região para filtrar automaticamente os eventos mais próximos do seu trajeto.
+        </p>
+      </div>
+
+      <div class="pulso-regions-grid">
+        
+        <div class="pulso-region-card" onclick="selectRegionFilter('Centro')">
+          <span class="pulso-region-icon">🏛️</span>
+          <span class="pulso-region-name">Centro</span>
+          <span class="pulso-region-count">Roosevelt, CCSP, Anhangabaú</span>
+        </div>
+
+        <div class="pulso-region-card" onclick="selectRegionFilter('Zona Oeste')">
+          <span class="pulso-region-icon">🌳</span>
+          <span class="pulso-region-name">Zona Oeste</span>
+          <span class="pulso-region-count">Villa-Lobos, Pinheiros, Sesc Pompeia</span>
+        </div>
+
+        <div class="pulso-region-card" onclick="selectRegionFilter('Zona Sul')">
+          <span class="pulso-region-icon">🎨</span>
+          <span class="pulso-region-name">Zona Sul</span>
+          <span class="pulso-region-count">Ibirapuera, MIS, Santo Amaro</span>
+        </div>
+
+        <div class="pulso-region-card" onclick="selectRegionFilter('Zona Leste')">
+          <span class="pulso-region-icon">🎤</span>
+          <span class="pulso-region-name">Zona Leste</span>
+          <span class="pulso-region-count">Tatuapé, Itaquera, Penha</span>
+        </div>
+
+        <div class="pulso-region-card" onclick="selectRegionFilter('Zona Norte')">
+          <span class="pulso-region-icon">⚡</span>
+          <span class="pulso-region-name">Zona Norte</span>
+          <span class="pulso-region-count">Santana, Juventude, Cantareira</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Envie um Evento Form -->
+  <section class="pulso-section" id="enviar" style="background:#0e0e0e;border-top:1px solid var(--border);">
+    <div class="pulso-container">
+      
+      <div class="pulso-section-header" style="text-align:center;align-items:center;">
+        <span class="pulso-eyebrow">Colaborativo &amp; Aberto</span>
+        <h2 class="pulso-section-title">Envie um Evento</h2>
+        <p class="pulso-section-desc">
+          Está organizando ou conhece um show, sarau, feira ou exposição independente em São Paulo? Cadastre abaixo para aparecer no feed do Pulso SP!
+        </p>
+      </div>
+
+      <div class="pulso-form-wrapper">
+        <form id="event-form" onsubmit="handleEventSubmit(event)" class="pulso-form-grid">
+          
+          <div class="pulso-form-group full">
+            <label class="pulso-form-label" for="form-title">Nome do Evento *</label>
+            <input type="text" id="form-title" class="pulso-form-input" placeholder="Ex: Batalha de Rimas da Roosevelt" required>
+          </div>
+
+          <div class="pulso-form-group">
+            <label class="pulso-form-label" for="form-date">Data e Horário *</label>
+            <input type="text" id="form-date" class="pulso-form-input" placeholder="Ex: 31 de Outubro — 19h" required>
+          </div>
+
+          <div class="pulso-form-group">
+            <label class="pulso-form-label" for="form-venue">Localização *</label>
+            <input type="text" id="form-venue" class="pulso-form-input" placeholder="Ex: Praça Roosevelt, Consolação" required>
+          </div>
+
+          <div class="pulso-form-group">
+            <label class="pulso-form-label" for="form-region">Região de SP *</label>
+            <select id="form-region" class="pulso-form-select" required>
+              <option value="Centro">Centro</option>
+              <option value="Zona Oeste">Zona Oeste</option>
+              <option value="Zona Sul">Zona Sul</option>
+              <option value="Zona Leste">Zona Leste</option>
+              <option value="Zona Norte">Zona Norte</option>
+            </select>
+          </div>
+
+          <div class="pulso-form-group">
+            <label class="pulso-form-label" for="form-category">Categoria *</label>
+            <select id="form-category" class="pulso-form-select" required>
+              <option value="Musica">Música</option>
+              <option value="Exposicoes">Exposições &amp; Arte</option>
+              <option value="Teatro">Teatro</option>
+              <option value="Cinema">Cinema</option>
+              <option value="Cultura Urbana">Cultura Urbana</option>
+              <option value="Tecnologia & Games">Tecnologia &amp; Games</option>
+            </select>
+          </div>
+
+          <div class="pulso-form-group">
+            <label class="pulso-form-label" for="form-price">Preço / Entrada *</label>
+            <input type="text" id="form-price" class="pulso-form-input" placeholder="Ex: Entrada Gratuita ou R$ 15" required>
+          </div>
+
+          <div class="pulso-form-group">
+            <label class="pulso-form-label" for="form-rating">Classificação Indicativa *</label>
+            <select id="form-rating" class="pulso-form-select" required>
+              <option value="Livre">Livre</option>
+              <option value="12+">12+</option>
+              <option value="14+">14+</option>
+              <option value="16+">16+</option>
+              <option value="18+">18+</option>
+            </select>
+          </div>
+
+          <div class="pulso-form-group full">
+            <label class="pulso-form-label" for="form-img">Link da Foto / Cartaz (Opcional)</label>
+            <input type="url" id="form-img" class="pulso-form-input" placeholder="https://exemplo.com/cartaz.jpg (deixe vazio para imagem temática)">
+          </div>
+
+          <div class="pulso-form-group full">
+            <label class="pulso-form-label" for="form-desc">Breve Descrição *</label>
+            <textarea id="form-desc" rows="3" class="pulso-form-textarea" placeholder="Resuma em poucas palavras o que vai rolar..." required></textarea>
+          </div>
+
+          <button type="submit" class="pulso-form-btn">
+            Publicar Evento no Pulso SP
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Toast Alert -->
+  <div class="pulso-toast" id="pulso-toast">
+    <span style="font-size:18px;">✅</span>
+    <span id="toast-msg">Evento cadastrado com sucesso! Já está visível na lista.</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="pulso-footer">
+    <div class="pulso-container">
+      
+      <div class="pulso-footer-grid">
+        <div class="pulso-footer-brand">
+          <div class="pulso-brand">
+            <div class="pulso-logo-icon"></div>
+            <span class="pulso-logo-text">PULSO SP</span>
+          </div>
+          <p class="pulso-footer-desc">
+            O Pulso SP é uma plataforma digital criada para democratizar o acesso à cultura jovem em São Paulo, reunindo iniciativas culturais gratuitas e acessíveis em um só lugar.
+          </p>
+          <div style="font-size:13px;color:var(--accent-red);font-weight:600;">
+            “A cidade acontece. Você só precisa encontrá-la.”
+          </div>
+        </div>
+
+        <div class="pulso-footer-col">
+          <span class="pulso-footer-col-title">Navegação</span>
+          <div class="pulso-footer-links">
+            <a href="#eventos">Eventos Ativos</a>
+            <a href="#destaque">Destaque da Semana</a>
+            <a href="#perto-de-voce">Mapa por Regiões</a>
+            <a href="#enviar">Cadastrar Novo Evento</a>
+          </div>
+        </div>
+
+        <div class="pulso-footer-col">
+          <span class="pulso-footer-col-title">Desenvolvimento</span>
+          <div class="pulso-footer-links">
+            <a href="design-system.html" style="color:var(--accent-red);font-weight:600;">📐 Design System Catalog</a>
+            <a href="https://github.com/carlos2511760-blip/RossetiSite" target="_blank">Repositório GitHub</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Contato da Curadoria</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pulso-footer-bottom">
+        <span>© 2026 PULSO SP • Plataforma Cultural Aberta de São Paulo</span>
+        <span>Feito com tipografia e cinética de design contemporâneo</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script de Interatividade e Filtros -->
+  <script>
+    // Banco Inicial de Eventos Culturais de São Paulo
+    const INITIAL_EVENTS = [
+      {
+        id: 1,
+        title: "Festival Cidade Viva",
+        date: "26 de outubro — 16h",
+        venue: "Parque Villa-Lobos (Palco Central)",
+        region: "Zona Oeste",
+        category: "Musica",
+        price: "Entrada Gratuita",
+        isFree: true,
+        rating: "Livre",
+        img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80",
+        desc: "Grande festival ao ar livre com bandas de indie rock, MPB contemporânea, feira de artesanais e gastronomia de rua."
+      },
+      {
+        id: 2,
+        title: "Noite de Jazz & Soul na Roosevelt",
+        date: "27 de outubro — 19h30",
+        venue: "Praça Franklin Roosevelt",
+        region: "Centro",
+        category: "Musica",
+        price: "Entrada Gratuita",
+        isFree: true,
+        rating: "Livre",
+        img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=800&q=80",
+        desc: "Apresentações instrumentais ao vivo no coração cultural do Centro com improvisações e clássicos do jazz urbano."
+      },
+      {
+        id: 3,
+        title: "Mostra Cinema Marginal SP",
+        date: "28 de outubro — 18h30",
+        venue: "Centro Cultural São Paulo (CCSP)",
+        region: "Centro",
+        category: "Cinema",
+        price: "Entrada Gratuita",
+        isFree: true,
+        rating: "14+",
+        img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
+        desc: "Sessões comentadas de clássicos e produções underground paulistanas que marcaram a vanguarda cinematográfica."
+      },
+      {
+        id: 4,
+        title: "Batalha da Leste & Arte Urbana",
+        date: "29 de outubro — 17h",
+        venue: "Praça Silvio Romero, Tatuapé",
+        region: "Zona Leste",
+        category: "Cultura Urbana",
+        price: "Entrada Gratuita",
+        isFree: true,
+        rating: "12+",
+        img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+        desc: "Duelo de rimas com MCs da região metropolitana, live painting de grafite ao vivo e discotecagem com DJs de hip-hop."
+      },
+      {
+        id: 5,
+        title: "Imersões: Arte & Luz Digital",
+        date: "30 de outubro — 11h às 20h",
+        venue: "MIS - Museu da Imagem e do Som",
+        region: "Zona Sul",
+        category: "Exposicoes",
+        price: "R$ 15 (Meia Grátis)",
+        isFree: false,
+        rating: "Livre",
+        img: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=800&q=80",
+        desc: "Instalações audiovisuais interativas com projeções generativas, sensores de movimento e paisagens sonoras imersivas."
+      },
+      {
+        id: 6,
+        title: "Indie Game Jam SP & Mostra Tech",
+        date: "01 de novembro — 14h às 21h",
+        venue: "Galeria Olido, República",
+        region: "Centro",
+        category: "Tecnologia & Games",
+        price: "Entrada Gratuita",
+        isFree: true,
+        rating: "10+",
+        img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
+        desc: "Experimentação de jogos independentes produzidos por estúdios paulistanos, bate-papos de desenvolvimento e fliperamas retrô."
+      },
+      {
+        id: 7,
+        title: "Espetáculo Rua Sem Saída",
+        date: "02 de novembro — 20h",
+        venue: "Teatro de Arena Eugênio Kusnet",
+        region: "Centro",
+        category: "Teatro",
+        price: "R$ 20 (Estudante R$ 10)",
+        isFree: false,
+        rating: "16+",
+        img: "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=800&q=80",
+        desc: "Dramaturgia contemporânea e impactante que retrata o cotidiano, conflitos e a velocidade das metrópoles modernas."
+      },
+      {
+        id: 8,
+        title: "Sarau da Cantareira e Cordel",
+        date: "03 de novembro — 16h",
+        venue: "Parque da Juventude (Zona Norte)",
+        region: "Zona Norte",
+        category: "Cultura Urbana",
+        price: "Entrada Gratuita",
+        isFree: true,
+        rating: "Livre",
+        img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80",
+        desc: "Microfone aberto para poetas e declamadores com distribuição de livretos de cordel e oficinas de xilogravura."
+      }
+    ];
+
+    // Carregar eventos salvos no localStorage ou iniciar com os padrão
+    function getStoredEvents() {
+      const stored = localStorage.getItem('pulso_sp_events');
+      if (stored) {
+        try { return JSON.parse(stored); } catch(e) {}
+      }
+      return INITIAL_EVENTS;
+    }
+
+    let allEvents = getStoredEvents();
+    let currentCategory = 'all';
+    let currentRegion = 'all';
+    let currentSearch = '';
+
+    // Renderizar cards no grid
+    function renderEvents() {
+      const grid = document.getElementById('events-grid');
+      const counter = document.getElementById('results-count');
+
+      const filtered = allEvents.filter(ev => {
+        // Categoria
+        if (currentCategory === 'gratis' && !ev.isFree) return false;
+        if (currentCategory !== 'all' && currentCategory !== 'gratis' && ev.category !== currentCategory) return false;
+        // Região
+        if (currentRegion !== 'all' && ev.region !== currentRegion) return false;
+        // Busca textual
+        if (currentSearch.trim() !== '') {
+          const q = currentSearch.toLowerCase();
+          const matchTitle = ev.title.toLowerCase().includes(q);
+          const matchVenue = ev.venue.toLowerCase().includes(q);
+          const matchDesc = ev.desc.toLowerCase().includes(q);
+          if (!matchTitle && !matchVenue && !matchDesc) return false;
+        }
+        return true;
+      });
+
+      counter.textContent = `Exibindo ${filtered.length} evento${filtered.length === 1 ? '' : 's'}`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 64px 20px; background: var(--bg-card); border: 1px dashed var(--border); border-radius: 8px;">
+            <p style="font-size: 20px; color: #fff; margin-bottom: 8px;">Nenhum evento encontrado para os filtros selecionados.</p>
+            <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 16px;">Tente alterar a categoria, região ou termo de busca.</p>
+            <button onclick="resetFilters()" class="pulso-pill active" style="margin: 0 auto;">Limpar Filtros</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(ev => `
+        <article class="pulso-card">
+          <div class="pulso-card-media">
+            <img src="${ev.img}" alt="${ev.title}" class="pulso-card-img" loading="lazy">
+            <div class="pulso-card-badges">
+              <span class="pulso-badge-price ${ev.isFree ? '' : 'paid'}">${ev.price}</span>
+              <span class="pulso-badge-cat">${formatCategoryName(ev.category)}</span>
+            </div>
+            <span class="pulso-badge-rating">${ev.rating}</span>
+          </div>
+          <div class="pulso-card-body">
+            <div class="pulso-card-meta">
+              <span>📅 ${ev.date}</span>
+            </div>
+            <h3 class="pulso-card-title">${ev.title}</h3>
+            <div class="pulso-card-venue">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>${ev.venue}</span>
+            </div>
+            <p class="pulso-card-desc">${ev.desc}</p>
+            <div class="pulso-card-footer">
+              <span class="pulso-card-region">📍 ${ev.region}</span>
+              <a href="#destaque" class="pulso-card-btn" onclick="alert('Evento: ${ev.title}\\nLocal: ${ev.venue}\\nHorário: ${ev.date}\\nPreço: ${ev.price}')">
+                Detalhes &rarr;
+              </a>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function formatCategoryName(cat) {
+      const map = {
+        'Musica': 'Música',
+        'Exposicoes': 'Exposição',
+        'Teatro': 'Teatro',
+        'Cinema': 'Cinema',
+        'Cultura Urbana': 'Urbana',
+        'Tecnologia & Games': 'Tech & Games'
+      };
+      return map[cat] || cat;
+    }
+
+    // Configurar listeners de Categoria
+    document.querySelectorAll('#category-pills .pulso-pill').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#category-pills .pulso-pill').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentCategory = this.getAttribute('data-cat');
+        renderEvents();
+      });
+    });
+
+    // Configurar listeners de Região
+    document.querySelectorAll('#region-pills .pulso-pill').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#region-pills .pulso-pill').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentRegion = this.getAttribute('data-region');
+        renderEvents();
+      });
+    });
+
+    // Busca
+    document.getElementById('event-search').addEventListener('input', function(e) {
+      currentSearch = e.target.value;
+      renderEvents();
+    });
+
+    // Filtro a partir da seção "Perto de Você"
+    function selectRegionFilter(regionName) {
+      currentRegion = regionName;
+      // Atualizar botões
+      document.querySelectorAll('#region-pills .pulso-pill').forEach(b => {
+        if (b.getAttribute('data-region') === regionName) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      // Scroll suave para eventos
+      document.getElementById('eventos').scrollIntoView({ behavior: 'smooth' });
+      renderEvents();
+    }
+
+    function filterByFeatured(titleName) {
+      document.getElementById('event-search').value = titleName;
+      currentSearch = titleName;
+      document.getElementById('eventos').scrollIntoView({ behavior: 'smooth' });
+      renderEvents();
+    }
+
+    function resetFilters() {
+      currentCategory = 'all';
+      currentRegion = 'all';
+      currentSearch = '';
+      document.getElementById('event-search').value = '';
+      document.querySelectorAll('#category-pills .pulso-pill').forEach((b, i) => i === 0 ? b.classList.add('active') : b.classList.remove('active'));
+      document.querySelectorAll('#region-pills .pulso-pill').forEach((b, i) => i === 0 ? b.classList.add('active') : b.classList.remove('active'));
+      renderEvents();
+    }
+
+    // Formulário de Cadastro de Eventos (Salva em localStorage e atualiza lista)
+    function handleEventSubmit(e) {
+      e.preventDefault();
+      
+      const title = document.getElementById('form-title').value.trim();
+      const date = document.getElementById('form-date').value.trim();
+      const venue = document.getElementById('form-venue').value.trim();
+      const region = document.getElementById('form-region').value;
+      const category = document.getElementById('form-category').value;
+      const price = document.getElementById('form-price').value.trim();
+      const rating = document.getElementById('form-rating').value;
+      let img = document.getElementById('form-img').value.trim();
+      const desc = document.getElementById('form-desc').value.trim();
+
+      // Imagem padrão caso o usuário não informe
+      if (!img) {
+        const fallbacks = {
+          'Musica': 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80',
+          'Exposicoes': 'https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=800&q=80',
+          'Teatro': 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=800&q=80',
+          'Cinema': 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80',
+          'Cultura Urbana': 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80',
+          'Tecnologia & Games': 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80'
+        };
+        img = fallbacks[category] || fallbacks['Musica'];
+      }
+
+      const isFree = /gr[aá]tis|gratuito|0/i.test(price);
+
+      const newEvent = {
+        id: Date.now(),
+        title,
+        date,
+        venue,
+        region,
+        category,
+        price,
+        isFree,
+        rating,
+        img,
+        desc
+      };
+
+      // Adicionar no início da lista
+      allEvents.unshift(newEvent);
+      localStorage.setItem('pulso_sp_events', JSON.stringify(allEvents));
+
+      // Resetar formulário
+      document.getElementById('event-form').reset();
+
+      // Mostrar toast
+      const toast = document.getElementById('pulso-toast');
+      document.getElementById('toast-msg').textContent = `Evento "${title}" cadastrado e adicionado ao feed!`;
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 4000);
+
+      // Resetar filtros e renderizar
+      resetFilters();
+
+      // Rolar suavemente para a lista
+      document.getElementById('eventos').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Render inicial
+    renderEvents();
+  </script>
+
 </body>
 </html>

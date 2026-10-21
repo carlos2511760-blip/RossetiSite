@@ -42,6 +42,24 @@ export function initSmoothScroll() {
     });
   }
 
+  // Bind header frosted glass on scroll to prevent text collisions
+  const siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    const checkHeaderScroll = (y) => {
+      if (y > 50) {
+        siteHeader.classList.add('is-scrolled');
+      } else {
+        siteHeader.classList.remove('is-scrolled');
+      }
+    };
+
+    if (lenis) {
+      lenis.on('scroll', ({ scroll }) => checkHeaderScroll(scroll));
+    } else {
+      window.addEventListener('scroll', () => checkHeaderScroll(window.scrollY), { passive: true });
+    }
+  }
+
   return lenis;
 }
 

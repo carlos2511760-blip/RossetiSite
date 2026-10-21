@@ -30,9 +30,9 @@
   </div>
 
   <!-- ============================================================== -->
-  <!-- 0. PRELOADER CURTAIN (0 to 100 Numerical Counter)              -->
+  <!-- 0. PRELOADER CURTAIN (0 to 100 Counter)                        -->
   <!-- ============================================================== -->
-  <aside class="preloader-curtain" aria-label="Carregando Pulso SP">
+  <aside class="preloader-curtain" aria-label="Carregando experiência">
     <div class="preloader-header">
       <span>Pulso SP &bull; Agenda Cultural Aberta</span>
       <span>São Paulo &bull; 2026</span>
@@ -47,7 +47,7 @@
   <!-- 1. FIXED HEADER (mix-blend-mode: difference)                  -->
   <!-- ============================================================== -->
   <header class="site-header">
-    <a href="#hero" class="header-brand-link" aria-label="Ir para o topo de Pulso SP">
+    <a href="#hero" class="header-back-link" aria-label="Ir para o topo de Pulso SP">
       <span class="pulse-dot" aria-hidden="true"></span>
       <span>PULSO SP</span>
     </a>
@@ -64,196 +64,185 @@
   <nav class="menu-fullscreen" id="fullscreen-menu" aria-hidden="true">
     <ul class="menu-nav-list">
       <li class="menu-nav-item">
+        <a href="#hero" class="menu-roll-link" data-close-menu>
+          <span class="menu-roll-inner">
+            <span class="menu-roll-text primary">1. Início</span>
+            <span class="menu-roll-text clone" aria-hidden="true">1. Início</span>
+          </span>
+        </a>
+      </li>
+      <li class="menu-nav-item">
         <a href="#eventos" class="menu-roll-link" data-close-menu>
           <span class="menu-roll-inner">
-            <span class="menu-roll-text primary">1. Próximos Eventos</span>
-            <span class="menu-roll-text clone" aria-hidden="true">1. Próximos Eventos</span>
+            <span class="menu-roll-text primary">2. Próximos Eventos</span>
+            <span class="menu-roll-text clone" aria-hidden="true">2. Próximos Eventos</span>
           </span>
         </a>
       </li>
       <li class="menu-nav-item">
         <a href="#categorias" class="menu-roll-link" data-close-menu>
           <span class="menu-roll-inner">
-            <span class="menu-roll-text primary">2. Categorias</span>
-            <span class="menu-roll-text clone" aria-hidden="true">2. Categorias</span>
+            <span class="menu-roll-text primary">3. Categorias</span>
+            <span class="menu-roll-text clone" aria-hidden="true">3. Categorias</span>
           </span>
         </a>
       </li>
       <li class="menu-nav-item">
         <a href="#destaque" class="menu-roll-link" data-close-menu>
           <span class="menu-roll-inner">
-            <span class="menu-roll-text primary">3. Destaque da Semana</span>
-            <span class="menu-roll-text clone" aria-hidden="true">3. Destaque da Semana</span>
+            <span class="menu-roll-text primary">4. Evento da Semana</span>
+            <span class="menu-roll-text clone" aria-hidden="true">4. Evento da Semana</span>
           </span>
         </a>
       </li>
       <li class="menu-nav-item">
         <a href="#regioes" class="menu-roll-link" data-close-menu>
           <span class="menu-roll-inner">
-            <span class="menu-roll-text primary">4. Perto de Você</span>
-            <span class="menu-roll-text clone" aria-hidden="true">4. Perto de Você</span>
+            <span class="menu-roll-text primary">5. Perto de Você</span>
+            <span class="menu-roll-text clone" aria-hidden="true">5. Perto de Você</span>
           </span>
         </a>
       </li>
       <li class="menu-nav-item">
         <a href="#enviar" class="menu-roll-link" data-close-menu>
           <span class="menu-roll-inner">
-            <span class="menu-roll-text primary">5. Envie um Evento</span>
-            <span class="menu-roll-text clone" aria-hidden="true">5. Envie um Evento</span>
+            <span class="menu-roll-text primary">6. Envie um Evento</span>
+            <span class="menu-roll-text clone" aria-hidden="true">6. Envie um Evento</span>
           </span>
         </a>
       </li>
     </ul>
 
     <div class="menu-footer-content">
-      <div class="menu-lang-switch" role="group" aria-label="Cidade ativa">
-        <button class="menu-lang-btn is-active" aria-pressed="true">SÃO PAULO</button>
-      </div>
-
-      <div class="menu-contact-info">
-        <span class="menu-meta-label">Divulgue sua iniciativa cultural</span>
-        <a href="#enviar" class="menu-email-link" data-close-menu>Cadastrar evento gratuito &rarr;</a>
-      </div>
-
       <div class="menu-social-links">
         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">Comunidade</a>
+        <a href="mailto:contato@pulsosp.com.br">Contato</a>
+      </div>
+
+      <div class="menu-lang-selector" aria-label="Cidade ativa">
+        <span class="menu-lang-btn is-active">SÃO PAULO</span>
       </div>
     </div>
   </nav>
 
   <!-- ============================================================== -->
-  <!-- MAIN CONTENT CONTAINER                                         -->
+  <!-- 3. HERO SECTION (Exato Posicionamento e Proporções do Commit)   -->
   <!-- ============================================================== -->
-  <main id="main-content">
-
-    <!-- 2.2 HERO SECTION (Capa com Tipografia Monumental e Imagem de Show) -->
+  <main>
     <section class="hero-section" id="hero">
-      <div class="hero-title-container">
-        <div class="hero-title-mask">
-          <h1 class="hero-title-word">PULSO</h1>
+      <div class="hero-header-box">
+        <div class="hero-title-container">
+          <h1 class="hero-title" aria-label="PULSO SP">
+            <span class="hero-title-mask"><span class="hero-title-word">PULSO</span></span>
+            <span class="hero-title-mask"><span class="hero-title-word">SP</span></span>
+          </h1>
         </div>
-        <div class="hero-title-mask">
-          <h1 class="hero-title-word hero-title-word-alt">SP</h1>
+
+        <div class="hero-meta-strip">
+          <span>A cidade acontece. Você só precisa encontrá-la.</span>
+          <span>Música, arte e cultura perto de você &bull; 2026</span>
+          <a href="#eventos" class="site-visit-link" style="color: inherit; text-decoration: none;">Explorar eventos &darr;</a>
         </div>
       </div>
 
-      <!-- Hero Velocity Reactive Marquee -->
-      <div class="marquee-block hero-marquee" data-base-speed="1.4" data-reverse="false" aria-hidden="true">
-        <div class="marquee-track">
-          <span class="marquee-item">Shows Ao Vivo &mdash; Exposições Gratuitas &mdash; Festivais de Rua &mdash; Cultura Urbana &mdash; Cinema na Praça &mdash; Batalhas de Rima &mdash; Tecnologia &amp; Games &mdash; Entrada Franca &mdash; São Paulo &mdash;&nbsp;</span>
+      <!-- Infinite Horizontal Outline Marquee (Scroll-Velocity Reactive) -->
+      <div class="hero-marquee-wrap">
+        <div class="marquee-block" data-base-speed="1.4" data-reverse="false">
+          <div class="marquee-track">
+            <span class="marquee-item">Shows Ao Vivo &bull;</span>
+            <span class="marquee-item">Exposições Gratuitas &bull;</span>
+            <span class="marquee-item">Festivais de Rua &bull;</span>
+            <span class="marquee-item">Cultura Urbana &bull;</span>
+            <span class="marquee-item">Cinema na Praça &bull;</span>
+            <span class="marquee-item">Batalhas de Rima &bull;</span>
+            <span class="marquee-item">Tecnologia &amp; Games &bull;</span>
+            <span class="marquee-item">Entrada Franca &bull;</span>
+          </div>
         </div>
       </div>
 
-      <!-- Hero Slogan & Subtitle Strip -->
-      <div class="hero-meta-strip">
-        <div class="hero-meta-col">
-          <span class="meta-label">Slogan</span>
-          <span class="meta-val">A cidade acontece. Você só precisa encontrá-la.</span>
-        </div>
-        <div class="hero-meta-col">
-          <span class="meta-label">Manifesto</span>
-          <span class="meta-val">Música, arte e cultura acontecendo perto de você.</span>
-        </div>
-        <div class="hero-meta-col">
-          <a href="#eventos" class="site-visit-link" data-cursor="Explorar">
-            <span>Explorar eventos</span>
-            <span class="arrow-wrap" aria-hidden="true">&darr;</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Full-bleed Hero Cover Image with Parallax -->
+      <!-- Fullscreen Cover Image with Parallax & Scroll Indicator (100vw × 100vh) -->
       <div class="hero-cover-wrapper" data-cursor="Explorar">
-        <img
+        <img 
+          src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=2400&q=85" 
+          alt="Fotografia cinematográfica impactante de um show em São Paulo" 
           class="hero-cover-img"
-          src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=2400&q=85"
-          alt="Fotografia impactante de um show de música ao vivo com iluminação cênica em São Paulo"
           width="2400"
           height="1350"
-          loading="eager"
-          decoding="async"
         >
         <div class="hero-scroll-indicator" aria-hidden="true">
-          <span class="scroll-text">Scroll</span>
-          <svg class="scroll-arrow" viewBox="0 0 14 14" fill="none">
-            <path d="M7 1v12M1 7l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <span>Scroll</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
       </div>
     </section>
 
-    <!-- 2.3 OVERVIEW SECTION (O Problema Real que o Pulso SP Resolve) -->
+    <!-- ============================================================== -->
+    <!-- 4. OVERVIEW SECTION (O Problema Real que o Pulso SP Resolve)   -->
+    <!-- ============================================================== -->
     <section class="overview-section" id="overview">
-      <div class="section-divider hairline-draw"></div>
-
-      <div class="overview-grid">
-        <div class="overview-left">
-          <span class="meta-tag">01 / Propósito</span>
+      <div class="overview-grid-top">
+        <div class="overview-label-col">
+          <span class="editorial-label">01 / Propósito</span>
         </div>
-        <div class="overview-right">
-          <div class="line-mask-container">
-            <p class="overview-lead line-mask-inner">
-              Existem centenas de eventos culturais vibrantes em São Paulo todos os fins de semana, mas as informações continuam espalhadas em redes sociais, sites institucionais e páginas dispersas.
-            </p>
-          </div>
-          <div class="line-mask-container">
-            <p class="overview-lead line-mask-inner">
-              O <strong>Pulso SP</strong> facilita o acesso dos jovens à cultura reunindo eventos gratuitos e de baixo custo em uma plataforma visual, simples e radicalmente organizada.
-            </p>
-          </div>
+
+        <div class="overview-text-col line-mask-container">
+          <p class="overview-paragraph line-mask-inner">
+            Existem centenas de eventos culturais vibrantes em São Paulo todos os fins de semana, mas as informações continuam espalhadas em redes sociais, sites institucionais e páginas dispersas.
+          </p>
+          <p class="overview-paragraph line-mask-inner" style="margin-top: 1.2em;">
+            O <strong>Pulso SP</strong> facilita o acesso dos jovens à cultura reunindo eventos gratuitos e de baixo custo em uma plataforma visual, simples e radicalmente organizada.
+          </p>
         </div>
       </div>
 
-      <div class="overview-meta-columns">
-        <div class="meta-column-card">
-          <span class="column-label">Acesso Democrático</span>
-          <div class="column-hairline hairline-draw"></div>
-          <ul class="meta-card-list">
+      <div class="hairline-draw"></div>
+
+      <div class="overview-meta-grid">
+        <div class="meta-column">
+          <span class="meta-header-title">Acesso Democrático</span>
+          <ul class="meta-content-list">
             <li>100% focado em eventos gratuitos ou de baixo custo</li>
-            <li>Sem paywall ou taxas abusivas</li>
-            <li>Incentivo direto a artistas e coletivos locais</li>
+            <li>Shows independentes e mostras de rua</li>
+            <li>Sem paywalls ou barreiras de acesso</li>
           </ul>
         </div>
 
-        <div class="meta-column-card">
-          <span class="column-label">Cobertura Territorial</span>
-          <div class="column-hairline hairline-draw"></div>
-          <ul class="meta-card-list">
+        <div class="meta-column">
+          <span class="meta-header-title">Cobertura Territorial</span>
+          <ul class="meta-content-list">
             <li>Centro Histórico e Ocupações</li>
             <li>Zona Norte &bull; Zona Sul</li>
             <li>Zona Leste &bull; Zona Oeste</li>
           </ul>
         </div>
 
-        <div class="meta-column-card">
-          <span class="column-label">Colaborativo</span>
-          <div class="column-hairline hairline-draw"></div>
-          <a
-            href="#enviar"
-            class="site-visit-link"
-            data-cursor="Divulgar"
-            aria-label="Cadastrar evento gratuitamente"
-          >
+        <div class="meta-column">
+          <span class="meta-header-title">Comunidade Ativa</span>
+          <a href="#enviar" class="visit-site-btn" data-cursor="Divulgar">
             <span>Divulgar meu evento</span>
-            <span class="arrow-wrap" aria-hidden="true">&nearr;</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 1v2h5.59L1 12.59 2.41 14 12 4.41V10h2V1H5z"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- 2.4 PRÓXIMOS EVENTOS SECTION & FILTROS FUNCIONAIS -->
+    <!-- ============================================================== -->
+    <!-- 5. PRÓXIMOS EVENTOS (Exatas 5 Composições Monumentais)         -->
+    <!-- ============================================================== -->
     <section class="gallery-section" id="eventos">
 
       <!-- Barra de Filtros Funcionais -->
       <div class="filter-control-strip">
         <div class="filter-header-row">
-          <span class="filter-label">Filtrar por Categoria e Preço</span>
+          <span class="filter-header-label">Filtrar Eventos por Categoria e Preço</span>
           <span class="filter-result-count" id="filter-result-count">8 eventos encontrados</span>
         </div>
 
-        <div class="filter-pills-row" role="group" aria-label="Filtros principais de eventos">
+        <div class="filter-pills-row" role="group" aria-label="Filtros de eventos">
           <button class="filter-pill is-active" data-filter="all">Todos</button>
           <button class="filter-pill badge-gratis" data-filter="gratis">Entrada Gratuita ⚡</button>
           <button class="filter-pill" data-filter="musica">Música</button>
@@ -264,8 +253,8 @@
           <button class="filter-pill" data-filter="cultura-urbana">Cultura Urbana</button>
         </div>
 
-        <div class="region-filters-wrapper" role="group" aria-label="Filtro de regiões">
-          <span class="region-label">Região:</span>
+        <div class="region-filter-wrapper" role="group" aria-label="Filtro de regiões">
+          <span class="region-filter-label">Região:</span>
           <button class="region-pill is-active" data-region="all">Todas as Regiões</button>
           <button class="region-pill" data-region="centro">Centro</button>
           <button class="region-pill" data-region="norte">Zona Norte</button>
@@ -275,31 +264,28 @@
         </div>
       </div>
 
-      <!-- Container Dinâmico dos Cards de Eventos (Composições Variadas do Site Original) -->
-      <div id="events-gallery-grid" class="events-main-gallery">
-
-        <!-- Composição 1: Landscape Full-width -->
-        <article
-          class="gallery-card block-fullwidth event-card-item"
-          data-category="musica"
-          data-price="gratuito"
-          data-region="oeste"
-          data-cursor="Ver Evento"
-        >
-          <div class="reveal-clip">
-            <img
-              class="parallax-img"
-              src="assets/pulso/festival-sp.webp"
-              alt="Festival Cidade Viva no Parque Villa-Lobos"
-              width="2200"
-              height="1240"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
+      <!-- Comp 1: Landscape Full-width (100vw × 85vh) -->
+      <article
+        class="gallery-card comp-fullwidth event-card-item"
+        data-category="musica"
+        data-price="gratuito"
+        data-region="oeste"
+        data-cursor="Ver Evento"
+      >
+        <div class="reveal-clip">
+          <img 
+            src="assets/pulso/festival-sp.webp" 
+            alt="Festival Cidade Viva no Parque Villa-Lobos" 
+            class="parallax-img"
+            width="2400"
+            height="1400"
+            loading="lazy"
+          >
+        </div>
+        <div class="gallery-container">
           <div class="card-event-badge-strip">
             <span class="badge-tag badge-category">Música</span>
-            <span class="badge-tag badge-price is-free">Entrada gratuita</span>
+            <span class="badge-tag badge-price is-free">Entrada Gratuita</span>
             <span class="badge-tag badge-region">Zona Oeste</span>
           </div>
           <div class="card-event-info">
@@ -311,26 +297,27 @@
               Dois palcos com artistas independentes da MPB contemporânea, feira de artes gráficas e food trucks no gramado principal.
             </p>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <!-- Composição 2: Dois Tablets Assimétricos Lado a Lado -->
-        <div class="gallery-row-asymmetric">
+      <!-- Comp 2: Dual Asymmetric Tablets (Com queda vertical de 140px) -->
+      <div class="gallery-container">
+        <div class="comp-dual-tablets">
           <article
-            class="gallery-card card-tablet card-tablet-offset event-card-item"
+            class="gallery-card tablet-card-1 event-card-item"
             data-category="cinema"
             data-price="gratuito"
             data-region="centro"
             data-cursor="Ver Evento"
           >
             <div class="reveal-clip">
-              <img
+              <img 
+                src="assets/pulso/cinema-performance.webp" 
+                alt="Mostra de Cinema na Praça Roosevelt" 
                 class="parallax-img"
-                src="assets/pulso/cinema-performance.webp"
-                alt="Mostra de Cinema na Praça Roosevelt"
                 width="1200"
-                height="1500"
+                height="900"
                 loading="lazy"
-                decoding="async"
               >
             </div>
             <div class="card-event-badge-strip">
@@ -350,26 +337,25 @@
           </article>
 
           <article
-            class="gallery-card card-tablet event-card-item"
+            class="gallery-card tablet-card-2 event-card-item"
             data-category="exposicoes"
             data-price="pago"
             data-region="oeste"
             data-cursor="Ver Evento"
           >
             <div class="reveal-clip">
-              <img
+              <img 
+                src="assets/pulso/arte-imersiva.webp" 
+                alt="Exposição Futuros Ancestrais no MIS Experience" 
                 class="parallax-img"
-                src="assets/pulso/arte-imersiva.webp"
-                alt="Exposição Futuros Ancestrais no MIS Experience"
                 width="1200"
-                height="1500"
+                height="900"
                 loading="lazy"
-                decoding="async"
               >
             </div>
             <div class="card-event-badge-strip">
               <span class="badge-tag badge-category">Exposições</span>
-              <span class="badge-tag badge-price">R$ 10 (Grátis às Terças)</span>
+              <span class="badge-tag badge-price">R$ 10 (Grátis Terças)</span>
               <span class="badge-tag badge-region">Zona Oeste</span>
             </div>
             <div class="card-event-info">
@@ -383,32 +369,39 @@
             </div>
           </article>
         </div>
+      </div>
 
-        <!-- Marquee Reverso Intermediário -->
-        <div class="marquee-block gallery-marquee" data-base-speed="1.2" data-reverse="true" aria-hidden="true">
+      <!-- Mid-gallery Giant Phrase Marquee (100vw Preto Imersivo) -->
+      <aside class="mid-gallery-marquee-wrap" aria-hidden="true">
+        <div class="marquee-block" data-base-speed="1.2" data-reverse="true">
           <div class="marquee-track">
-            <span class="marquee-item">CULTURA URBANA &mdash; OCUPA SÃO PAULO &mdash; ARTE LIVRE &mdash; FESTIVAIS GRATUITOS &mdash; MÚSICA &amp; RUA &mdash;&nbsp;</span>
+            <span class="mid-marquee-item">CULTURA URBANA &bull;</span>
+            <span class="mid-marquee-item">OCUPA SÃO PAULO &bull;</span>
+            <span class="mid-marquee-item">ARTE LIVRE &bull;</span>
+            <span class="mid-marquee-item">FESTIVAIS GRATUITOS &bull;</span>
+            <span class="mid-marquee-item">MÚSICA NA RUA &bull;</span>
           </div>
         </div>
+      </aside>
 
-        <!-- Composição 3: Collage Grid Assimétrico -->
-        <div class="gallery-grid-collage">
+      <!-- Comp 3: Irregular Collage Grid (Span 7 e Span 5) -->
+      <div class="gallery-container">
+        <div class="comp-collage-grid">
           <article
-            class="gallery-card collage-item collage-item-wide event-card-item"
+            class="gallery-card collage-item-main event-card-item"
             data-category="cultura-urbana"
             data-price="gratuito"
             data-region="centro"
             data-cursor="Ver Evento"
           >
             <div class="reveal-clip">
-              <img
+              <img 
+                src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=85" 
+                alt="Batalha do Vale no Vale do Anhangabaú" 
                 class="parallax-img"
-                src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=85"
-                alt="Batalha de MCs e Breakdance no Vale do Anhangabaú"
                 width="1600"
                 height="1000"
                 loading="lazy"
-                decoding="async"
               >
             </div>
             <div class="card-event-badge-strip">
@@ -428,21 +421,20 @@
           </article>
 
           <article
-            class="gallery-card collage-item collage-item-tall event-card-item"
+            class="gallery-card collage-item-sub event-card-item"
             data-category="tecnologia"
             data-price="gratuito"
             data-region="sul"
             data-cursor="Ver Evento"
           >
             <div class="reveal-clip">
-              <img
+              <img 
+                src="assets/pulso/tecnologia-games.webp" 
+                alt="Festival SP Tech & Games Indie no Centro Cultural São Paulo" 
                 class="parallax-img"
-                src="assets/pulso/tecnologia-games.webp"
-                alt="Festival SP Tech & Games Indie no Centro Cultural São Paulo"
-                width="1200"
-                height="1600"
+                width="1000"
+                height="800"
                 loading="lazy"
-                decoding="async"
               >
             </div>
             <div class="card-event-badge-strip">
@@ -451,35 +443,33 @@
               <span class="badge-tag badge-region">Zona Sul</span>
             </div>
             <div class="card-event-info">
-              <h3 class="card-event-title">SP Tech &amp; Indie Games Fest</h3>
+              <h3 class="card-event-title">SP Tech &amp; Games Fest</h3>
               <p class="card-event-meta">
-                <strong>28 de outubro &mdash; 13h às 21h</strong> &bull; CCSP (Vergueiro) &bull; Classificação: Livre
-              </p>
-              <p class="card-event-desc">
-                Playtest de 30 jogos independentes brasileiros, palestras sobre criação de games e oficinas de arte digital.
+                <strong>28 de outubro &mdash; 13h</strong> &bull; CCSP (Vergueiro)
               </p>
             </div>
           </article>
         </div>
+      </div>
 
-        <!-- Composição 4: Três Phones em Linha com Offset Parallax -->
-        <div class="gallery-row-phones">
+      <!-- Comp 4: Triple Phones with Varied Offsets (Cascata de Celulares) -->
+      <div class="gallery-container">
+        <div class="comp-triple-phones">
           <article
-            class="gallery-card card-phone phone-1 event-card-item"
+            class="gallery-card phone-card phone-card-1 event-card-item"
             data-category="teatro"
             data-price="pago"
             data-region="centro"
             data-cursor="Ver Evento"
           >
             <div class="reveal-clip">
-              <img
+              <img 
+                src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=85" 
+                alt="Teatro Popular no Bixiga" 
                 class="parallax-img"
-                src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=85"
-                alt="Apresentação teatral intimista no Bixiga"
                 width="800"
-                height="1420"
+                height="1200"
                 loading="lazy"
-                decoding="async"
               >
             </div>
             <div class="card-event-badge-strip">
@@ -493,21 +483,20 @@
           </article>
 
           <article
-            class="gallery-card card-phone phone-2 event-card-item"
+            class="gallery-card phone-card phone-card-2 event-card-item"
             data-category="exposicoes"
             data-price="gratuito"
             data-region="centro"
             data-cursor="Ver Evento"
           >
             <div class="reveal-clip">
-              <img
+              <img 
+                src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=85" 
+                alt="Feira de publicações independentes e zines" 
                 class="parallax-img"
-                src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=85"
-                alt="Feira de publicações independentes e zines"
                 width="800"
-                height="1420"
+                height="1200"
                 loading="lazy"
-                decoding="async"
               >
             </div>
             <div class="card-event-badge-strip">
@@ -515,27 +504,26 @@
               <span class="badge-tag badge-price is-free">Gratuito</span>
             </div>
             <div class="card-event-info">
-              <h3 class="card-event-title">Feira de Zines &amp; Pôsteres</h3>
+              <h3 class="card-event-title">Feira de Zines</h3>
               <p class="card-event-meta"><strong>29 de outubro — 11h</strong> • Galeria Metrópole</p>
             </div>
           </article>
 
           <article
-            class="gallery-card card-phone phone-3 event-card-item"
+            class="gallery-card phone-card phone-card-3 event-card-item"
             data-category="musica"
             data-price="gratuito"
             data-region="oeste"
             data-cursor="Ver Evento"
           >
             <div class="reveal-clip">
-              <img
+              <img 
+                src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=800&q=85" 
+                alt="Jazz na Escadaria na Vila Madalena" 
                 class="parallax-img"
-                src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=800&q=85"
-                alt="Sessão de jazz ao vivo na calçada"
                 width="800"
-                height="1420"
+                height="1200"
                 loading="lazy"
-                decoding="async"
               >
             </div>
             <div class="card-event-badge-strip">
@@ -548,24 +536,25 @@
             </div>
           </article>
         </div>
+      </div>
 
-        <!-- Composição 5: Contained Landscape com Margens Generosas -->
+      <!-- Comp 5: Landscape with Gutter Margin (800px) -->
+      <div class="gallery-container">
         <article
-          class="gallery-card block-contained event-card-item"
+          class="gallery-card comp-landscape-contained event-card-item"
           data-category="musica"
           data-price="gratuito"
           data-region="sul"
           data-cursor="Ver Evento"
         >
           <div class="reveal-clip">
-            <img
+            <img 
+              src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=2200&q=85" 
+              alt="Concerto ao ar livre no gramado do Parque do Ibirapuera" 
               class="parallax-img"
-              src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=2200&q=85"
-              alt="Concerto ao ar livre no gramado do Parque do Ibirapuera"
               width="2200"
               height="1100"
               loading="lazy"
-              decoding="async"
             >
           </div>
           <div class="card-event-badge-strip">
@@ -576,25 +565,29 @@
           <div class="card-event-info">
             <h3 class="card-event-title">Sinfônica no Ibirapuera: Noite de Cinema</h3>
             <p class="card-event-meta">
-              <strong>30 de outubro &mdash; 18h</strong> &bull; Plateia Externa do Auditório Ibirapuera &bull; Classificação: Livre
+              <strong>30 de outubro &mdash; 18h</strong> &bull; Auditório Ibirapuera ao Ar Livre &bull; Classificação: Livre
             </p>
             <p class="card-event-desc">
               Trilhas sonoras icônicas do cinema executadas ao vivo por 70 músicos sob o céu estrelado de São Paulo.
             </p>
           </div>
         </article>
-
       </div>
+
     </section>
 
-    <!-- 3. CATEGORIAS (Grid Interativo Editorial) -->
+    <!-- ============================================================== -->
+    <!-- 6. CATEGORIAS (Grid Interativo Editorial)                     -->
+    <!-- ============================================================== -->
     <section class="categories-section" id="categorias">
-      <div class="section-divider hairline-draw"></div>
-      <span class="meta-tag">02 / Categorias</span>
-      <h2 class="footer-headline" style="margin-top: 16px;">O que você quer viver hoje?</h2>
+      <div class="hairline-draw"></div>
+      <span class="editorial-label">02 / Categorias</span>
+      <h2 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 6.5rem); margin-top: 20px;">
+        O QUE VOCÊ QUER VIVER HOJE?
+      </h2>
 
       <div class="categories-grid">
-        <a href="#eventos" class="category-card-btn" data-category="musica">
+        <a href="#eventos" class="category-card-btn category-btn" data-category="musica">
           <div>
             <span class="cat-number">01</span>
             <span class="cat-name">Música</span>
@@ -602,7 +595,7 @@
           <span class="cat-arrow" aria-hidden="true">&nearr;</span>
         </a>
 
-        <a href="#eventos" class="category-card-btn" data-category="cinema">
+        <a href="#eventos" class="category-card-btn category-btn" data-category="cinema">
           <div>
             <span class="cat-number">02</span>
             <span class="cat-name">Cinema</span>
@@ -610,7 +603,7 @@
           <span class="cat-arrow" aria-hidden="true">&nearr;</span>
         </a>
 
-        <a href="#eventos" class="category-card-btn" data-category="teatro">
+        <a href="#eventos" class="category-card-btn category-btn" data-category="teatro">
           <div>
             <span class="cat-number">03</span>
             <span class="cat-name">Teatro</span>
@@ -618,7 +611,7 @@
           <span class="cat-arrow" aria-hidden="true">&nearr;</span>
         </a>
 
-        <a href="#eventos" class="category-card-btn" data-category="exposicoes">
+        <a href="#eventos" class="category-card-btn category-btn" data-category="exposicoes">
           <div>
             <span class="cat-number">04</span>
             <span class="cat-name">Exposições</span>
@@ -626,7 +619,7 @@
           <span class="cat-arrow" aria-hidden="true">&nearr;</span>
         </a>
 
-        <a href="#eventos" class="category-card-btn" data-category="cultura-urbana">
+        <a href="#eventos" class="category-card-btn category-btn" data-category="cultura-urbana">
           <div>
             <span class="cat-number">05</span>
             <span class="cat-name">Cultura Urbana</span>
@@ -634,7 +627,7 @@
           <span class="cat-arrow" aria-hidden="true">&nearr;</span>
         </a>
 
-        <a href="#eventos" class="category-card-btn" data-category="tecnologia">
+        <a href="#eventos" class="category-card-btn category-btn" data-category="tecnologia">
           <div>
             <span class="cat-number">06</span>
             <span class="cat-name">Tecnologia</span>
@@ -642,7 +635,7 @@
           <span class="cat-arrow" aria-hidden="true">&nearr;</span>
         </a>
 
-        <a href="#eventos" class="category-card-btn" data-category="tecnologia">
+        <a href="#eventos" class="category-card-btn category-btn" data-category="tecnologia">
           <div>
             <span class="cat-number">07</span>
             <span class="cat-name">Games</span>
@@ -652,7 +645,9 @@
       </div>
     </section>
 
-    <!-- 4. EVENTO EM DESTAQUE (Tela Inteira / Fullscreen Highlight) -->
+    <!-- ============================================================== -->
+    <!-- 7. EVENTO EM DESTAQUE (Tela Inteira / Fullscreen Highlight)     -->
+    <!-- ============================================================== -->
     <section class="featured-week-section" id="destaque" data-cursor="Destaque">
       <img
         class="featured-week-bg"
@@ -661,7 +656,6 @@
         width="2400"
         height="1400"
         loading="lazy"
-        decoding="async"
       >
       <div class="featured-week-scrim"></div>
 
@@ -683,41 +677,45 @@
       </div>
     </section>
 
-    <!-- 5. "PERTO DE VOCÊ" (Lista por Regiões de São Paulo) -->
+    <!-- ============================================================== -->
+    <!-- 8. "PERTO DE VOCÊ" (Lista por Regiões da Capital)              -->
+    <!-- ============================================================== -->
     <section class="regions-section" id="regioes">
-      <div class="section-divider hairline-draw"></div>
-      <span class="meta-tag">04 / Perto de Você</span>
+      <div class="hairline-draw"></div>
+      <span class="editorial-label">04 / Perto de Você</span>
 
       <div class="regions-grid-layout">
         <div class="regions-text-col">
-          <h2 class="footer-headline" style="margin-bottom: 24px;">Explore por Região</h2>
+          <h2 class="hero-title" style="font-size: clamp(2.2rem, 5vw, 5.5rem); margin-bottom: 24px;">
+            EXPLORE POR REGIÃO
+          </h2>
           <p>
             São Paulo é gigantesca, mas a cultura não pode ficar restrita a uma bolha. Escolha sua região e descubra eventos que acontecem no seu bairro ou a poucas estações de metrô de você.
           </p>
         </div>
 
         <div class="regions-buttons-col">
-          <div class="region-row-btn" data-region="centro" onclick="document.querySelector('.region-pill[data-region=centro]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
+          <div class="region-row-btn" onclick="document.querySelector('.region-pill[data-region=centro]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
             <span>01. Centro Histórico</span>
             <span class="region-count-badge">Anhangabaú, Roosevelt, Bixiga &rarr;</span>
           </div>
 
-          <div class="region-row-btn" data-region="norte" onclick="document.querySelector('.region-pill[data-region=norte]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
+          <div class="region-row-btn" onclick="document.querySelector('.region-pill[data-region=norte]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
             <span>02. Zona Norte</span>
             <span class="region-count-badge">Parque da Juventude, Santana &rarr;</span>
           </div>
 
-          <div class="region-row-btn" data-region="sul" onclick="document.querySelector('.region-pill[data-region=sul]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
+          <div class="region-row-btn" onclick="document.querySelector('.region-pill[data-region=sul]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
             <span>03. Zona Sul</span>
             <span class="region-count-badge">CCSP, Ibirapuera, Santo Amaro &rarr;</span>
           </div>
 
-          <div class="region-row-btn" data-region="leste" onclick="document.querySelector('.region-pill[data-region=leste]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
+          <div class="region-row-btn" onclick="document.querySelector('.region-pill[data-region=leste]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
             <span>04. Zona Leste</span>
             <span class="region-count-badge">Sesc Itaquera, Tatuapé, Mooca &rarr;</span>
           </div>
 
-          <div class="region-row-btn" data-region="oeste" onclick="document.querySelector('.region-pill[data-region=oeste]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
+          <div class="region-row-btn" onclick="document.querySelector('.region-pill[data-region=oeste]').click(); document.getElementById('eventos').scrollIntoView({behavior:'smooth'});">
             <span>05. Zona Oeste</span>
             <span class="region-count-badge">Villa-Lobos, Pinheiros, Vila Madalena &rarr;</span>
           </div>
@@ -725,10 +723,12 @@
       </div>
     </section>
 
-    <!-- 6. ENVIE UM EVENTO (Formulário Simples com LocalStorage) -->
+    <!-- ============================================================== -->
+    <!-- 9. ENVIE UM EVENTO (Formulário com LocalStorage)               -->
+    <!-- ============================================================== -->
     <section class="submit-event-section" id="enviar">
-      <div class="section-divider hairline-draw"></div>
-      <span class="meta-tag">05 / Comunidade Ativa</span>
+      <div class="hairline-draw"></div>
+      <span class="editorial-label">05 / Comunidade Ativa</span>
 
       <div class="submit-form-container">
         <div class="submit-intro-col">
@@ -813,96 +813,65 @@
       </div>
     </section>
 
-    <!-- 2.5 NEXT PROJECT / PORTAL (Interactive Marquee Transition) -->
-    <section
-      class="next-project-section"
-      id="proximo-pulso"
-      data-cursor="Explorar"
-      data-href="#eventos"
-      aria-label="Voltar para a grade de eventos"
-    >
-      <div class="next-project-badge">
-        <span class="next-project-label">Pulso SP &mdash; Viva a Cidade</span>
+    <!-- ============================================================== -->
+    <!-- 10. NEXT PROJECT / PORTAL (Interactive Marquee Transition)     -->
+    <!-- ============================================================== -->
+    <section class="next-project-section" data-cursor="Explorar" data-href="#hero" aria-label="Ir para o próximo destaque">
+      <div class="next-project-label-row">
+        <span class="next-project-kicker">Pulso SP</span>
+        <span>Viva a Cidade</span>
       </div>
 
-      <div class="marquee-block next-project-marquee" data-base-speed="1.8" data-reverse="false" aria-hidden="true">
-        <div class="marquee-track">
-          <span class="marquee-item">PULSO SP &mdash; VIVA A CIDADE &mdash; ENCONTRE SUA CULTURA &mdash; SÃO PAULO &mdash;&nbsp;</span>
+      <div class="next-project-marquee-box">
+        <div class="marquee-block" data-base-speed="2.2" data-reverse="false">
+          <div class="marquee-track">
+            <span class="next-marquee-item">PULSO SP &bull;</span>
+            <span class="next-marquee-item">VIVA A CIDADE &bull;</span>
+            <span class="next-marquee-item">DESCUBRA SÃO PAULO &bull;</span>
+          </div>
         </div>
       </div>
 
-      <div class="next-project-footer">
-        <span>Cultura Aberta &bull; Todos os Cantos da Capital</span>
-        <span class="next-cta">Clique para explorar os eventos &uarr;</span>
+      <div class="next-project-footer-row">
+        <span>Cultura Aberta em Todos os Cantos da Capital</span>
+        <span>Clique para Voltar ao Topo &rarr;</span>
       </div>
     </section>
-
-    <!-- 2.6 FOOTER ("A Cidade Acontece") -->
-    <footer class="footer-section" id="reach-out">
-      <div class="footer-inner">
-        <div class="footer-top">
-          <span class="meta-tag">06 / Conexão</span>
-          <h2 class="footer-headline">Pulso SP</h2>
-          <p style="font-size: clamp(1.2rem, 2.5vw, 2.4rem); color: var(--fg); font-family: var(--font-display); letter-spacing: -0.02em; max-width: 850px; margin-top: 10px;">
-            A cidade acontece. Você só precisa encontrá-la.
-          </p>
-        </div>
-
-        <div class="footer-hairline hairline-draw"></div>
-
-        <div class="footer-middle">
-          <div class="footer-social-group">
-            <span class="footer-group-label">Canais &amp; Comunidade</span>
-            <ul class="social-list">
-              <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
-                  <svg viewBox="0 0 24 24" class="social-icon" aria-hidden="true">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                  <span>Instagram</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link">
-                  <svg viewBox="0 0 24 24" class="social-icon" aria-hidden="true">
-                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                  </svg>
-                  <span>TikTok</span>
-                </a>
-              </li>
-              <li>
-                <a href="mailto:contato@pulsosp.com.br" class="social-link">
-                  <svg viewBox="0 0 24 24" class="social-icon" aria-hidden="true">
-                    <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
-                  </svg>
-                  <span>contato@pulsosp.com.br</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer-location-group">
-            <span class="footer-group-label">Manifesto Aberto</span>
-            <p class="footer-address">
-              São Paulo &bull; Brasil<br>
-              Plataforma independente e comunitária criada para democratizar o acesso à cultura jovem.
-            </p>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <span class="footer-copy">&copy; 2026 Pulso SP &mdash; Todos os direitos culturais reservados aos artistas.</span>
-          <button class="back-to-top-btn" data-scroll-to-top aria-label="Rolar suavemente de volta ao topo">
-            <span>Voltar ao topo</span>
-            <span class="top-arrow" aria-hidden="true">&uarr;</span>
-          </button>
-        </div>
-      </div>
-    </footer>
-
   </main>
 
-  <!-- Fullscreen Portal Transition Curtain -->
+  <!-- ============================================================== -->
+  <!-- 11. FOOTER ("A Cidade Acontece")                              -->
+  <!-- ============================================================== -->
+  <footer class="site-footer" id="reach-out">
+    <div class="footer-top-row">
+      <h2 class="footer-heading">Pulso SP</h2>
+      <a href="mailto:contato@pulsosp.com.br" class="footer-email-link" data-cursor="Contato">
+        contato@pulsosp.com.br
+      </a>
+    </div>
+
+    <div class="footer-social-row">
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" data-cursor="Contato">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <span>Instagram</span>
+      </a>
+
+      <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" data-cursor="Contato">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        <span>TikTok</span>
+      </a>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <span>&copy; 2026 Pulso SP &mdash; A cidade acontece. Você só precisa encontrá-la.</span>
+      <button class="back-to-top-btn" data-scroll-to-top type="button">
+        <span>Voltar ao topo</span>
+        <span aria-hidden="true">&uarr;</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Page Transition Overlay -->
   <div class="page-transition-curtain" aria-hidden="true"></div>
 
   <!-- Toast Notification Feedback -->

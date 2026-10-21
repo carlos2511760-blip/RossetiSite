@@ -1066,43 +1066,40 @@ button {
 
 
 /* ==============================================================================
-   14. PULSO SP — EVENT SYSTEM, FILTERS, REGIONS & FORM STYLES
+   14. PULSO SP — SUPPLEMENTARY STYLES (FILTERS, EVENT BADGES & FORMS)
+   Preserves all existing hero, marquee, gallery dimensions and animations intact.
    ============================================================================== */
 
-/* Brand Header Pulse Dot */
-.header-brand-link {
-  display: flex;
+/* Brand Pulse Indicator in Header */
+.header-brand-wrap {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1rem, 1.4vw, 1.3rem);
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  gap: 10px;
 }
 
 .pulse-dot {
   display: inline-block;
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: var(--accent);
   box-shadow: 0 0 0 0 rgba(233, 15, 21, 0.7);
-  animation: pulsoHeartbeat 1.8s infinite;
+  animation: pulsoBeat 1.8s infinite;
 }
 
-@keyframes pulsoHeartbeat {
+@keyframes pulsoBeat {
   0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(233, 15, 21, 0.7); }
-  70% { transform: scale(1.15); box-shadow: 0 0 0 10px rgba(233, 15, 21, 0); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(233, 15, 21, 0); }
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(233, 15, 21, 0); }
 }
 
-/* Filter Control Strip */
+/* Filter Control Bar (Início da Galeria) */
 .filter-control-strip {
-  margin: clamp(24px, 4vw, 50px) 0 clamp(40px, 6vw, 70px);
+  padding: 0 var(--gutter);
+  margin-bottom: clamp(32px, 5vh, 64px);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .filter-header-row {
@@ -1113,23 +1110,26 @@ button {
   gap: 12px;
 }
 
-.filter-label {
+.filter-header-label {
+  font-family: var(--font-display);
   font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--muted);
-  font-weight: 600;
 }
 
 .filter-result-count {
+  font-family: var(--font-display);
   font-size: 12px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--accent);
-  font-weight: 500;
 }
 
-.filter-pills-row {
+.filter-pills-row,
+.region-pills-row {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -1137,7 +1137,7 @@ button {
 
 .filter-pill,
 .region-pill {
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 99px;
   border: 1px solid var(--border);
   background: transparent;
@@ -1159,7 +1159,7 @@ button {
 
 .filter-pill.is-active,
 .region-pill.is-active {
-  background: var(--fg);
+  background-color: var(--fg);
   color: var(--bg);
   border-color: var(--fg);
 }
@@ -1169,29 +1169,30 @@ button {
 }
 
 .filter-pill.badge-gratis.is-active {
-  background: var(--accent);
+  background-color: var(--accent);
   border-color: var(--accent);
   color: #FFFFFF;
 }
 
-/* Region Selector Row */
-.region-filters-wrapper {
+.region-filter-wrapper {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  padding-top: 8px;
+  padding-top: 6px;
 }
 
-.region-label {
+.region-filter-label {
+  font-family: var(--font-display);
   font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--muted);
-  margin-right: 6px;
+  margin-right: 4px;
 }
 
-/* Event Cards Metadata & Badges */
+/* Event Metadata Under Gallery Cards */
 .card-event-badge-strip {
   display: flex;
   flex-wrap: wrap;
@@ -1211,7 +1212,7 @@ button {
 }
 
 .badge-price.is-free {
-  background: var(--accent);
+  background-color: var(--accent);
   color: #FFFFFF;
 }
 
@@ -1221,16 +1222,16 @@ button {
 }
 
 .card-event-info {
-  margin-top: 12px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .card-event-title {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
-  font-weight: 600;
+  font-size: clamp(1.3rem, 2.2vw, 2.1rem);
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--fg);
@@ -1244,7 +1245,7 @@ button {
 
 .card-event-meta strong {
   color: var(--fg);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .card-event-desc {
@@ -1258,7 +1259,7 @@ button {
   overflow: hidden;
 }
 
-/* Community Event Tag */
+/* Custom Community Event Indicator */
 .is-community-event .card-event-title::after {
   content: ' • NOVO';
   color: var(--accent);
@@ -1268,23 +1269,23 @@ button {
   letter-spacing: 0.08em;
 }
 
-/* Categories Section */
+/* Categorias Section */
 .categories-section {
-  padding: clamp(60px, 9vw, 130px) var(--gutter);
+  padding: clamp(80px, 12vh, 140px) var(--gutter);
 }
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
-  margin-top: clamp(30px, 5vw, 60px);
+  margin-top: clamp(30px, 5vh, 60px);
 }
 
 .category-card-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: clamp(24px, 3.5vw, 42px) 24px;
+  padding: clamp(24px, 3.5vh, 40px) 24px;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   transition: all 0.4s var(--ease-expo-out);
@@ -1303,7 +1304,7 @@ button {
   font-size: 12px;
   font-family: var(--font-display);
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
   margin-right: 14px;
 }
 
@@ -1313,8 +1314,8 @@ button {
 
 .cat-name {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.5vw, 2.5rem);
-  font-weight: 600;
+  font-size: clamp(1.4rem, 2.5vw, 2.4rem);
+  font-weight: 700;
   letter-spacing: -0.03em;
 }
 
@@ -1327,7 +1328,7 @@ button {
   transform: translate(6px, -6px);
 }
 
-/* Fullscreen Featured Week Section */
+/* Evento em Destaque (Tela Inteira) */
 .featured-week-section {
   position: relative;
   width: 100vw;
@@ -1359,11 +1360,12 @@ button {
 .featured-week-content {
   position: relative;
   z-index: 3;
-  padding: clamp(40px, 8vw, 100px) var(--gutter);
+  padding: clamp(40px, 8vh, 100px) var(--gutter);
   max-width: 1200px;
 }
 
 .featured-kicker {
+  font-family: var(--font-display);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -1415,16 +1417,16 @@ button {
   background-color: #FF2B59;
 }
 
-/* "Perto de Você" Regions Grid */
+/* Regiões ("Perto de Você") */
 .regions-section {
-  padding: clamp(60px, 9vw, 140px) var(--gutter);
+  padding: clamp(80px, 12vh, 140px) var(--gutter);
 }
 
 .regions-grid-layout {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
   gap: clamp(30px, 5vw, 80px);
-  margin-top: clamp(30px, 5vw, 60px);
+  margin-top: clamp(30px, 5vh, 60px);
 }
 
 .regions-text-col p {
@@ -1446,7 +1448,7 @@ button {
   border-top: 1px solid var(--border);
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 3.2vw, 3.4rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.03em;
   cursor: pointer;
   transition: all 0.3s var(--ease-expo-out);
@@ -1469,9 +1471,9 @@ button {
   color: var(--muted);
 }
 
-/* Submit Event Form Section */
+/* Envie um Evento Form */
 .submit-event-section {
-  padding: clamp(60px, 9vw, 140px) var(--gutter);
+  padding: clamp(80px, 12vh, 140px) var(--gutter);
   background-color: #ECEAE3;
 }
 
@@ -1479,7 +1481,7 @@ button {
   display: grid;
   grid-template-columns: 1fr 1.8fr;
   gap: clamp(30px, 6vw, 90px);
-  margin-top: clamp(30px, 4vw, 60px);
+  margin-top: clamp(30px, 4vh, 60px);
 }
 
 .submit-intro-col h3 {
@@ -1514,10 +1516,11 @@ button {
 }
 
 .form-field label {
+  font-family: var(--font-display);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--muted);
 }
 
@@ -1552,8 +1555,9 @@ button {
   background-color: var(--fg);
   color: var(--bg);
   border-radius: 99px;
+  font-family: var(--font-display);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   cursor: pointer;
@@ -1566,7 +1570,7 @@ button {
   transform: translateY(-3px);
 }
 
-/* Toast Notification */
+/* Toast Feedback Notification */
 .pulso-toast {
   position: fixed;
   bottom: 30px;

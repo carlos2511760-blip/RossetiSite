@@ -2563,3 +2563,95 @@ section[id] {
   color: #fff;
   font: 11px/1.55 var(--font-body);
 }
+
+
+/* Event photos: use image-matched frames instead of oversized parallax crops. */
+.gallery-card.event-card-item:not(.phone-card) {
+  height: auto;
+  overflow: visible;
+}
+
+.gallery-card.event-card-item:not(.phone-card) .reveal-clip {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+}
+
+.gallery-card.event-card-item:not(.phone-card) .parallax-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.comp-collage-grid .gallery-card.event-card-item.collage-item-main .reveal-clip {
+  aspect-ratio: 3 / 2;
+}
+
+.comp-collage-grid .gallery-card.event-card-item.collage-item-sub .reveal-clip {
+  aspect-ratio: 16 / 9;
+}
+
+.gallery-container > .gallery-card.event-card-item.comp-fullwidth .reveal-clip {
+  aspect-ratio: 4 / 3;
+}
+
+.comp-dual-tablets .tablet-card-2 .parallax-img {
+  object-position: center 20%;
+}
+
+/* Verificadas: quadros seguem a proporção original para reduzir cortes. */
+.verified-events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(32px, 4vw, 56px) clamp(20px, 2.8vw, 40px);
+}
+
+.verified-events-grid .gallery-card.event-card-item:last-child {
+  grid-column: 2 / span 2;
+}
+
+.verified-events-grid .gallery-card.event-card-item .reveal-clip.event-image-frame {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius-md);
+}
+
+.verified-events-grid .gallery-card.event-card-item .reveal-clip.event-image-frame.event-frame--7-4 {
+  aspect-ratio: 7 / 4;
+}
+
+.verified-events-grid .gallery-card.event-card-item .reveal-clip.event-image-frame.event-frame--20-9 {
+  aspect-ratio: 20 / 9;
+}
+
+.verified-events-grid .gallery-card.event-card-item .parallax-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 900px) {
+  .verified-events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .verified-events-grid .gallery-card.event-card-item:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .verified-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .verified-events-grid .gallery-card.event-card-item:last-child {
+    grid-column: span 1;
+  }
+}

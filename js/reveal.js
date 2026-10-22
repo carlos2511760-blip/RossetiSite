@@ -117,12 +117,13 @@ export function initReveals(revealTimeline = null, revealMotion = {}) {
     }
 
     if (img) {
+      const isEventCard = card.classList.contains('event-card-item');
       gsap.fromTo(
         img,
-        { scale: 1.22, yPercent: -8 },
+        { scale: isEventCard ? 1.02 : 1.22, yPercent: isEventCard ? -0.25 : -8 },
         {
-          scale: 1.02,
-          yPercent: 8,
+          scale: isEventCard ? 1 : 1.02,
+          yPercent: isEventCard ? 0.25 : 8,
           ease: 'none',
           scrollTrigger: {
             trigger: card,

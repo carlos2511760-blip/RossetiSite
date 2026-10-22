@@ -342,7 +342,7 @@ export function initEvents() {
         <img class="parallax-img" src="${escapeHtml(imageUrl)}" alt="Imagem ilustrativa enviada junto à sugestão de ${escapeHtml(data.name)}" loading="lazy" decoding="async">
       </div>
       <div class="card-event-badge-strip">
-        <span class="badge-tag badge-category">${escapeHtml(data.category)}</span>
+        <span class="badge-tag badge-category">${escapeHtml(categoryLabel(data.category))}</span>
         <span class="badge-tag badge-price ${normalizedPrice === 'gratuito' ? 'is-free' : ''}">${escapeHtml(data.price)}</span>
         <span class="badge-tag badge-region">${escapeHtml(regionLabel(data.region))}</span>
       </div>
@@ -361,6 +361,19 @@ export function initEvents() {
   function regionLabel(region) {
     const labels = { centro: 'Centro', norte: 'Zona Norte', sul: 'Zona Sul', leste: 'Zona Leste', oeste: 'Zona Oeste' };
     return labels[region] || region;
+  }
+
+  function categoryLabel(category) {
+    const labels = {
+      musica: 'Música',
+      cinema: 'Cinema',
+      teatro: 'Teatro',
+      exposicoes: 'Exposições & Arte',
+      'cultura-urbana': 'Cultura Urbana',
+      tecnologia: 'Tecnologia',
+      games: 'Games & e-sports'
+    };
+    return labels[category] || category;
   }
 
   function normalizeImageUrl(value) {

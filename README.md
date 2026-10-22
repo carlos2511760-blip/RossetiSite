@@ -151,7 +151,7 @@ Ponto de entrada (`DOMContentLoaded`). Inicializa os subsistemas na ordem necess
 - **Sugestão Comunitária:** Valida o formulário `#submit-event-form`, armazena no `localStorage` sob a chave `pulso_sp_user_events_v2`, renderiza um card local e avisa que a sugestão não foi publicada no site.
 
 ### Programação e imagens revisadas
-Cinco fichas de 23–29/10/2026 permanecem na agenda ativa com fontes institucionais ou dos organizadores. Fotos ilustrativas, autores, licenças e fontes estão descritos em [assets/pulso/events/SOURCES.md](assets/pulso/events/SOURCES.md); a atribuição aparece também no diálogo de cada ficha. As 16 fichas legadas foram removidas após auditoria: 15 não tiveram correspondência exata em fonte primária e uma foi apenas parcialmente confirmada, com horário divergente e sem edição futura específica. Veja o [relatório da revisão](assets/pulso/events/LEGACY_REVIEW.md).
+Doze fichas com datas futuras a partir de 23/10/2026 permanecem na agenda ativa, todas com fontes institucionais, dos organizadores ou dos canais oficiais de ingresso. Filtros de categoria incluem opções separadas para Tecnologia e Games/e-sports, além de preço e região. Fotos ilustrativas, autores, licenças e fontes estão descritos em [assets/pulso/events/SOURCES.md](assets/pulso/events/SOURCES.md); a atribuição aparece também no diálogo de cada ficha. As 16 fichas legadas foram removidas após auditoria: 15 não tiveram correspondência exata em fonte primária e uma foi apenas parcialmente confirmada, com horário divergente e sem edição futura específica. Veja o [relatório da revisão](assets/pulso/events/LEGACY_REVIEW.md).
 
 ---
 
@@ -172,11 +172,14 @@ Cinco fichas de 23–29/10/2026 permanecem na agenda ativa com fontes institucio
 - Grid assimétrico de 12 colunas com o problema real resolvido e os pilares de democratização cultural.
 - 3 colunas de metadados com divisores hairline animados.
 
-### 4. Agenda cultural (cinco fichas com fonte consultada)
+### 4. Agenda cultural (doze fichas com fontes consultadas)
 - **Barra de Filtros Editoriais:** Botões com design arquitetônico, micro-bordas nítidas, zero emojis e indicador especial para eventos gratuitos.
 - **Dual Tablets Assimétricos:** *Me Ame Como Se Fosse Uma Sexta-Feira no Centro* e *Halloween Moema*.
 - **Collage Grid Irregular:** *3º Festival Nordestino do CTN* e *Réquiem de Verdi*.
 - **Landscape Full-width:** *50ª Mostra Internacional de Cinema*.
+- **Novas fichas verificadas:** Daniel Caesar, *A Última Fita* (MIS), *O Quebra-Nozes*, *O Brasil de Tarsila*, *I Love Hip Hop vs Cara Cara*, EmTech Brasil e VALORANT Game Changers Championship.
+- **Filtros:** Música, Cinema, Teatro, Artes Visuais, Cultura Urbana, Tecnologia e Games/e-sports; categoria, preço e região podem ser combinados.
+- **Imagens:** todas são ilustrativas e trazem texto alternativo, crédito e link da licença; proporções dos novos quadros acompanham os arquivos para reduzir cortes.
 - Os 16 cards legados foram retirados da programação ativa; fontes e decisões estão registradas em [LEGACY_REVIEW.md](assets/pulso/events/LEGACY_REVIEW.md).
 
 ### 5. Categorias
@@ -220,7 +223,7 @@ flowchart TD
 
 - **`prefers-reduced-motion`:** Detectado via media query e em JavaScript; quando ativo, desativa marquees infinitos, remove paralaxe, exibe todos os elementos instantaneamente sem clip-path e usa scroll nativo instantâneo.
 - **Navegação por Teclado:** Foco visível com contorno em `--accent` (`:focus-visible`), suporte total a navegação por tabulação e tecla `Escape` no menu.
-- **Otimização de Imagens:** Os cinco assets novos estão em WebP e declaram `width`, `height`, `loading="lazy"` e `decoding="async"`; as imagens antigas têm configuração própria no HTML.
+- **Otimização de Imagens:** Os doze assets da agenda estão em WebP e declaram `width`, `height`, `loading="lazy"` e `decoding="async"`; os quadros preservam a proporção dos novos arquivos e o parallax dos cards tem movimento reduzido.
 - **Validação:** Sintaxe JavaScript, referências locais de imagens/links e contraste/teclado devem ser conferidos em preview antes de cada publicação. Não há uma pontuação Lighthouse declarada sem medição.
 
 ---

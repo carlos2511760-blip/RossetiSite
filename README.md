@@ -65,6 +65,7 @@ Definidos globalmente em [css/style.css](file:///c:/Users/26012129/Documents/Git
 ```text
 RossetiSite/
 ├── index.html                      # Aplicação web completa do Pulso SP
+├── cidade.html                     # Guia editorial “Viva a Cidade” por região
 ├── README.md                       # Documentação técnica e conceitual
 ├── .nojekyll                       # Desativa processamento Jekyll no GitHub Pages
 ├── .github/
@@ -126,9 +127,9 @@ Ponto de entrada (`DOMContentLoaded`). Inicializa os subsistemas na ordem necess
 - Inclui controle de acessibilidade: trava de foco (*Focus Trap* com tecla Tab) e fechamento pela tecla `Escape`.
 
 ### 6. `js/preloader.js`
-- Contador numérico progressivo de 0 a 100% no carregamento inicial.
-- Revelação da página com cortina deslizante via `clip-path: inset(0 0 100% 0)`.
-- Utiliza `sessionStorage` para não reexibir o preloader em visitas repetidas na mesma sessão.
+- Contador numérico progressivo de 0 a 100% em cada carregamento completo da página.
+- Revelação da página com cortina deslizante via `clip-path: inset(0 0 100% 0)`; o hero inicia seus reveals junto com o movimento da cortina.
+- Não usa `sessionStorage` para suprimir o preloader em recarregamentos posteriores.
 
 ### 7. `js/reveal.js`
 - Registra os gatilhos do **GSAP ScrollTrigger**:
@@ -141,6 +142,7 @@ Ponto de entrada (`DOMContentLoaded`). Inicializa os subsistemas na ordem necess
 ### 8. `js/events.js`
 - Gerencia a lista de cards de eventos e executa a filtragem dinâmica em memória sem recarregar a página.
 - **Filtros combináveis:** Categoria (Música, Cinema, Teatro, Exposições, Cultura Urbana, Tecnologia & Games) + Preço (todos ou apenas 100% gratuitos) + Região geográfica.
+- Inicializa a região a partir do parâmetro `?regiao=` usado pelos links do guia `cidade.html`.
 - **Submissão Comunitária:** Coleta os campos do formulário `#submit-event-form`, valida, armazena no `localStorage` sob a chave `pulso_sp_user_events_v2`, renderiza o novo card no topo da grade com selo `• NOVO`, emite notificação flutuante (*toast*) e rola a tela até o novo evento.
 
 ---
@@ -184,7 +186,8 @@ Ponto de entrada (`DOMContentLoaded`). Inicializa os subsistemas na ordem necess
 - Formulário minimalista de duas colunas com campos de Nome, Data, Local, Região, Categoria, Preço, Classificação e Descrição.
 
 ### 9. Next Project / Portal
-- Letreiro monumental em tela cheia que inverte a cor no hover (preto para off-white), convidando o usuário a explorar.
+- Letreiro monumental em tela cheia que inverte a cor no hover (preto para off-white) e abre `cidade.html` com transição de cortina.
+- O guia “Viva a Cidade” apresenta Centro e as quatro zonas; cada território abre `index.html?regiao=<slug>#eventos` com a agenda filtrada para a região selecionada.
 
 ### 10. Rodapé Minimalista
 - Tipografia escultural `Pulso SP`, slogan oficial, direitos autorais e botão *"Voltar ao topo ↑"*.
@@ -233,6 +236,7 @@ Como o projeto é construído em Vanilla HTML5, CSS3 e ES Modules puros, não re
 
 3. Abra o navegador em:
    - **Plataforma Pulso SP:** [http://localhost:8085/](http://localhost:8085/)
+   - **Guia Viva a Cidade:** [http://localhost:8085/cidade.html](http://localhost:8085/cidade.html)
 
 ---
 

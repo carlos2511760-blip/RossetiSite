@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Initialize interactive events engine (filters, localStorage, form)
   initEvents();
 
-  // 6. Initialize preloader curtain and run reveals upon completion
+  // 6. Initialize the preloader and start reveals with the curtain exit
   initPreloader(() => {
     initReveals();
   });

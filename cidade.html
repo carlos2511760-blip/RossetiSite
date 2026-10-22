@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Viva a Cidade — Pulso SP</title>
+  <meta name="description" content="Explore São Paulo por territórios e descubra eventos culturais gratuitos ou de baixo custo perto de você.">
+  <meta name="theme-color" content="#F4F3EF">
+  <link rel="icon" type="image/svg+xml" href="assets/pulso/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body class="city-page">
+  <div class="custom-cursor" aria-hidden="true"><span class="custom-cursor-label"></span></div>
+
+  <aside class="preloader-curtain" aria-label="Carregando experiência">
+    <div class="preloader-header">
+      <span>Pulso SP &bull; Guia da Cidade</span>
+      <span>São Paulo &bull; 2026</span>
+    </div>
+    <div class="preloader-counter-box">
+      <span class="preloader-count">00</span>
+      <span class="preloader-symbol">%</span>
+    </div>
+  </aside>
+
+  <header class="site-header">
+    <a href="index.html#hero" class="header-back-link" aria-label="Voltar ao início do Pulso SP">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      <span>PULSO SP</span>
+    </a>
+    <button class="menu-toggle-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="fullscreen-menu">
+      <span class="menu-toggle-line"></span>
+      <span class="menu-toggle-line"></span>
+    </button>
+  </header>
+
+  <nav class="menu-fullscreen" id="fullscreen-menu" aria-hidden="true">
+    <ul class="menu-nav-list">
+      <li class="menu-nav-item"><a href="index.html#hero" class="menu-roll-link" data-close-menu><span class="menu-roll-inner"><span class="menu-roll-text primary">1. Início</span><span class="menu-roll-text clone" aria-hidden="true">1. Início</span></span></a></li>
+      <li class="menu-nav-item"><a href="index.html#eventos" class="menu-roll-link" data-close-menu><span class="menu-roll-inner"><span class="menu-roll-text primary">2. Próximos Eventos</span><span class="menu-roll-text clone" aria-hidden="true">2. Próximos Eventos</span></span></a></li>
+      <li class="menu-nav-item"><a href="index.html#categorias" class="menu-roll-link" data-close-menu><span class="menu-roll-inner"><span class="menu-roll-text primary">3. Categorias</span><span class="menu-roll-text clone" aria-hidden="true">3. Categorias</span></span></a></li>
+      <li class="menu-nav-item"><a href="index.html#regioes" class="menu-roll-link" data-close-menu><span class="menu-roll-inner"><span class="menu-roll-text primary">4. Perto de Você</span><span class="menu-roll-text clone" aria-hidden="true">4. Perto de Você</span></span></a></li>
+      <li class="menu-nav-item"><a href="index.html#enviar" class="menu-roll-link" data-close-menu><span class="menu-roll-inner"><span class="menu-roll-text primary">5. Envie um Evento</span><span class="menu-roll-text clone" aria-hidden="true">5. Envie um Evento</span></span></a></li>
+    </ul>
+    <div class="menu-footer-content">
+      <div class="menu-meta-note" style="font-size: 13px; color: var(--muted-light); letter-spacing: 0.04em;">
+        <span>Pulso SP &bull; A cidade acontece. Você só precisa encontrá-la.</span>
+      </div>
+      <div class="menu-lang-selector" aria-label="Cidade ativa"><span class="menu-lang-btn is-active">SÃO PAULO</span></div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="city-hero" id="hero" aria-labelledby="city-title">
+      <div class="city-hero-copy">
+        <div class="city-eyebrow"><span>01 &bull; GUIA CULTURAL ABERTO</span><span>SÃO PAULO, SP</span></div>
+        <h1 class="city-hero-title" id="city-title">
+          <span class="line-mask-container"><span class="line-mask-inner">VIVA</span></span>
+          <span class="line-mask-container"><span class="line-mask-inner city-title-accent">A CIDADE</span></span>
+        </h1>
+        <div class="city-hero-bottom">
+          <p>A cidade acontece em muitos lugares ao mesmo tempo. Escolha um caminho e encontre cultura para viver de perto.</p>
+          <a class="city-text-link" href="#territorios" data-cursor="Explorar">Explorar territórios <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+      <figure class="city-hero-image-wrap" data-cursor="Explorar">
+        <img class="city-hero-image" src="assets/pulso/festival-sp.webp" alt="Público reunido em um festival cultural ao ar livre" width="1672" height="941" fetchpriority="high">
+        <figcaption><span>O espaço público também é palco.</span><span>01 / 05</span></figcaption>
+      </figure>
+    </section>
+
+    <div class="city-marquee-wrap" aria-label="Cultura em todos os cantos de São Paulo">
+      <div class="marquee-block" data-base-speed="1.3" data-reverse="false">
+        <div class="marquee-track">
+          <span class="city-marquee-item">A CIDADE É DE QUEM VIVE &bull;</span>
+          <span class="city-marquee-item">CULTURA PERTO DE VOCÊ &bull;</span>
+          <span class="city-marquee-item">A CIDADE É DE QUEM VIVE &bull;</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="city-manifesto" aria-labelledby="city-manifesto-title">
+      <div class="city-section-kicker"><span>02 &bull; UM MAPA ABERTO</span><span>DO CENTRO ÀS BORDAS</span></div>
+      <div class="city-manifesto-grid">
+        <h2 class="city-manifesto-title line-mask-container" id="city-manifesto-title"><span class="line-mask-inner">Não existe<br>um só jeito<br>de viver <em>SP.</em></span></h2>
+        <div class="city-manifesto-copy">
+          <span class="city-red-mark" aria-hidden="true"></span>
+          <p>Tem show que começa na praça, exposição que ocupa um galpão e encontro que transforma a rua. O Pulso SP aproxima você das cenas culturais espalhadas pela capital — sem complicar o caminho.</p>
+          <a href="index.html#eventos" class="city-inline-link">Ver a agenda completa <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="city-territories" id="territorios" aria-labelledby="territories-title">
+      <div class="city-section-kicker"><span>03 &bull; ESCOLHA UM CAMINHO</span><span>5 TERRITÓRIOS</span></div>
+      <div class="city-territories-heading">
+        <h2 id="territories-title" class="line-mask-container"><span class="line-mask-inner">São Paulo,<br>por perto.</span></h2>
+        <p>Selecione uma região para abrir a agenda já filtrada. A programação é feita para descobrir, compartilhar e ocupar a cidade.</p>
+      </div>
+      <div class="city-region-list">
+        <a class="city-region-row" href="index.html?regiao=centro#eventos" data-cursor="Explorar">
+          <span class="city-region-number">01</span><span class="city-region-name">Centro</span>
+          <span class="city-region-meta">Sé &bull; República &bull; Bela Vista</span><span class="city-region-arrow" aria-hidden="true">&nearr;</span>
+        </a>
+        <a class="city-region-row" href="index.html?regiao=norte#eventos" data-cursor="Explorar">
+          <span class="city-region-number">02</span><span class="city-region-name">Zona Norte</span>
+          <span class="city-region-meta">Santana &bull; Casa Verde &bull; Jaçanã</span><span class="city-region-arrow" aria-hidden="true">&nearr;</span>
+        </a>
+        <a class="city-region-row" href="index.html?regiao=sul#eventos" data-cursor="Explorar">
+          <span class="city-region-number">03</span><span class="city-region-name">Zona Sul</span>
+          <span class="city-region-meta">Santo Amaro &bull; Capela &bull; Grajaú</span><span class="city-region-arrow" aria-hidden="true">&nearr;</span>
+        </a>
+        <a class="city-region-row" href="index.html?regiao=leste#eventos" data-cursor="Explorar">
+          <span class="city-region-number">04</span><span class="city-region-name">Zona Leste</span>
+          <span class="city-region-meta">Mooca &bull; Itaquera &bull; São Mateus</span><span class="city-region-arrow" aria-hidden="true">&nearr;</span>
+        </a>
+        <a class="city-region-row" href="index.html?regiao=oeste#eventos" data-cursor="Explorar">
+          <span class="city-region-number">05</span><span class="city-region-name">Zona Oeste</span>
+          <span class="city-region-meta">Pinheiros &bull; Lapa &bull; Butantã</span><span class="city-region-arrow" aria-hidden="true">&nearr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="city-invite" aria-labelledby="city-invite-title">
+      <div class="city-invite-top"><span>04 &bull; FAÇA PARTE</span><span>PULSO SP — CULTURA ABERTA</span></div>
+      <h2 id="city-invite-title">A cidade<br>também é <span>sua.</span></h2>
+      <div class="city-invite-bottom">
+        <p>Conhece um evento que deveria estar no mapa? Ajude mais gente a descobrir.</p>
+        <a href="index.html#enviar" class="city-invite-cta" data-cursor="Divulgar">Divulgar um evento <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="city-footer">
+    <a class="city-footer-brand" href="index.html#hero"><span class="pulse-dot" aria-hidden="true"></span>PULSO SP</a>
+    <span>A cidade acontece. Você só precisa encontrá-la.</span>
+    <a href="index.html#hero" class="city-footer-back">Voltar ao início <span aria-hidden="true">&uarr;</span></a>
+  </footer>
+
+  <div class="page-transition-curtain city-entry-curtain" aria-hidden="true"></div>
+</body>
+</html>

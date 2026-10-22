@@ -136,6 +136,17 @@ export function initEvents() {
     });
   }
 
+  // 6. Initialize a requested region from the city guide URL.
+  const requestedRegion = new URLSearchParams(window.location.search).get('regiao');
+  const validRegions = new Set(['centro', 'norte', 'sul', 'leste', 'oeste']);
+  if (validRegions.has(requestedRegion)) {
+    activeRegion = requestedRegion;
+    regionPills.forEach((pill) => {
+      pill.classList.toggle('is-active', pill.getAttribute('data-region') === activeRegion);
+    });
+    applyFilters();
+  }
+
   // Helper: Test if at least one card matches a given combo
   function checkCombination(category, price, region) {
     const cards = document.querySelectorAll('.event-card-item');

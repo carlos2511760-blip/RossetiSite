@@ -135,26 +135,27 @@ export function initReveals() {
     }
   });
 
-  // 6. Next Project Hover and Page Transition
+  // 6. Viva a Cidade portal and page transition
   const nextSection = document.querySelector('.next-project-section');
   const transitionCurtain = document.querySelector('.page-transition-curtain');
 
   if (nextSection) {
-    nextSection.addEventListener('click', (e) => {
-      e.preventDefault();
-      const href = nextSection.getAttribute('data-href') || '#';
+    nextSection.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      const href = nextSection.getAttribute('href') || 'cidade.html';
 
-      if (transitionCurtain) {
-        gsap.to(transitionCurtain, {
-          clipPath: 'inset(0% 0% 0% 0%)',
-          duration: 0.9,
-          ease: 'expo.inOut',
-          onComplete: () => {
-            // Smoothly navigate or refresh to simulated next project
-            window.location.href = href;
-          },
-        });
+      if (!transitionCurtain || !window.gsap) {
+        window.location.href = href;
+        return;
       }
+
+      gsap.to(transitionCurtain, {
+        clipPath: 'inset(0% 0% 0% 0%)',
+        duration: 0.9,
+        ease: 'expo.inOut',
+        onComplete: () => window.location.assign(href),
+      });
     });
   }
 
@@ -174,10 +175,10 @@ export function exportHeroEntrance() {
       {
         yPercent: 0,
         rotate: 0,
-        duration: 1.4,
-        stagger: 0.05,
+        duration: 0.8,
+        stagger: 0.04,
         ease: 'expo.out',
-        delay: 0.1,
+        delay: 0,
       }
     );
   }
@@ -187,7 +188,7 @@ export function exportHeroEntrance() {
     gsap.fromTo(
       heroSub,
       { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out', delay: 0.4 }
+      { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 0.1 }
     );
   }
 }

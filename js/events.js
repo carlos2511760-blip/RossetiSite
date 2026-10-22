@@ -1,19 +1,21 @@
 /**
  * Pulso SP — Events Engine & Interactive Filters Module
  * Handles category filtering, price filtering (Gratuito), region filtering,
+ * smart auto-reset on dead combinations, parent container visibility,
  * and user event submission with localStorage persistence.
  */
 
 const STORAGE_KEY = 'pulso_sp_user_events_v2';
 
 export function initEvents() {
-  const eventsGrid = document.getElementById('events-gallery-grid');
   const filterPills = document.querySelectorAll('.filter-pill');
   const regionPills = document.querySelectorAll('.region-pill');
   const categoryCards = document.querySelectorAll('.category-card-btn');
   const resultCounter = document.getElementById('filter-result-count');
   const eventForm = document.getElementById('submit-event-form');
   const toastEl = document.getElementById('pulso-toast');
+  const emptyStateEl = document.getElementById('events-empty-state');
+  const resetBtn = document.getElementById('btn-reset-empty-filters');
 
   let activeCategory = 'all';
   let activePrice = 'all';
@@ -22,7 +24,7 @@ export function initEvents() {
   // 1. Load custom events from localStorage
   loadStoredEvents();
 
-  // 2. Bind filter pills
+  // 2. Bind filter pills (Categorias & Preço)
   filterPills.forEach((pill) => {
     pill.addEventListener('click', () => {
       filterPills.forEach((p) => p.classList.remove('is-active'));
@@ -37,22 +39,48 @@ export function initEvents() {
         activeCategory = filterType || 'all';
       }
 
+      // Smart check: if current region has 0 events for this selection, reset region to 'all'
+      if (activeRegion !== 'all') {
+        const hasMatchingRegion = checkCombination(activeCategory, activePrice, activeRegion);
+        if (!hasMatchingRegion) {
+          activeRegion = 'all';
+          regionPills.forEach((r) => {
+            if (r.getAttribute('data-region') === 'all') r.classList.add('is-active');
+            else r.classList.remove('is-active');
+          });
+        }
+      }
+
       applyFilters();
     });
   });
 
-  // 3. Bind region selector buttons
+  // 3. Bind region selector buttons (Centro, Norte, Sul, Leste, Oeste)
   regionPills.forEach((btn) => {
     btn.addEventListener('click', () => {
       regionPills.forEach((b) => b.classList.remove('is-active'));
       btn.classList.add('is-active');
 
       activeRegion = btn.getAttribute('data-region') || 'all';
+
+      // Smart check: if current category has 0 events in this new region, reset category to 'all'
+      if (activeCategory !== 'all' || activePrice !== 'all') {
+        const hasMatchingCat = checkCombination(activeCategory, activePrice, activeRegion);
+        if (!hasMatchingCat) {
+          activeCategory = 'all';
+          activePrice = 'all';
+          filterPills.forEach((p) => {
+            if (p.getAttribute('data-filter') === 'all') p.classList.add('is-active');
+            else p.classList.remove('is-active');
+          });
+        }
+      }
+
       applyFilters();
     });
   });
 
-  // 4. Bind Category section cards
+  // 4. Bind Category section cards (Secao 02 Categorias)
   categoryCards.forEach((catCard) => {
     catCard.addEventListener('click', (e) => {
       e.preventDefault();
@@ -69,6 +97,14 @@ export function initEvents() {
 
       activeCategory = cat;
       activePrice = 'all';
+      activeRegion = 'all';
+
+      // Reset region buttons to 'all'
+      regionPills.forEach((r) => {
+        if (r.getAttribute('data-region') === 'all') r.classList.add('is-active');
+        else r.classList.remove('is-active');
+      });
+
       applyFilters();
 
       // Smooth scroll to events section
@@ -79,7 +115,45 @@ export function initEvents() {
     });
   });
 
-  // 5. Filter algorithm
+  // 5. Reset button in empty state
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      activeCategory = 'all';
+      activePrice = 'all';
+      activeRegion = 'all';
+
+      filterPills.forEach((p) => {
+        if (p.getAttribute('data-filter') === 'all') p.classList.add('is-active');
+        else p.classList.remove('is-active');
+      });
+
+      regionPills.forEach((r) => {
+        if (r.getAttribute('data-region') === 'all') r.classList.add('is-active');
+        else r.classList.remove('is-active');
+      });
+
+      applyFilters();
+    });
+  }
+
+  // Helper: Test if at least one card matches a given combo
+  function checkCombination(category, price, region) {
+    const cards = document.querySelectorAll('.event-card-item');
+    for (const card of cards) {
+      const cardCat = card.getAttribute('data-category') || '';
+      const cardPrice = card.getAttribute('data-price') || '';
+      const cardRegion = card.getAttribute('data-region') || '';
+
+      const matchCat = category === 'all' || cardCat.toLowerCase() === category.toLowerCase();
+      const matchPrc = price === 'all' || (price === 'gratis' && (cardPrice.toLowerCase() === 'gratuito' || cardPrice.toLowerCase() === 'gratis'));
+      const matchReg = region === 'all' || cardRegion.toLowerCase() === region.toLowerCase();
+
+      if (matchCat && matchPrc && matchReg) return true;
+    }
+    return false;
+  }
+
+  // 6. Filter algorithm & DOM Container Synchronization
   function applyFilters() {
     const cards = document.querySelectorAll('.event-card-item');
     let visibleCount = 0;
@@ -111,17 +185,50 @@ export function initEvents() {
       }
     });
 
-    if (resultCounter) {
-      resultCounter.textContent = `${visibleCount} evento${visibleCount === 1 ? '' : 's'} encontrado${visibleCount === 1 ? '' : 's'}`;
+    // Synchronize parent gallery containers: hide containers if all cards inside them are hidden
+    const containers = document.querySelectorAll('.gallery-container, .comp-fullwidth');
+    containers.forEach((container) => {
+      const cardsInside = container.querySelectorAll('.event-card-item');
+      if (cardsInside.length > 0) {
+        const hasVisible = Array.from(cardsInside).some((c) => c.style.display !== 'none');
+        container.style.display = hasVisible ? '' : 'none';
+      }
+    });
+
+    // Synchronize mid-gallery marquee
+    const midMarquee = document.querySelector('.mid-gallery-marquee-wrap');
+    if (midMarquee) {
+      midMarquee.style.display = visibleCount > 2 ? '' : 'none';
     }
 
-    // Refresh ScrollTrigger to adjust image parallax offsets
+    // Toggle Empty State UI
+    if (emptyStateEl) {
+      emptyStateEl.style.display = visibleCount === 0 ? 'flex' : 'none';
+    }
+
+    // Update Result Counter with precise feedback
+    if (resultCounter) {
+      let regionText = '';
+      if (activeRegion !== 'all') {
+        const regionNames = {
+          centro: 'no Centro',
+          norte: 'na Zona Norte',
+          sul: 'na Zona Sul',
+          leste: 'na Zona Leste',
+          oeste: 'na Zona Oeste'
+        };
+        regionText = ` ${regionNames[activeRegion] || activeRegion}`;
+      }
+      resultCounter.textContent = `${visibleCount} evento${visibleCount === 1 ? '' : 's'} encontrado${visibleCount === 1 ? '' : 's'}${regionText}`;
+    }
+
+    // Refresh GSAP ScrollTrigger to keep image parallax offsets aligned
     if (window.ScrollTrigger) {
       window.ScrollTrigger.refresh();
     }
   }
 
-  // 6. Handle Form Submission
+  // 7. Handle Form Submission
   if (eventForm) {
     eventForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -199,11 +306,11 @@ export function initEvents() {
   }
 
   function renderEventCard(data, prepend = true) {
-    const container = document.getElementById('events-gallery-grid');
+    const container = document.querySelector('.comp-triple-phones') || document.querySelector('.gallery-section');
     if (!container) return;
 
     const article = document.createElement('article');
-    article.className = 'gallery-card card-tablet event-card-item is-community-event';
+    article.className = 'gallery-card phone-card event-card-item is-community-event';
     article.setAttribute('data-category', data.category);
     article.setAttribute('data-price', data.price.toLowerCase().includes('gratu') || data.price.toLowerCase().includes('grátis') ? 'gratuito' : 'pago');
     article.setAttribute('data-region', data.region);

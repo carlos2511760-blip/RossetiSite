@@ -2,9 +2,9 @@
 
 > **"A cidade acontece. Você só precisa encontrá-la."**
 
-O **Pulso SP** é uma plataforma digital desenvolvida para democratizar o acesso de jovens à cultura em São Paulo, reunindo shows, exposições, festivais de rua, mostras de cinema, batalhas de rima, teatro independente e eventos de tecnologia e games com foco em opções **100% gratuitas ou de baixo custo**.
+O **Pulso SP** é uma plataforma digital desenvolvida para democratizar o acesso de jovens à cultura em São Paulo, reunindo shows, exposições, festivais de rua, mostras de cinema, batalhas de rima, teatro independente e eventos de tecnologia e games com foco em opções **gratuitas ou de baixo custo**.
 
-Construído com padrão visual editorial minimalista inspirado em estúdios premiados (nível *Awwwards / FWA*), o projeto une tipografia monumental, física de scroll fluida (*Lenis*), animações cinéticas via *GSAP 3 + ScrollTrigger*, cursor dinâmico com interpolação (*lerp*), sistema de filtros instantâneo sem recarregamento e persistência de eventos cadastrados pela comunidade com `localStorage`.
+Construído com padrão visual editorial minimalista, o projeto une tipografia monumental, física de scroll fluida (*Lenis*), animações via *GSAP 3 + ScrollTrigger*, cursor dinâmico com interpolação (*lerp*) e filtros combináveis de categoria, preço e região. Sugestões da comunidade são guardadas apenas no `localStorage` do navegador; não são enviadas ao servidor nem publicadas automaticamente.
 
 ---
 
@@ -26,8 +26,8 @@ Construído com padrão visual editorial minimalista inspirado em estúdios prem
 ## 🎯 Visão Geral & Proposta de Valor
 
 - **O Problema:** A cidade de São Paulo possui uma das maiores efervescências culturais do mundo, porém as informações sobre eventos independentes e gratuitos ficam amplamente dispersas em redes sociais, cartazes de rua e páginas isoladas.
-- **A Solução:** Uma vitrine digital centralizada, visualmente refinada e com curadoria territorial (Centro, Zona Norte, Zona Sul, Zona Leste e Zona Oeste), onde jovens encontram lazer cultural de forma rápida, filtrando por gratuidade, gênero e proximidade.
-- **Participação Comunitária:** Produtores e coletivos podem cadastrar novos eventos através de um formulário funcional direto no navegador.
+- **A Solução:** Uma vitrine digital centralizada, visualmente refinada e com curadoria territorial (Centro, Zona Norte, Zona Sul, Zona Leste e Zona Oeste), onde jovens encontram lazer cultural filtrando por gratuidade, gênero e proximidade.
+- **Participação Comunitária:** Produtores e coletivos podem salvar uma sugestão local no navegador. O formulário não publica nem envia o evento para a equipe do site.
 
 ---
 
@@ -43,7 +43,7 @@ Construído com padrão visual editorial minimalista inspirado em estúdios prem
 
 ## 🎨 Design System & Tokens
 
-Definidos globalmente em [css/style.css](file:///c:/Users/26012129/Documents/GitHub/RossetiSite/css/style.css):
+Definidos globalmente em [css/style.css](css/style.css):
 
 | Token CSS | Valor | Descrição |
 | :--- | :--- | :--- |
@@ -81,13 +81,17 @@ RossetiSite/
 │   ├── menu.js                     # Menu fullscreen editorial, roll text e focus trap
 │   ├── preloader.js                # Contador 0-100% numérico e revelação em cortina
 │   ├── reveal.js                   # ScrollTrigger reveals, clip-path e paralaxe interno
-│   └── events.js                   # Motor de filtros, busca e persistência com localStorage
+│   └── events.js                   # Filtros, cartões, diálogos e persistência local
 └── assets/
     └── pulso/                      # Recursos visuais locais otimizados
-        ├── festival-sp.webp        # Foto de alta resolução de festival no Villa-Lobos
-        ├── arte-imersiva.webp      # Foto de instalação imersiva no MIS
-        ├── cinema-performance.webp # Foto de mostra na Praça Roosevelt
-        ├── tecnologia-games.webp   # Foto de encontro tech/games no CCSP
+        ├── festival-sp.webp        # Foto de apoio da capa
+        ├── arte-imersiva.webp      # Foto de apoio de exposição
+        ├── cinema-performance.webp # Foto de apoio de cinema
+        ├── tecnologia-games.webp   # Foto de apoio de tecnologia/games
+        ├── events/                 # Imagens e registros dos eventos ativos
+        │   ├── *.webp
+        │   ├── SOURCES.md          # Fontes factuais, créditos e licenças CC
+        │   └── LEGACY_REVIEW.md    # Auditoria das 16 fichas removidas
         └── favicon.svg             # Favicon com o ponto pulsante vermelho
 ```
 
@@ -113,7 +117,7 @@ Ponto de entrada (`DOMContentLoaded`). Inicializa os subsistemas na ordem necess
 ### 3. `js/cursor.js`
 - Desativado automaticamente em telas touch (`(pointer: coarse)`).
 - Interpola a posição do ponteiro com física *lerp* de fator `0.15` em loop `requestAnimationFrame`.
-- Detecta atributos `[data-cursor="Texto"]` nos elementos e expande a cápsula exibindo rótulos dinâmicos (`Ver Evento`, `Explorar`, `Divulgar`, `Destaque`).
+- Detecta atributos `[data-cursor="Texto"]` por delegação, incluindo elementos criados dinamicamente, e expande a cápsula com rótulos contextuais (`Ver Evento`, `Explorar`, `Divulgar`).
 
 ### 4. `js/marquee.js`
 - Suporta múltiplos letreiros infinitos na página.
@@ -141,9 +145,13 @@ Ponto de entrada (`DOMContentLoaded`). Inicializa os subsistemas na ordem necess
 
 ### 8. `js/events.js`
 - Gerencia a lista de cards de eventos e executa a filtragem dinâmica em memória sem recarregar a página.
-- **Filtros combináveis:** Categoria (Música, Cinema, Teatro, Exposições, Cultura Urbana, Tecnologia & Games) + Preço (todos ou apenas 100% gratuitos) + Região geográfica.
+- **Filtros independentes e combináveis:** Categoria + preço (todas as faixas, gratuito ou pago/misto) + região geográfica. Uma combinação sem resultados continua selecionada e mostra um estado vazio com controle para limpar tudo.
 - Inicializa a região a partir do parâmetro `?regiao=` usado pelos links do guia `cidade.html`.
-- **Submissão Comunitária:** Coleta os campos do formulário `#submit-event-form`, valida, armazena no `localStorage` sob a chave `pulso_sp_user_events_v2`, renderiza o novo card no topo da grade com selo `• NOVO`, emite notificação flutuante (*toast*) e rola a tela até o novo evento.
+- **Cards acessíveis:** Cada ficha abre um diálogo com os detalhes, link de mapa e fonte. Pode ser ativada com clique, Enter ou Espaço; Escape e o botão de fechar encerram o diálogo.
+- **Sugestão Comunitária:** Valida o formulário `#submit-event-form`, armazena no `localStorage` sob a chave `pulso_sp_user_events_v2`, renderiza um card local e avisa que a sugestão não foi publicada no site.
+
+### Programação e imagens revisadas
+Cinco fichas de 23–29/10/2026 permanecem na agenda ativa com fontes institucionais ou dos organizadores. Fotos ilustrativas, autores, licenças e fontes estão descritos em [assets/pulso/events/SOURCES.md](assets/pulso/events/SOURCES.md); a atribuição aparece também no diálogo de cada ficha. As 16 fichas legadas foram removidas após auditoria: 15 não tiveram correspondência exata em fonte primária e uma foi apenas parcialmente confirmada, com horário divergente e sem edição futura específica. Veja o [relatório da revisão](assets/pulso/events/LEGACY_REVIEW.md).
 
 ---
 
@@ -164,20 +172,18 @@ Ponto de entrada (`DOMContentLoaded`). Inicializa os subsistemas na ordem necess
 - Grid assimétrico de 12 colunas com o problema real resolvido e os pilares de democratização cultural.
 - 3 colunas de metadados com divisores hairline animados.
 
-### 4. Galeria de Próximos Eventos (As 5 Composições Monumentais)
+### 4. Agenda cultural (cinco fichas com fonte consultada)
 - **Barra de Filtros Editoriais:** Botões com design arquitetônico, micro-bordas nítidas, zero emojis e indicador especial para eventos gratuitos.
-- **Composição 1 (Full-width Landscape):** 100vw × 85vh (*Festival Cidade Viva*).
-- **Composição 2 (Dual Tablets Assimétricos):** Dois tablets verticais com queda assimétrica de 140px no segundo card (*Mostra Cinema na Rua* e *Futuros Ancestrais*).
-- **Letreiro Gigante Intermediário:** Faixa preta imersiva de 100vw (*"CULTURA URBANA • OCUPA SÃO PAULO • "*).
-- **Composição 3 (Collage Grid Irregular):** Card de destaque span 7 e card lateral span 5 (*Batalha do Vale* e *SP Tech Fest*).
-- **Composição 4 (Triple Phones em Cascata):** Três celulares de 720px com degraus verticais de 0, 90px e 180px (*Teatro no Bixiga*, *Feira de Zines* e *Jazz na Escadaria*).
-- **Composição 5 (Landscape Contido):** Panorama cinematográfico de 800px (*Sinfônica no Ibirapuera*).
+- **Dual Tablets Assimétricos:** *Me Ame Como Se Fosse Uma Sexta-Feira no Centro* e *Halloween Moema*.
+- **Collage Grid Irregular:** *3º Festival Nordestino do CTN* e *Réquiem de Verdi*.
+- **Landscape Full-width:** *50ª Mostra Internacional de Cinema*.
+- Os 16 cards legados foram retirados da programação ativa; fontes e decisões estão registradas em [LEGACY_REVIEW.md](assets/pulso/events/LEGACY_REVIEW.md).
 
 ### 5. Categorias
 - Grid editorial com os 7 gêneros culturais; ao clicar, ativa o filtro e rola suavemente para os eventos correspondentes.
 
-### 6. Evento da Semana (Destaque em Tela Inteira)
-- Bloco monumental com foto do Vale do Anhangabaú, tipografia gigante e botão de ação direta.
+### 6. Destaque editorial (Tela Inteira)
+- Chamada visual para explorar a agenda. Não anuncia um evento específico nem afirma data, local ou preço; o botão leva à programação com fontes consultadas.
 
 ### 7. "Perto de Você" (Regiões da Capital)
 - Seletor estilizado das 5 zonas (Centro, Norte, Sul, Leste e Oeste) que filtra instantaneamente os eventos da localidade escolhida.
@@ -214,8 +220,8 @@ flowchart TD
 
 - **`prefers-reduced-motion`:** Detectado via media query e em JavaScript; quando ativo, desativa marquees infinitos, remove paralaxe, exibe todos os elementos instantaneamente sem clip-path e usa scroll nativo instantâneo.
 - **Navegação por Teclado:** Foco visível com contorno em `--accent` (`:focus-visible`), suporte total a navegação por tabulação e tecla `Escape` no menu.
-- **Otimização de Imagens:** Recursos visuais formatados em WebP, com atributos `width`, `height`, `loading="lazy"` e `decoding="async"`, prevenindo Layout Shift (CLS zero).
-- **Padrão Lighthouse:** Otimizado para pontuação 90+ em Performance, Acessibilidade e Melhores Práticas.
+- **Otimização de Imagens:** Os cinco assets novos estão em WebP e declaram `width`, `height`, `loading="lazy"` e `decoding="async"`; as imagens antigas têm configuração própria no HTML.
+- **Validação:** Sintaxe JavaScript, referências locais de imagens/links e contraste/teclado devem ser conferidos em preview antes de cada publicação. Não há uma pontuação Lighthouse declarada sem medição.
 
 ---
 

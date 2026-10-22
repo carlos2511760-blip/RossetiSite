@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initEvents();
 
   // 6. Initialize the preloader and start reveals with the curtain exit
-  initPreloader(() => {
-    initReveals();
+  initPreloader((revealTimeline, revealMotion) => {
+    initReveals(revealTimeline, revealMotion);
   });
 });

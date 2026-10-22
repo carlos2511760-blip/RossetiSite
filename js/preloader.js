@@ -1,7 +1,7 @@
 /**
  * Preloader Module
  * Counter from 0 to 100 with a curtain reveal on every full page load.
- * The page reveals start as the curtain begins to move so the hero title stays in sync.
+ * The curtain and hero entrance share one GSAP timeline and progress curve.
  */
 export function initPreloader(onRevealStart) {
   const preloaderEl = document.querySelector('.preloader-curtain');
@@ -15,7 +15,7 @@ export function initPreloader(onRevealStart) {
 
   if (prefersReducedMotion) {
     if (countEl) countEl.textContent = '100';
-    if (onRevealStart) onRevealStart();
+    if (onRevealStart) onRevealStart(null, { duration: 0, ease: 'none' });
     window.setTimeout(() => {
       preloaderEl.style.display = 'none';
     }, 250);
@@ -35,20 +35,27 @@ export function initPreloader(onRevealStart) {
       window.clearInterval(timer);
       if (countEl) countEl.textContent = '100';
 
-      // Keep a short beat on 100%, then start hero motion with the curtain exit.
+      // Keep a short beat on 100%, then start both motions at timeline position zero.
       window.setTimeout(() => {
-        if (onRevealStart) onRevealStart();
+        const curtainMotion = {
+          clipPath: 'inset(0 0 100% 0)',
+          duration: 0.85,
+          ease: 'expo.inOut',
+        };
 
         if (window.gsap) {
-          window.gsap.to(preloaderEl, {
-            clipPath: 'inset(0 0 100% 0)',
-            duration: 0.85,
-            ease: 'expo.inOut',
+          const revealTimeline = window.gsap.timeline({
+            paused: true,
             onComplete: () => {
               preloaderEl.style.display = 'none';
             },
           });
+
+          if (onRevealStart) onRevealStart(revealTimeline, curtainMotion);
+          revealTimeline.to(preloaderEl, curtainMotion, 0);
+          revealTimeline.play(0);
         } else {
+          if (onRevealStart) onRevealStart(null, curtainMotion);
           preloaderEl.style.opacity = '0';
           window.setTimeout(() => {
             preloaderEl.style.display = 'none';

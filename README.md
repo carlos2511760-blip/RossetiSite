@@ -128,7 +128,7 @@ Ponto de entrada (`DOMContentLoaded`). Inicializa os subsistemas na ordem necess
 
 ### 6. `js/preloader.js`
 - Contador numérico progressivo de 0 a 100% em cada carregamento completo da página.
-- Revelação da página com cortina deslizante via `clip-path: inset(0 0 100% 0)`; o hero inicia seus reveals junto com o movimento da cortina.
+- Revelação da página com cortina deslizante via `clip-path: inset(0 0 100% 0)`; cortina, título `PULSO SP` e subtítulo compartilham a mesma timeline GSAP, easing e duração.
 - Não usa `sessionStorage` para suprimir o preloader em recarregamentos posteriores.
 
 ### 7. `js/reveal.js`

@@ -2,7 +2,7 @@
  * ScrollTrigger Reveals and Parallax Module
  * Handles hero mask reveal, gallery clip-path entries, internal parallax, and hairline animations.
  */
-export function initReveals() {
+export function initReveals(revealTimeline = null, revealMotion = {}) {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (typeof window.gsap === 'undefined' || typeof window.ScrollTrigger === 'undefined') {
@@ -29,7 +29,7 @@ export function initReveals() {
   }
 
   // 1. Hero Title Mask Reveal
-  exportHeroEntrance();
+  exportHeroEntrance(revealTimeline, revealMotion);
 
   // 2. Hero Cover Image Parallax & Scale
   const heroCover = document.querySelector('.hero-cover-wrapper');
@@ -163,32 +163,39 @@ export function initReveals() {
   ScrollTrigger.refresh();
 }
 
-export function exportHeroEntrance() {
+export function exportHeroEntrance(revealTimeline = null, revealMotion = {}) {
   if (typeof window.gsap === 'undefined') return;
   const { gsap } = window;
+  const timeline = revealTimeline || gsap.timeline({ paused: true });
+  const duration = revealMotion.duration ?? 0.85;
+  const ease = revealMotion.ease ?? 'expo.inOut';
 
   const heroWords = document.querySelectorAll('.hero-title-word');
   if (heroWords.length > 0) {
-    gsap.fromTo(
+    timeline.fromTo(
       heroWords,
       { yPercent: 125, rotate: 2 },
       {
         yPercent: 0,
         rotate: 0,
-        duration: 0.8,
-        stagger: 0.04,
-        ease: 'expo.out',
-        delay: 0,
-      }
+        duration,
+        stagger: 0,
+        ease,
+      },
+      0
     );
   }
 
   const heroSub = document.querySelector('.hero-meta-strip');
   if (heroSub) {
-    gsap.fromTo(
+    timeline.fromTo(
       heroSub,
       { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 0.1 }
+      { opacity: 1, y: 0, duration, ease },
+      0
     );
   }
+
+  if (!revealTimeline) timeline.play(0);
+  return timeline;
 }

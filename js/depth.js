@@ -16,8 +16,8 @@ export function initDepth() {
       const rect = surface.getBoundingClientRect();
       const x = (point.x - rect.left) / rect.width - 0.5;
       const y = (point.y - rect.top) / rect.height - 0.5;
-      surface.style.setProperty('--depth-x', `${(y * -7).toFixed(2)}deg`);
-      surface.style.setProperty('--depth-y', `${(x * 7).toFixed(2)}deg`);
+      surface.style.setProperty('--depth-x', `${(y * -20).toFixed(2)}deg`);
+      surface.style.setProperty('--depth-y', `${(x * 20).toFixed(2)}deg`);
       surface.style.setProperty('--light-x', `${((x + 0.5) * 100).toFixed(1)}%`);
       surface.style.setProperty('--light-y', `${((y + 0.5) * 100).toFixed(1)}%`);
     };

@@ -11,6 +11,8 @@ import { initPreloader } from './preloader.js';
 import { initReveals } from './reveal.js';
 import { initEvents } from './events.js';
 import { initDepth } from './depth.js';
+import { initEditorialInteractions } from './editorial-interactions.js';
+import { initHeroScene } from './scene3d.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize custom kinetic cursor
@@ -19,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Native scroll and lightweight depth effects
   initSmoothScroll();
   initDepth();
+  initEditorialInteractions();
+  initHeroScene();
 
   // 3. Initialize fullscreen menu
   initMenu();

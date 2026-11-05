@@ -77,18 +77,20 @@ main { overflow: clip; }
 .filter-control-strip .filter-pill, .filter-control-strip .region-pill { border-radius: 100px; }
 .filter-control-strip .agenda-data-note { max-width: 80ch; }
 .gallery-container, .comp-dual-tablets, .comp-collage-grid, .verified-events-grid { display: contents; }
-.gallery-section .event-card-item { grid-column: auto !important; width: auto !important; height: auto !important; min-width: 0; margin: 0 !important; padding: 0 0 24px; background: #f8faf7; border: 1px solid #d6dee1; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 30px rgba(13,24,33,.045); }
-.gallery-section .event-card-item .reveal-clip, .gallery-section .verified-events-grid .event-card-item .reveal-clip { width: 100%; height: auto; aspect-ratio: 16 / 11 !important; border-radius: 0; background: #c6d1d4; }
-.gallery-section .event-card-item .parallax-img { width: 100%; height: 100%; object-fit: cover; }
-.gallery-section .event-card-item:hover { border-color: #b86f52; box-shadow: 0 24px 55px rgba(13,24,33,.16); }
-.gallery-section .event-card-item:hover .parallax-img { transform: scale(1.06); transition: transform .4s cubic-bezier(.2,.8,.2,1); }
-.gallery-section .card-event-badge-strip { margin: 19px 22px 10px; gap: 5px; }
-.gallery-section .badge-tag { font-size: 10px; padding: 5px 7px; }
+.gallery-section .event-card-item { grid-column: auto !important; width: auto !important; height: auto !important; min-width: 0; margin: 0 !important; padding: 14px 14px 26px !important; background: #ffffff !important; border: 1px solid rgba(13,24,33,.08) !important; border-radius: 24px !important; overflow: hidden; box-shadow: 0 10px 32px rgba(13,24,33,.06), 0 2px 6px rgba(13,24,33,.03); position: relative; transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s cubic-bezier(.16,1,.3,1), border-color .35s ease !important; }
+.gallery-section .event-card-item .reveal-clip, .gallery-section .verified-events-grid .event-card-item .reveal-clip { width: 100%; height: auto; aspect-ratio: 16 / 11 !important; border-radius: 16px !important; background: #c6d1d4; position: relative; overflow: hidden; }
+.gallery-section .event-card-item .reveal-clip::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(13,24,33,.5)); pointer-events: none; opacity: 0; transition: opacity .4s ease; z-index: 1; }
+.gallery-section .event-card-item:hover .reveal-clip::after { opacity: 1; }
+.gallery-section .event-card-item .parallax-img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.16,1,.3,1), filter .4s ease; }
+.gallery-section .event-card-item:hover { transform: translateY(-8px) !important; border-color: rgba(184,111,82,.35) !important; box-shadow: 0 26px 55px rgba(13,24,33,.13), 0 8px 20px rgba(184,111,82,.08) !important; }
+.gallery-section .event-card-item:hover .parallax-img { transform: scale(1.08) translateY(-2%); filter: saturate(1.25) contrast(1.05); }
+.gallery-section .card-event-badge-strip { margin: 16px 8px 8px; gap: 6px; }
+.gallery-section .badge-tag { font-size: 11px; padding: 5px 10px; border-radius: 8px; font-weight: 600; }
 .gallery-section .badge-source { display: none; }
-.gallery-section .card-event-info { margin: 0 22px; gap: 8px; }
-.gallery-section .card-event-title { font-size: clamp(1.35rem, 1.65vw, 1.85rem); line-height: 1.1; }
-.gallery-section .card-event-meta { font-size: 12px; line-height: 1.45; }
-.gallery-section .card-event-desc { font-size: 13px; line-height: 1.5; -webkit-line-clamp: 3; }
+.gallery-section .card-event-info { margin: 0 8px; gap: 8px; padding-bottom: 4px; }
+.gallery-section .card-event-title { font-size: clamp(1.3rem, 1.6vw, 1.75rem); line-height: 1.15; font-weight: 700; letter-spacing: -.03em; margin-top: 4px; }
+.gallery-section .card-event-meta { font-size: 12px; line-height: 1.45; color: #596b7d; }
+.gallery-section .card-event-desc { font-size: 13px; line-height: 1.5; -webkit-line-clamp: 3; color: #4a5568; }
 .gallery-section .comp-dual-tablets .tablet-card-1 { grid-column: span 2 !important; }
 .gallery-section .comp-dual-tablets .tablet-card-1 .reveal-clip { aspect-ratio: 16 / 7 !important; }
 .events-empty-state { grid-column: 1 / -1; }

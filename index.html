@@ -13,7 +13,7 @@
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/experience.css">
-  <link rel="stylesheet" href="css/redesign.css?v=3">
+  <link rel="stylesheet" href="css/redesign.css?v=4">
 
   <!-- ES Modules Entry Script -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -51,6 +51,19 @@
       <span class="pulse-dot" aria-hidden="true"></span>
       <span>PULSO SP</span>
     </a>
+
+    <div class="header-center-meta">
+      <div class="header-live-status" aria-label="Status ao vivo da capital">
+        <span class="live-clock-dot" aria-hidden="true"></span>
+        <span class="live-clock-time" id="sp-live-clock">SP --:--:--</span>
+      </div>
+      <button class="sound-toggle-btn" id="sound-toggle-btn" type="button" aria-label="Ativar som interativo" aria-pressed="false" data-cursor="Som">
+        <span class="sound-wave-icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="sound-label">SOM: OFF</span>
+      </button>
+    </div>
 
     <nav class="header-quick-links" aria-label="Navegação principal">
       <a href="#eventos">Agenda</a><a href="#categorias">Categorias</a><a href="#regioes">Regiões</a>

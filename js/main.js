@@ -13,27 +13,33 @@ import { initEvents } from './events.js';
 import { initDepth } from './depth.js';
 import { initEditorialInteractions } from './editorial-interactions.js';
 import { initHeroScene } from './scene3d.js';
+import { initAudio } from './audio.js';
+import { initClock } from './clock.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize custom kinetic cursor
   initCursor();
 
-  // 2. Native scroll and lightweight depth effects
+  // 2. Tactical Audio & Live Clock
+  initAudio();
+  initClock();
+
+  // 3. Native scroll and lightweight depth effects
   initSmoothScroll();
   initDepth();
   initEditorialInteractions();
   initHeroScene();
 
-  // 3. Initialize fullscreen menu
+  // 4. Initialize fullscreen menu
   initMenu();
 
-  // 4. Initialize velocity-reactive marquees
+  // 5. Initialize velocity-reactive marquees
   initMarquees();
 
-  // 5. Initialize interactive events engine (filters, localStorage, form)
+  // 6. Initialize interactive events engine (filters, localStorage, form)
   initEvents();
 
-  // 6. Initialize the preloader and start reveals with the curtain exit
+  // 7. Initialize the preloader and start reveals with the curtain exit
   initPreloader((revealTimeline, revealMotion) => {
     initReveals(revealTimeline, revealMotion);
   });

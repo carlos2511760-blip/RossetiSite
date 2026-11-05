@@ -1,0 +1,63 @@
+/* ═══ CINEMATIC IMAGE EFFECTS ═══ */
+
+/* Clip-path reveal on scroll */
+.reveal-clip { clip-path: inset(100% 0 0 0); transition: clip-path .9s cubic-bezier(.16,1,.3,1); will-change: clip-path; }
+.img-reveal-active { clip-path: inset(0 0 0 0) !important; }
+
+/* Card stagger entrance */
+.event-card-item { opacity: 0; transform: translateY(60px) scale(.96); }
+.card-reveal-active { opacity: 1 !important; transform: translateY(0) scale(1) !important; transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1) !important; }
+.gallery-container:nth-child(2) .card-reveal-active { transition-delay: .1s !important; }
+.gallery-container:nth-child(3) .card-reveal-active { transition-delay: .2s !important; }
+.gallery-container:nth-child(4) .card-reveal-active { transition-delay: .15s !important; }
+
+/* Parallax images base */
+.parallax-img { transform: translateY(0) scale(1.12); transition: filter .4s ease; will-change: transform; }
+
+/* Card hover glow overlay */
+.gallery-section .event-card-item::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), rgba(184,111,82,.18), transparent 55%); opacity: 0; transition: opacity .35s; border-radius: inherit; z-index: 2; }
+.gallery-section .event-card-item:hover::after { opacity: 1; }
+
+/* Card hover image zoom + saturation */
+.gallery-section .event-card-item:hover .parallax-img { filter: saturate(1.3) contrast(1.08) !important; }
+.gallery-section .event-card-item .reveal-clip { overflow: hidden; }
+
+/* Hero cover cinematic */
+.hero-cover-img { transition: transform .1s linear, filter .3s ease !important; transform-origin: center 40%; }
+
+/* Featured section Ken Burns */
+.ken-burns-active { animation: kenBurns 22s ease-in-out infinite alternate !important; transform-origin: 30% 60%; }
+@keyframes kenBurns { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
+
+/* Film grain overlay */
+.film-grain-overlay { position: fixed; inset: 0; z-index: 99999; pointer-events: none; opacity: .035; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px; animation: grain-drift 1.5s steps(6) infinite; }
+@keyframes grain-drift { 0% { transform: translate(0,0); } 20% { transform: translate(-3%,2%); } 40% { transform: translate(2%,-1%); } 60% { transform: translate(-1%,3%); } 80% { transform: translate(3%,-2%); } 100% { transform: translate(0,0); } }
+
+/* Category card light sweep on hover */
+.category-card-btn::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(184,111,82,.08) var(--cat-light, 50%), transparent); opacity: 0; transition: opacity .3s; }
+.category-card-btn:hover::after { opacity: 1; }
+.category-card-btn { position: relative; overflow: hidden; }
+
+/* Region buttons hover lift */
+.region-row-btn { transition: transform .3s cubic-bezier(.16,1,.3,1), background .25s, box-shadow .3s !important; }
+.region-row-btn:hover { transform: translateX(8px) !important; box-shadow: 0 8px 30px rgba(13,24,33,.12) !important; }
+
+/* Hero orbit enhanced glow */
+.hero-orbit-ring { filter: drop-shadow(0 0 12px rgba(180,205,237,.25)); }
+
+/* Preloader enhanced */
+.preloader-count { transition: transform .1s; }
+
+/* Smooth scroll indicator bounce */
+.hero-scroll-indicator svg { animation: scrollBounce 2s ease-in-out infinite; }
+@keyframes scrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+/* Menu items stagger on open */
+.menu-fullscreen[aria-hidden="false"] .menu-nav-item:nth-child(1) { animation-delay: .05s; }
+.menu-fullscreen[aria-hidden="false"] .menu-nav-item:nth-child(2) { animation-delay: .1s; }
+.menu-fullscreen[aria-hidden="false"] .menu-nav-item:nth-child(3) { animation-delay: .15s; }
+.menu-fullscreen[aria-hidden="false"] .menu-nav-item:nth-child(4) { animation-delay: .2s; }
+.menu-fullscreen[aria-hidden="false"] .menu-nav-item:nth-child(5) { animation-delay: .25s; }
+.menu-fullscreen[aria-hidden="false"] .menu-nav-item:nth-child(6) { animation-delay: .3s; }
+
+@media (prefers-reduced-motion: reduce) { .film-grain-overlay, .ken-burns-active { display: none !important; animation: none !important; } .reveal-clip { clip-path: none !important; } .event-card-item { opacity: 1 !important; transform: none !important; } }

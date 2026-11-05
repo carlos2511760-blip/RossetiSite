@@ -15,6 +15,7 @@ import { initEditorialInteractions } from './editorial-interactions.js';
 import { initHeroScene } from './scene3d.js';
 import { initAudio } from './audio.js';
 import { initClock } from './clock.js';
+import { initImageEffects } from './image-effects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize custom kinetic cursor
@@ -43,4 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPreloader((revealTimeline, revealMotion) => {
     initReveals(revealTimeline, revealMotion);
   });
+
+  // 8. Cinematic image effects (parallax, tilt, grain, reveals)
+  initImageEffects();
 });

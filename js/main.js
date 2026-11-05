@@ -10,13 +10,15 @@ import { initMenu } from './menu.js';
 import { initPreloader } from './preloader.js';
 import { initReveals } from './reveal.js';
 import { initEvents } from './events.js';
+import { initDepth } from './depth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize custom kinetic cursor
   initCursor();
 
-  // 2. Initialize smooth scroll (Lenis)
+  // 2. Native scroll and lightweight depth effects
   initSmoothScroll();
+  initDepth();
 
   // 3. Initialize fullscreen menu
   initMenu();

@@ -31,26 +31,7 @@ export function initReveals(revealTimeline = null, revealMotion = {}) {
   // 1. Hero Title Mask Reveal
   exportHeroEntrance(revealTimeline, revealMotion);
 
-  // 2. Hero Cover Image Parallax & Scale
-  const heroCover = document.querySelector('.hero-cover-wrapper');
-  const heroImg = document.querySelector('.hero-cover-img');
-  if (heroCover && heroImg) {
-    gsap.fromTo(
-      heroImg,
-      { scale: 1.12, yPercent: -6 },
-      {
-        scale: 1,
-        yPercent: 8,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroCover,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      }
-    );
-  }
+  // The hero depth reacts to the pointer; scrolling stays native.
 
   // 3. Hairline Divider Animations (scaleX 0 -> 1)
   const hairlines = document.querySelectorAll('.hairline-draw');
@@ -97,16 +78,15 @@ export function initReveals(revealTimeline = null, revealMotion = {}) {
   const galleryItems = document.querySelectorAll('.gallery-card');
   galleryItems.forEach((card) => {
     const clipContainer = card.querySelector('.reveal-clip');
-    const img = card.querySelector('.parallax-img');
-
     if (clipContainer) {
       gsap.fromTo(
         clipContainer,
-        { clipPath: 'inset(100% 0% 0% 0%)' },
+        { opacity: 0, y: 28 },
         {
-          clipPath: 'inset(0% 0% 0% 0%)',
-          duration: 1.35,
-          ease: 'power4.out',
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: card,
             start: 'top 88%',
@@ -116,24 +96,6 @@ export function initReveals(revealTimeline = null, revealMotion = {}) {
       );
     }
 
-    if (img) {
-      const isEventCard = card.classList.contains('event-card-item');
-      gsap.fromTo(
-        img,
-        { scale: isEventCard ? 1.02 : 1.22, yPercent: isEventCard ? -0.25 : -8 },
-        {
-          scale: isEventCard ? 1 : 1.02,
-          yPercent: isEventCard ? 0.25 : 8,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.2,
-          },
-        }
-      );
-    }
   });
 
   // 6. Viva a Cidade portal and page transition

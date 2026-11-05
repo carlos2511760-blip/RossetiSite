@@ -37,12 +37,18 @@ export function initMarquees() {
     // Duplicate track children to guarantee gapless wrap
     const originalContent = track.innerHTML;
     track.innerHTML = originalContent + originalContent + originalContent;
+    let singleWidth = track.scrollWidth / 3;
+    window.addEventListener('resize', () => { singleWidth = track.scrollWidth / 3; }, { passive: true });
 
     const baseSpeed = parseFloat(container.getAttribute('data-base-speed')) || 1.2;
     const reverse = container.getAttribute('data-reverse') === 'true';
     let xOffset = 0;
 
     function animate() {
+      if (document.hidden) {
+        requestAnimationFrame(animate);
+        return;
+      }
       // Decay scroll velocity smoothly
       scrollVelocity *= 0.92;
 
@@ -50,8 +56,6 @@ export function initMarquees() {
       const effectiveDirection = (reverse ? -1 : 1) * scrollDirection;
 
       xOffset -= dynamicSpeed * effectiveDirection;
-
-      const singleWidth = track.scrollWidth / 3;
 
       // Wrap-around calculations
       if (xOffset <= -singleWidth) {
